@@ -1,5 +1,5 @@
 #first validate the max supply of FIO
-resultsupply=$(../fio/build/bin/clio -u http://localhost:8889 get table fio.token FIO stat | grep max_supply)
+resultsupply=$(./cleos.sh get table fio.token FIO stat | grep max_supply)
 maxsupplyfound=false
 mslabel=
 for ln1 in $resultsupply ; do
@@ -21,7 +21,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO768m3RPvGbgTpnqxKy8jWPkxCKArwChTDnAiPVMxsQP2UPgW2P
 #account 1pxlqdoahjts
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 1pxlqdoahjts)
+resulttokens=$(./cleos.sh get currency balance fio.token 1pxlqdoahjts)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -33,7 +33,7 @@ if [ $rt != "0-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO768m3RPvGbgTpnqxKy8jWPkxCKArwChTDnAiPVMxsQP2UPgW2P 1pxlqdoahjts the amount in account 1pxlqdoahjts does not match the expected value. amount in account is $rt  expected value is 0-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 1pxlqdoahjts)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 1pxlqdoahjts)
 
 ownerfound=false
 label1=""
@@ -81,7 +81,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO5SdjusKqLZKfFctriizuUVkEZLgabBCST4xdtzZSwN9LynB2K1
 #account cwymv1nrclxs
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token cwymv1nrclxs)
+resulttokens=$(./cleos.sh get currency balance fio.token cwymv1nrclxs)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -93,7 +93,7 @@ if [ $rt != "0-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5SdjusKqLZKfFctriizuUVkEZLgabBCST4xdtzZSwN9LynB2K1 cwymv1nrclxs the amount in account cwymv1nrclxs does not match the expected value. amount in account is $rt  expected value is 0-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 cwymv1nrclxs)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 cwymv1nrclxs)
 
 ownerfound=false
 label1=""
@@ -141,7 +141,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO55JKEvs5yquYuGAC2uyg3mmfzcQpzbsSJ38c2qxwDFdDfGPrdm
 #account sfmpanwi5qe5
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token sfmpanwi5qe5)
+resulttokens=$(./cleos.sh get currency balance fio.token sfmpanwi5qe5)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -153,7 +153,7 @@ if [ $rt != "0-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO55JKEvs5yquYuGAC2uyg3mmfzcQpzbsSJ38c2qxwDFdDfGPrdm sfmpanwi5qe5 the amount in account sfmpanwi5qe5 does not match the expected value. amount in account is $rt  expected value is 0-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 sfmpanwi5qe5)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 sfmpanwi5qe5)
 
 ownerfound=false
 label1=""
@@ -201,7 +201,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO52MidUYeGRdedgm4s6J6Rh4Bz4eKco6Jxkss4XP6SsErJnhnj9
 #account lxrxjuf3su1c
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token lxrxjuf3su1c)
+resulttokens=$(./cleos.sh get currency balance fio.token lxrxjuf3su1c)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -213,7 +213,7 @@ if [ $rt != "0-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO52MidUYeGRdedgm4s6J6Rh4Bz4eKco6Jxkss4XP6SsErJnhnj9 lxrxjuf3su1c the amount in account lxrxjuf3su1c does not match the expected value. amount in account is $rt  expected value is 0-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 lxrxjuf3su1c)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 lxrxjuf3su1c)
 
 ownerfound=false
 label1=""
@@ -261,7 +261,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO51wUy4azrmwymzsnmJxfVhc8nVdFpGMSTNAYwZ29X41wbPLmhr
 #account kenxo31eeidi
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token kenxo31eeidi)
+resulttokens=$(./cleos.sh get currency balance fio.token kenxo31eeidi)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -273,7 +273,7 @@ if [ $rt != "0-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO51wUy4azrmwymzsnmJxfVhc8nVdFpGMSTNAYwZ29X41wbPLmhr kenxo31eeidi the amount in account kenxo31eeidi does not match the expected value. amount in account is $rt  expected value is 0-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 kenxo31eeidi)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 kenxo31eeidi)
 
 ownerfound=false
 label1=""
@@ -321,7 +321,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO7yWV38pTdnGtSKpVNKXpPg9E4dsMHMe86MEk2dWzxvZMFp9XSC
 #account qwonj3f2bfzh
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token qwonj3f2bfzh)
+resulttokens=$(./cleos.sh get currency balance fio.token qwonj3f2bfzh)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -333,7 +333,7 @@ if [ $rt != "0-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7yWV38pTdnGtSKpVNKXpPg9E4dsMHMe86MEk2dWzxvZMFp9XSC qwonj3f2bfzh the amount in account qwonj3f2bfzh does not match the expected value. amount in account is $rt  expected value is 0-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 qwonj3f2bfzh)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 qwonj3f2bfzh)
 
 ownerfound=false
 label1=""
@@ -381,7 +381,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO5H3az3Jv7uyBoad4qctuZ1sYTpkAMxrdvwDYm8Xp74vDHgMhME
 #account nrjuozj2cgzo
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token nrjuozj2cgzo)
+resulttokens=$(./cleos.sh get currency balance fio.token nrjuozj2cgzo)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -393,7 +393,7 @@ if [ $rt != "0-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5H3az3Jv7uyBoad4qctuZ1sYTpkAMxrdvwDYm8Xp74vDHgMhME nrjuozj2cgzo the amount in account nrjuozj2cgzo does not match the expected value. amount in account is $rt  expected value is 0-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 nrjuozj2cgzo)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 nrjuozj2cgzo)
 
 ownerfound=false
 label1=""
@@ -441,7 +441,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO6CyVYuiqFJdzmqRAhsm1kn2wEsQywCNovq37LCRFJMo34eoFEh
 #account hfyopipr4yjt
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token hfyopipr4yjt)
+resulttokens=$(./cleos.sh get currency balance fio.token hfyopipr4yjt)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -453,7 +453,7 @@ if [ $rt != "0-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6CyVYuiqFJdzmqRAhsm1kn2wEsQywCNovq37LCRFJMo34eoFEh hfyopipr4yjt the amount in account hfyopipr4yjt does not match the expected value. amount in account is $rt  expected value is 0-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 hfyopipr4yjt)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 hfyopipr4yjt)
 
 ownerfound=false
 label1=""
@@ -501,7 +501,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO6c7N2TfLGLsDCyKADThsHZj82Vq2oSL9AYrNAQEPe5eWv2YGgC
 #account 2nf1br1o3muj
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 2nf1br1o3muj)
+resulttokens=$(./cleos.sh get currency balance fio.token 2nf1br1o3muj)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -513,7 +513,7 @@ if [ $rt != "0-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6c7N2TfLGLsDCyKADThsHZj82Vq2oSL9AYrNAQEPe5eWv2YGgC 2nf1br1o3muj the amount in account 2nf1br1o3muj does not match the expected value. amount in account is $rt  expected value is 0-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 2nf1br1o3muj)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 2nf1br1o3muj)
 
 ownerfound=false
 label1=""
@@ -561,7 +561,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO6DTf2DdWkupDvJ8evJtAetrB1yDHMjTeca37VoScsWYDnkMD2U
 #account i5z2sux35veb
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token i5z2sux35veb)
+resulttokens=$(./cleos.sh get currency balance fio.token i5z2sux35veb)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -573,7 +573,7 @@ if [ $rt != "0-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6DTf2DdWkupDvJ8evJtAetrB1yDHMjTeca37VoScsWYDnkMD2U i5z2sux35veb the amount in account i5z2sux35veb does not match the expected value. amount in account is $rt  expected value is 0-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 i5z2sux35veb)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 i5z2sux35veb)
 
 ownerfound=false
 label1=""
@@ -621,7 +621,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO7wyocoxdZTcTm8eSqHbaj3oDdf3fEXb42Z7JcVowfBLxxaftjZ
 #account n3nldablzz5y
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token n3nldablzz5y)
+resulttokens=$(./cleos.sh get currency balance fio.token n3nldablzz5y)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -633,7 +633,7 @@ if [ $rt != "0-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7wyocoxdZTcTm8eSqHbaj3oDdf3fEXb42Z7JcVowfBLxxaftjZ n3nldablzz5y the amount in account n3nldablzz5y does not match the expected value. amount in account is $rt  expected value is 0-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 n3nldablzz5y)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 n3nldablzz5y)
 
 ownerfound=false
 label1=""
@@ -681,7 +681,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO6igsWLWxfr69HxyyDdCKsXCLEAJcKHPUzKVunX7AGMPyu5YB6Y
 #account l3eprgkqxwpk
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token l3eprgkqxwpk)
+resulttokens=$(./cleos.sh get currency balance fio.token l3eprgkqxwpk)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -693,7 +693,7 @@ if [ $rt != "0-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6igsWLWxfr69HxyyDdCKsXCLEAJcKHPUzKVunX7AGMPyu5YB6Y l3eprgkqxwpk the amount in account l3eprgkqxwpk does not match the expected value. amount in account is $rt  expected value is 0-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 l3eprgkqxwpk)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 l3eprgkqxwpk)
 
 ownerfound=false
 label1=""
@@ -741,7 +741,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO5ddjbS4Z7xVCDEVq2m3ArJFTU69fe1T9xXGnAydXwLwsJzui8N
 #account 1r2lq2fxouoj
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 1r2lq2fxouoj)
+resulttokens=$(./cleos.sh get currency balance fio.token 1r2lq2fxouoj)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -753,7 +753,7 @@ if [ $rt != "0-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5ddjbS4Z7xVCDEVq2m3ArJFTU69fe1T9xXGnAydXwLwsJzui8N 1r2lq2fxouoj the amount in account 1r2lq2fxouoj does not match the expected value. amount in account is $rt  expected value is 0-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 1r2lq2fxouoj)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 1r2lq2fxouoj)
 
 ownerfound=false
 label1=""
@@ -801,7 +801,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO7Eyet1a547ANMzK9xdHVbQzT4ikA6DaFJ2EHTvwftL43yA53o7
 #account pdxoj55ad3c5
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token pdxoj55ad3c5)
+resulttokens=$(./cleos.sh get currency balance fio.token pdxoj55ad3c5)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -813,7 +813,7 @@ if [ $rt != "0-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7Eyet1a547ANMzK9xdHVbQzT4ikA6DaFJ2EHTvwftL43yA53o7 pdxoj55ad3c5 the amount in account pdxoj55ad3c5 does not match the expected value. amount in account is $rt  expected value is 0-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 pdxoj55ad3c5)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 pdxoj55ad3c5)
 
 ownerfound=false
 label1=""
@@ -861,7 +861,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO7GFztVEJdUbspDqF64xTE5GPgVTf1w8QvKJruF3TMxCwC5MGfe
 #account smolitek4m1z
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token smolitek4m1z)
+resulttokens=$(./cleos.sh get currency balance fio.token smolitek4m1z)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -873,7 +873,7 @@ if [ $rt != "0-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7GFztVEJdUbspDqF64xTE5GPgVTf1w8QvKJruF3TMxCwC5MGfe smolitek4m1z the amount in account smolitek4m1z does not match the expected value. amount in account is $rt  expected value is 0-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 smolitek4m1z)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 smolitek4m1z)
 
 ownerfound=false
 label1=""
@@ -921,7 +921,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO7KSoZzW6BnQ24xyFg1nnxGAbFH9oZSRZbLm57w3xfFCYi9kMXy
 #account iojncpmxuxhy
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token iojncpmxuxhy)
+resulttokens=$(./cleos.sh get currency balance fio.token iojncpmxuxhy)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -933,7 +933,7 @@ if [ $rt != "0-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7KSoZzW6BnQ24xyFg1nnxGAbFH9oZSRZbLm57w3xfFCYi9kMXy iojncpmxuxhy the amount in account iojncpmxuxhy does not match the expected value. amount in account is $rt  expected value is 0-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 iojncpmxuxhy)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 iojncpmxuxhy)
 
 ownerfound=false
 label1=""
@@ -981,7 +981,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO7DiVw7pryiiNARyFEomSrn4CAkm2VpJjryUyMQeHtEvQPtG3ba
 #account ngpjeolfuiho
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token ngpjeolfuiho)
+resulttokens=$(./cleos.sh get currency balance fio.token ngpjeolfuiho)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -993,7 +993,7 @@ if [ $rt != "0-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7DiVw7pryiiNARyFEomSrn4CAkm2VpJjryUyMQeHtEvQPtG3ba ngpjeolfuiho the amount in account ngpjeolfuiho does not match the expected value. amount in account is $rt  expected value is 0-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 ngpjeolfuiho)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 ngpjeolfuiho)
 
 ownerfound=false
 label1=""
@@ -1041,7 +1041,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO5JggVn7q7Kv8Gn8cRNS4MHsDNabfHmivPxBTKnrZwgTEgGd3hn
 #account qkw4f4rxmuk3
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token qkw4f4rxmuk3)
+resulttokens=$(./cleos.sh get currency balance fio.token qkw4f4rxmuk3)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -1053,7 +1053,7 @@ if [ $rt != "0-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5JggVn7q7Kv8Gn8cRNS4MHsDNabfHmivPxBTKnrZwgTEgGd3hn qkw4f4rxmuk3 the amount in account qkw4f4rxmuk3 does not match the expected value. amount in account is $rt  expected value is 0-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 qkw4f4rxmuk3)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 qkw4f4rxmuk3)
 
 ownerfound=false
 label1=""
@@ -1101,7 +1101,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO6TLoqdexVpJQ4CzZVErRsaeQ1RsreYN9ZoL2mQ7FxvzqeLVEu1
 #account ieatfql4yiwx
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token ieatfql4yiwx)
+resulttokens=$(./cleos.sh get currency balance fio.token ieatfql4yiwx)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -1113,7 +1113,7 @@ if [ $rt != "0-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6TLoqdexVpJQ4CzZVErRsaeQ1RsreYN9ZoL2mQ7FxvzqeLVEu1 ieatfql4yiwx the amount in account ieatfql4yiwx does not match the expected value. amount in account is $rt  expected value is 0-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 ieatfql4yiwx)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 ieatfql4yiwx)
 
 ownerfound=false
 label1=""
@@ -1161,7 +1161,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO74i39QM2hyXKdmhJzxydK7ciB2WfwKa8pi8XySsJpefKmsKFR3
 #account ysktedzjdzm2
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token ysktedzjdzm2)
+resulttokens=$(./cleos.sh get currency balance fio.token ysktedzjdzm2)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -1173,7 +1173,7 @@ if [ $rt != "0-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO74i39QM2hyXKdmhJzxydK7ciB2WfwKa8pi8XySsJpefKmsKFR3 ysktedzjdzm2 the amount in account ysktedzjdzm2 does not match the expected value. amount in account is $rt  expected value is 0-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 ysktedzjdzm2)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 ysktedzjdzm2)
 
 ownerfound=false
 label1=""
@@ -1221,7 +1221,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO7n6QzEomtJDn1YjpGkihrKpVxzDLuzmUNLth1ap6JCQgZfdNyo
 #account wlat3kq3iihy
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token wlat3kq3iihy)
+resulttokens=$(./cleos.sh get currency balance fio.token wlat3kq3iihy)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -1233,7 +1233,7 @@ if [ $rt != "0-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7n6QzEomtJDn1YjpGkihrKpVxzDLuzmUNLth1ap6JCQgZfdNyo wlat3kq3iihy the amount in account wlat3kq3iihy does not match the expected value. amount in account is $rt  expected value is 0-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 wlat3kq3iihy)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 wlat3kq3iihy)
 
 ownerfound=false
 label1=""
@@ -1281,7 +1281,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO7xziJh1NbeztJWDyDu5CTAa6JZDvTXMWPHspEqyMtqTYS8uDEj
 #account plptgzakxyqp
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token plptgzakxyqp)
+resulttokens=$(./cleos.sh get currency balance fio.token plptgzakxyqp)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -1293,7 +1293,7 @@ if [ $rt != "0-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7xziJh1NbeztJWDyDu5CTAa6JZDvTXMWPHspEqyMtqTYS8uDEj plptgzakxyqp the amount in account plptgzakxyqp does not match the expected value. amount in account is $rt  expected value is 0-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 plptgzakxyqp)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 plptgzakxyqp)
 
 ownerfound=false
 label1=""
@@ -1312,8 +1312,8 @@ for ln in $resultlocked ; do
         fi
     elif [ $label1 = "\"total_grant_amount\":" ] ; then
         ln=$(echo $ln | tr -d ,)
-        if [ $ln != 21467508000000000 ] ; then
-            echo "VERIFICATION FAILURE -- FIO7xziJh1NbeztJWDyDu5CTAa6JZDvTXMWPHspEqyMtqTYS8uDEj plptgzakxyqp the total_grant_amount does not match the expected value. lockedtokens value $ln expected value 21467508000000000,"
+        if [ $ln != 48301893000000000 ] ; then
+            echo "VERIFICATION FAILURE -- FIO7xziJh1NbeztJWDyDu5CTAa6JZDvTXMWPHspEqyMtqTYS8uDEj plptgzakxyqp the total_grant_amount does not match the expected value. lockedtokens value $ln expected value 48301893000000000,"
         fi
     elif [ $label1 = "\"unlocked_period_count\":" ] ; then
         if [ $ln != "0," ] ; then
@@ -1329,8 +1329,8 @@ for ln in $resultlocked ; do
         fi
     elif [ $label1 = "\"remaining_locked_amount\":" ] ; then
         ln=$(echo $ln | tr -d ,)
-        if [ $ln != 21467508000000000 ] ; then
-            echo "VERIFICATION FAILURE -- FIO7xziJh1NbeztJWDyDu5CTAa6JZDvTXMWPHspEqyMtqTYS8uDEj plptgzakxyqp the remaining_locked_amount does not match the expected value. lockedtokens value $ln expected value 21467508000000000"
+        if [ $ln != 48301893000000000 ] ; then
+            echo "VERIFICATION FAILURE -- FIO7xziJh1NbeztJWDyDu5CTAa6JZDvTXMWPHspEqyMtqTYS8uDEj plptgzakxyqp the remaining_locked_amount does not match the expected value. lockedtokens value $ln expected value 48301893000000000"
         fi
 
     fi
@@ -1341,7 +1341,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO6eVttNFaphxZxe6CFonTyay4Yq4C8ggFK7AN9aQzZk5cJeYjUf
 #account bzfwaqgxp1io
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token bzfwaqgxp1io)
+resulttokens=$(./cleos.sh get currency balance fio.token bzfwaqgxp1io)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -1353,7 +1353,7 @@ if [ $rt != "0-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6eVttNFaphxZxe6CFonTyay4Yq4C8ggFK7AN9aQzZk5cJeYjUf bzfwaqgxp1io the amount in account bzfwaqgxp1io does not match the expected value. amount in account is $rt  expected value is 0-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 bzfwaqgxp1io)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 bzfwaqgxp1io)
 
 ownerfound=false
 label1=""
@@ -1401,7 +1401,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO5iRWoE8ikNCspoTXm1f43QtsnDmpbafHdnhBusX5iJC6RuoUt4
 #account gqi5et1z1dd2
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token gqi5et1z1dd2)
+resulttokens=$(./cleos.sh get currency balance fio.token gqi5et1z1dd2)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -1413,7 +1413,7 @@ if [ $rt != "0-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5iRWoE8ikNCspoTXm1f43QtsnDmpbafHdnhBusX5iJC6RuoUt4 gqi5et1z1dd2 the amount in account gqi5et1z1dd2 does not match the expected value. amount in account is $rt  expected value is 0-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 gqi5et1z1dd2)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 gqi5et1z1dd2)
 
 ownerfound=false
 label1=""
@@ -1461,7 +1461,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO5iRWoE8ikNCspoTXm1f43QtsnDmpbafHdnhBusX5iJC6RuoUt4
 #account gqi5et1z1dd2
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token gqi5et1z1dd2)
+resulttokens=$(./cleos.sh get currency balance fio.token gqi5et1z1dd2)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -1476,7 +1476,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO86UV39xKAmahpzhWZZ4XF94BSDkLC5U5Gprz31nSfmJRKqCfHd
 #account ahxpb555vocl
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token ahxpb555vocl)
+resulttokens=$(./cleos.sh get currency balance fio.token ahxpb555vocl)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -1491,7 +1491,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO7Hd6e7fUTxTenPcXEzLWEWJ3NCZgnQ3PgiVYov5YmfHwctTuUR
 #account vfkdyjqymywl
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token vfkdyjqymywl)
+resulttokens=$(./cleos.sh get currency balance fio.token vfkdyjqymywl)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -1506,7 +1506,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO7GnsHjAVL1wpagNWvEMKHYikfFP3P8f6oo5S6WhuVAHWkXWTg1
 #account ucn3yloohreo
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token ucn3yloohreo)
+resulttokens=$(./cleos.sh get currency balance fio.token ucn3yloohreo)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -1518,7 +1518,7 @@ if [ $rt != "10000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7GnsHjAVL1wpagNWvEMKHYikfFP3P8f6oo5S6WhuVAHWkXWTg1 ucn3yloohreo the amount in account ucn3yloohreo does not match the expected value. amount in account is $rt  expected value is 10000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 ucn3yloohreo)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 ucn3yloohreo)
 
 ownerfound=false
 label1=""
@@ -1566,7 +1566,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO7WvgXwfxRn3QdZRhDqXTzSB3dBG16Kbg2q1BQzEq9T6ioNJ9Ut
 #account uh3zeye1slcz
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token uh3zeye1slcz)
+resulttokens=$(./cleos.sh get currency balance fio.token uh3zeye1slcz)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -1578,7 +1578,7 @@ if [ $rt != "10000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7WvgXwfxRn3QdZRhDqXTzSB3dBG16Kbg2q1BQzEq9T6ioNJ9Ut uh3zeye1slcz the amount in account uh3zeye1slcz does not match the expected value. amount in account is $rt  expected value is 10000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 uh3zeye1slcz)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 uh3zeye1slcz)
 
 ownerfound=false
 label1=""
@@ -1626,7 +1626,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO6C7Yh3piE3Dmbw3r5EaaBRd5LQMsbrNabQr4WrAX9Dot3Qxgo8
 #account fqid1ub4gu1d
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token fqid1ub4gu1d)
+resulttokens=$(./cleos.sh get currency balance fio.token fqid1ub4gu1d)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -1638,7 +1638,7 @@ if [ $rt != "10000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6C7Yh3piE3Dmbw3r5EaaBRd5LQMsbrNabQr4WrAX9Dot3Qxgo8 fqid1ub4gu1d the amount in account fqid1ub4gu1d does not match the expected value. amount in account is $rt  expected value is 10000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 fqid1ub4gu1d)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 fqid1ub4gu1d)
 
 ownerfound=false
 label1=""
@@ -1686,7 +1686,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO64FEBKFRPtBZjCYTQHTkFUkWoAbZzc58LqX4eJkpoXg35YfWkn
 #account tth11slzfjq3
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token tth11slzfjq3)
+resulttokens=$(./cleos.sh get currency balance fio.token tth11slzfjq3)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -1701,7 +1701,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO5YepAmSy8sUyBbpZzW9WRxfuWkMR3XDVifiPefpbPQvvrAvC86
 #account qbhixejfehyd
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token qbhixejfehyd)
+resulttokens=$(./cleos.sh get currency balance fio.token qbhixejfehyd)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -1716,7 +1716,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO4xHrkGJgT2PrLDv3fPw7FejjDUP1k2FNxj3GTLVGchnwvGRhdh
 #account c1dlj1dcjzno
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token c1dlj1dcjzno)
+resulttokens=$(./cleos.sh get currency balance fio.token c1dlj1dcjzno)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -1731,7 +1731,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO525ayu6HvACeKuukR4vcnhLkCZ12BrcFNUxvtb2cLGQhP4zoSZ
 #account lweqphbdvplh
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token lweqphbdvplh)
+resulttokens=$(./cleos.sh get currency balance fio.token lweqphbdvplh)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -1746,7 +1746,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO5cpqQM4zWKRz4ANCfKYHfVEMCHMCwAj9fpvBb41r3ReNDXRA8D
 #account u2rwmaqfxtvs
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token u2rwmaqfxtvs)
+resulttokens=$(./cleos.sh get currency balance fio.token u2rwmaqfxtvs)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -1761,7 +1761,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO5bAbJaUTs7mEq4gQurhTj4WgoDjo2b7QBGefS3tPxJTPcGbmh4
 #account wwgwvaijiuag
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token wwgwvaijiuag)
+resulttokens=$(./cleos.sh get currency balance fio.token wwgwvaijiuag)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -1776,7 +1776,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO7K8wwggViLpSoEKXUbLirCpr7eFprWnaxq8ZMG7remasvmuGYo
 #account zvt11xu5czlk
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token zvt11xu5czlk)
+resulttokens=$(./cleos.sh get currency balance fio.token zvt11xu5czlk)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -1788,7 +1788,7 @@ if [ $rt != "1000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7K8wwggViLpSoEKXUbLirCpr7eFprWnaxq8ZMG7remasvmuGYo zvt11xu5czlk the amount in account zvt11xu5czlk does not match the expected value. amount in account is $rt  expected value is 1000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 zvt11xu5czlk)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 zvt11xu5czlk)
 
 ownerfound=false
 label1=""
@@ -1836,7 +1836,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO6R6JTP1CNsX4PyNwPXf3RWQ4NswRV1P4wpVtn8Fu5hqdbmjaAu
 #account dioxleem5hmr
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token dioxleem5hmr)
+resulttokens=$(./cleos.sh get currency balance fio.token dioxleem5hmr)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -1848,7 +1848,7 @@ if [ $rt != "1000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6R6JTP1CNsX4PyNwPXf3RWQ4NswRV1P4wpVtn8Fu5hqdbmjaAu dioxleem5hmr the amount in account dioxleem5hmr does not match the expected value. amount in account is $rt  expected value is 1000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 dioxleem5hmr)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 dioxleem5hmr)
 
 ownerfound=false
 label1=""
@@ -1896,7 +1896,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO7v6KMR6imo4EqZUBEJA51xL4ZjEaZtxNBT7zbHPm45mNnQGvBP
 #account iud1tjwtt2ey
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token iud1tjwtt2ey)
+resulttokens=$(./cleos.sh get currency balance fio.token iud1tjwtt2ey)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -1908,7 +1908,7 @@ if [ $rt != "1000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7v6KMR6imo4EqZUBEJA51xL4ZjEaZtxNBT7zbHPm45mNnQGvBP iud1tjwtt2ey the amount in account iud1tjwtt2ey does not match the expected value. amount in account is $rt  expected value is 1000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 iud1tjwtt2ey)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 iud1tjwtt2ey)
 
 ownerfound=false
 label1=""
@@ -1956,7 +1956,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO82nTSBe3CHeZnAACqHwLFSUENZGJd7h6Fo5rAzV6E2mvadFWzB
 #account xgyg22tfizja
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token xgyg22tfizja)
+resulttokens=$(./cleos.sh get currency balance fio.token xgyg22tfizja)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -1968,7 +1968,7 @@ if [ $rt != "1000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO82nTSBe3CHeZnAACqHwLFSUENZGJd7h6Fo5rAzV6E2mvadFWzB xgyg22tfizja the amount in account xgyg22tfizja does not match the expected value. amount in account is $rt  expected value is 1000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 xgyg22tfizja)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 xgyg22tfizja)
 
 ownerfound=false
 label1=""
@@ -2016,7 +2016,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO5QebHVoKoETsA9aGXET5XdAeGwA1AcqRHGxawgGfDNPZwuwdtJ
 #account 4urqjmtfvmjj
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 4urqjmtfvmjj)
+resulttokens=$(./cleos.sh get currency balance fio.token 4urqjmtfvmjj)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -2028,7 +2028,7 @@ if [ $rt != "1000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5QebHVoKoETsA9aGXET5XdAeGwA1AcqRHGxawgGfDNPZwuwdtJ 4urqjmtfvmjj the amount in account 4urqjmtfvmjj does not match the expected value. amount in account is $rt  expected value is 1000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 4urqjmtfvmjj)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 4urqjmtfvmjj)
 
 ownerfound=false
 label1=""
@@ -2076,7 +2076,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO8MmqVkbBEj6vkXFuQRM8p6AC94zJCWsLHxmUengkUvSwD7Fths
 #account deq54dxuyquh
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token deq54dxuyquh)
+resulttokens=$(./cleos.sh get currency balance fio.token deq54dxuyquh)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -2088,7 +2088,7 @@ if [ $rt != "1000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8MmqVkbBEj6vkXFuQRM8p6AC94zJCWsLHxmUengkUvSwD7Fths deq54dxuyquh the amount in account deq54dxuyquh does not match the expected value. amount in account is $rt  expected value is 1000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 deq54dxuyquh)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 deq54dxuyquh)
 
 ownerfound=false
 label1=""
@@ -2136,7 +2136,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO8NknCJWs1U66DWj1g7VRXY1gqSQBdn3xw1BaKr1VcxFRWsMTte
 #account f5axfpgffiqz
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token f5axfpgffiqz)
+resulttokens=$(./cleos.sh get currency balance fio.token f5axfpgffiqz)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -2151,7 +2151,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO7mmuucH76oPY3Mrf7pVVGJRDfPwScxVGv6nVmgCzT2fuBJbwZF
 #account vruvmdvnwsjz
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token vruvmdvnwsjz)
+resulttokens=$(./cleos.sh get currency balance fio.token vruvmdvnwsjz)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -2163,7 +2163,7 @@ if [ $rt != "400000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7mmuucH76oPY3Mrf7pVVGJRDfPwScxVGv6nVmgCzT2fuBJbwZF vruvmdvnwsjz the amount in account vruvmdvnwsjz does not match the expected value. amount in account is $rt  expected value is 400000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 vruvmdvnwsjz)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 vruvmdvnwsjz)
 
 ownerfound=false
 label1=""
@@ -2211,7 +2211,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO5CcEmr8AgtiXdwNdDtHBEfD8j9CMLr3DZQ9QxAH4wnBxKxMyaR
 #account d4adqzwxjtro
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token d4adqzwxjtro)
+resulttokens=$(./cleos.sh get currency balance fio.token d4adqzwxjtro)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -2223,7 +2223,7 @@ if [ $rt != "406251000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5CcEmr8AgtiXdwNdDtHBEfD8j9CMLr3DZQ9QxAH4wnBxKxMyaR d4adqzwxjtro the amount in account d4adqzwxjtro does not match the expected value. amount in account is $rt  expected value is 406251000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 d4adqzwxjtro)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 d4adqzwxjtro)
 
 ownerfound=false
 label1=""
@@ -2271,7 +2271,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO6sf4X3RMananBC9hVcZc8UkitNcvExap5bYpERnrXnBDoNTpzT
 #account 5dqft4wdc2db
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 5dqft4wdc2db)
+resulttokens=$(./cleos.sh get currency balance fio.token 5dqft4wdc2db)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -2283,7 +2283,7 @@ if [ $rt != "541668000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6sf4X3RMananBC9hVcZc8UkitNcvExap5bYpERnrXnBDoNTpzT 5dqft4wdc2db the amount in account 5dqft4wdc2db does not match the expected value. amount in account is $rt  expected value is 541668000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 5dqft4wdc2db)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 5dqft4wdc2db)
 
 ownerfound=false
 label1=""
@@ -2331,7 +2331,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO58j5djeKvszNgvxv5XZQ953NtVwtoizVC8SAr6kZmbgswdVsMN
 #account nvx55zu2y2im
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token nvx55zu2y2im)
+resulttokens=$(./cleos.sh get currency balance fio.token nvx55zu2y2im)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -2343,7 +2343,7 @@ if [ $rt != "800000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO58j5djeKvszNgvxv5XZQ953NtVwtoizVC8SAr6kZmbgswdVsMN nvx55zu2y2im the amount in account nvx55zu2y2im does not match the expected value. amount in account is $rt  expected value is 800000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 nvx55zu2y2im)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 nvx55zu2y2im)
 
 ownerfound=false
 label1=""
@@ -2391,7 +2391,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO6v3xZvYQSsuuq3uP579voCEzJt3SVmHDFD3VhCNCugmHn8UtkY
 #account ekn2m2p5lyvl
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token ekn2m2p5lyvl)
+resulttokens=$(./cleos.sh get currency balance fio.token ekn2m2p5lyvl)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -2403,7 +2403,7 @@ if [ $rt != "1300000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6v3xZvYQSsuuq3uP579voCEzJt3SVmHDFD3VhCNCugmHn8UtkY ekn2m2p5lyvl the amount in account ekn2m2p5lyvl does not match the expected value. amount in account is $rt  expected value is 1300000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 ekn2m2p5lyvl)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 ekn2m2p5lyvl)
 
 ownerfound=false
 label1=""
@@ -2451,7 +2451,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO5HBTJeDZqbmVNXJy9CxJyKyeg6aLXMtfXoi7GddftjnFf3UKUt
 #account nadppzyxtxjx
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token nadppzyxtxjx)
+resulttokens=$(./cleos.sh get currency balance fio.token nadppzyxtxjx)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -2463,7 +2463,7 @@ if [ $rt != "1500000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5HBTJeDZqbmVNXJy9CxJyKyeg6aLXMtfXoi7GddftjnFf3UKUt nadppzyxtxjx the amount in account nadppzyxtxjx does not match the expected value. amount in account is $rt  expected value is 1500000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 nadppzyxtxjx)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 nadppzyxtxjx)
 
 ownerfound=false
 label1=""
@@ -2511,7 +2511,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO78rnnZjHUmwk1njnWmdyV1DqB2zzUhE7SzdzbcQLwchwCezHtk
 #account c5aeqmc1trd2
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token c5aeqmc1trd2)
+resulttokens=$(./cleos.sh get currency balance fio.token c5aeqmc1trd2)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -2523,7 +2523,7 @@ if [ $rt != "1800000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO78rnnZjHUmwk1njnWmdyV1DqB2zzUhE7SzdzbcQLwchwCezHtk c5aeqmc1trd2 the amount in account c5aeqmc1trd2 does not match the expected value. amount in account is $rt  expected value is 1800000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 c5aeqmc1trd2)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 c5aeqmc1trd2)
 
 ownerfound=false
 label1=""
@@ -2571,7 +2571,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO5MJzhpCVcGNtKK9yCdEzjXfd6DxqmpMq5GRw4gZaLxgJiA7Le4
 #account wavslquths2n
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token wavslquths2n)
+resulttokens=$(./cleos.sh get currency balance fio.token wavslquths2n)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -2583,7 +2583,7 @@ if [ $rt != "1895839000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5MJzhpCVcGNtKK9yCdEzjXfd6DxqmpMq5GRw4gZaLxgJiA7Le4 wavslquths2n the amount in account wavslquths2n does not match the expected value. amount in account is $rt  expected value is 1895839000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 wavslquths2n)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 wavslquths2n)
 
 ownerfound=false
 label1=""
@@ -2631,7 +2631,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO5FZVQ6ehswr1Mig5a18r3FwdfFmXDVjn6TrAKLHZa3KUrpvSs3
 #account jsniuyaaeblr
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token jsniuyaaeblr)
+resulttokens=$(./cleos.sh get currency balance fio.token jsniuyaaeblr)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -2643,7 +2643,7 @@ if [ $rt != "2000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5FZVQ6ehswr1Mig5a18r3FwdfFmXDVjn6TrAKLHZa3KUrpvSs3 jsniuyaaeblr the amount in account jsniuyaaeblr does not match the expected value. amount in account is $rt  expected value is 2000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 jsniuyaaeblr)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 jsniuyaaeblr)
 
 ownerfound=false
 label1=""
@@ -2691,7 +2691,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO7ovybfe7jXMUMAcgzhcDos48TMvaLT2operxwstnXQZvvEGSmK
 #account wzlkvt5yj5an
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token wzlkvt5yj5an)
+resulttokens=$(./cleos.sh get currency balance fio.token wzlkvt5yj5an)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -2703,7 +2703,7 @@ if [ $rt != "2000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7ovybfe7jXMUMAcgzhcDos48TMvaLT2operxwstnXQZvvEGSmK wzlkvt5yj5an the amount in account wzlkvt5yj5an does not match the expected value. amount in account is $rt  expected value is 2000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 wzlkvt5yj5an)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 wzlkvt5yj5an)
 
 ownerfound=false
 label1=""
@@ -2751,7 +2751,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO6z6cPxUx9S7r9qaPzLZCsWADYha8RbXcL58vcGfLg89JdssBv3
 #account oadme4v54cly
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token oadme4v54cly)
+resulttokens=$(./cleos.sh get currency balance fio.token oadme4v54cly)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -2763,7 +2763,7 @@ if [ $rt != "2500000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6z6cPxUx9S7r9qaPzLZCsWADYha8RbXcL58vcGfLg89JdssBv3 oadme4v54cly the amount in account oadme4v54cly does not match the expected value. amount in account is $rt  expected value is 2500000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 oadme4v54cly)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 oadme4v54cly)
 
 ownerfound=false
 label1=""
@@ -2811,7 +2811,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO6HuPryLfqHnbNVJKb5vJaxi4DhPXLsjn5pYHgGKX99Bg541RDN
 #account swl2fqztjhb2
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token swl2fqztjhb2)
+resulttokens=$(./cleos.sh get currency balance fio.token swl2fqztjhb2)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -2823,7 +2823,7 @@ if [ $rt != "2708342000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6HuPryLfqHnbNVJKb5vJaxi4DhPXLsjn5pYHgGKX99Bg541RDN swl2fqztjhb2 the amount in account swl2fqztjhb2 does not match the expected value. amount in account is $rt  expected value is 2708342000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 swl2fqztjhb2)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 swl2fqztjhb2)
 
 ownerfound=false
 label1=""
@@ -2871,7 +2871,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO88a4bNDeHAZCKHfUSgYQuYqX1HAHAtYFdtQhweFkRhqHtZ8xs7
 #account fjocyyyafvuz
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token fjocyyyafvuz)
+resulttokens=$(./cleos.sh get currency balance fio.token fjocyyyafvuz)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -2883,7 +2883,7 @@ if [ $rt != "3000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO88a4bNDeHAZCKHfUSgYQuYqX1HAHAtYFdtQhweFkRhqHtZ8xs7 fjocyyyafvuz the amount in account fjocyyyafvuz does not match the expected value. amount in account is $rt  expected value is 3000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 fjocyyyafvuz)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 fjocyyyafvuz)
 
 ownerfound=false
 label1=""
@@ -2931,7 +2931,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO4vMWirP95uoEqSCkfj6NQmar8T4XbDb9WGvT756v3sL95ugAAK
 #account 4vvwucwpugnd
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 4vvwucwpugnd)
+resulttokens=$(./cleos.sh get currency balance fio.token 4vvwucwpugnd)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -2943,7 +2943,7 @@ if [ $rt != "3489969000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO4vMWirP95uoEqSCkfj6NQmar8T4XbDb9WGvT756v3sL95ugAAK 4vvwucwpugnd the amount in account 4vvwucwpugnd does not match the expected value. amount in account is $rt  expected value is 3489969000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 4vvwucwpugnd)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 4vvwucwpugnd)
 
 ownerfound=false
 label1=""
@@ -2991,7 +2991,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO7LhFj7kn299wee7NfB8pMtkpm4Brs2Xxy5drHhPcf9Hzod3JiC
 #account 24jmfyoujhom
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 24jmfyoujhom)
+resulttokens=$(./cleos.sh get currency balance fio.token 24jmfyoujhom)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -3003,7 +3003,7 @@ if [ $rt != "3530594000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7LhFj7kn299wee7NfB8pMtkpm4Brs2Xxy5drHhPcf9Hzod3JiC 24jmfyoujhom the amount in account 24jmfyoujhom does not match the expected value. amount in account is $rt  expected value is 3530594000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 24jmfyoujhom)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 24jmfyoujhom)
 
 ownerfound=false
 label1=""
@@ -3051,7 +3051,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO73oRi695SdeZDn1xjiKqHEfXg1mbKLYCWvwL7DZhnffD4MNEVB
 #account wdfiuqgu2bsr
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token wdfiuqgu2bsr)
+resulttokens=$(./cleos.sh get currency balance fio.token wdfiuqgu2bsr)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -3063,7 +3063,7 @@ if [ $rt != "4000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO73oRi695SdeZDn1xjiKqHEfXg1mbKLYCWvwL7DZhnffD4MNEVB wdfiuqgu2bsr the amount in account wdfiuqgu2bsr does not match the expected value. amount in account is $rt  expected value is 4000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 wdfiuqgu2bsr)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 wdfiuqgu2bsr)
 
 ownerfound=false
 label1=""
@@ -3111,7 +3111,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO5PyTGT7AitAcCEcmVhwfsWQ6DnGhai73wgGA4wxk7KQfpck9YX
 #account 2mskjvkhj334
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 2mskjvkhj334)
+resulttokens=$(./cleos.sh get currency balance fio.token 2mskjvkhj334)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -3123,7 +3123,7 @@ if [ $rt != "5500000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5PyTGT7AitAcCEcmVhwfsWQ6DnGhai73wgGA4wxk7KQfpck9YX 2mskjvkhj334 the amount in account 2mskjvkhj334 does not match the expected value. amount in account is $rt  expected value is 5500000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 2mskjvkhj334)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 2mskjvkhj334)
 
 ownerfound=false
 label1=""
@@ -3171,7 +3171,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO57Hk4ZDjQKaQWNJo5zAJbt56LGxPNeqFE6HpbTazRLQNBzY1Wy
 #account xk5eimq3xcmy
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token xk5eimq3xcmy)
+resulttokens=$(./cleos.sh get currency balance fio.token xk5eimq3xcmy)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -3183,7 +3183,7 @@ if [ $rt != "5965123000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO57Hk4ZDjQKaQWNJo5zAJbt56LGxPNeqFE6HpbTazRLQNBzY1Wy xk5eimq3xcmy the amount in account xk5eimq3xcmy does not match the expected value. amount in account is $rt  expected value is 5965123000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 xk5eimq3xcmy)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 xk5eimq3xcmy)
 
 ownerfound=false
 label1=""
@@ -3231,7 +3231,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO7BQfxKtfebgrTZYbMYi6gvcWZwU8dogL78jAwNgeQVn5xazKAv
 #account hjvwdy5p4zvs
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token hjvwdy5p4zvs)
+resulttokens=$(./cleos.sh get currency balance fio.token hjvwdy5p4zvs)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -3243,7 +3243,7 @@ if [ $rt != "7000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7BQfxKtfebgrTZYbMYi6gvcWZwU8dogL78jAwNgeQVn5xazKAv hjvwdy5p4zvs the amount in account hjvwdy5p4zvs does not match the expected value. amount in account is $rt  expected value is 7000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 hjvwdy5p4zvs)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 hjvwdy5p4zvs)
 
 ownerfound=false
 label1=""
@@ -3291,7 +3291,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO6AGKcC2ekDDggYhY2T1JoGU2AMPSnAXKMfVTi171bkTJfZLyCQ
 #account b4jpixuqelvi
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token b4jpixuqelvi)
+resulttokens=$(./cleos.sh get currency balance fio.token b4jpixuqelvi)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -3303,7 +3303,7 @@ if [ $rt != "7007834000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6AGKcC2ekDDggYhY2T1JoGU2AMPSnAXKMfVTi171bkTJfZLyCQ b4jpixuqelvi the amount in account b4jpixuqelvi does not match the expected value. amount in account is $rt  expected value is 7007834000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 b4jpixuqelvi)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 b4jpixuqelvi)
 
 ownerfound=false
 label1=""
@@ -3351,7 +3351,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO8H9FDKECjdegqMw1Eq89KTaZsxNTKXySY4eEzpMKQzbcnBTBfJ
 #account ya1jw3alpjr2
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token ya1jw3alpjr2)
+resulttokens=$(./cleos.sh get currency balance fio.token ya1jw3alpjr2)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -3363,7 +3363,7 @@ if [ $rt != "8500000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8H9FDKECjdegqMw1Eq89KTaZsxNTKXySY4eEzpMKQzbcnBTBfJ ya1jw3alpjr2 the amount in account ya1jw3alpjr2 does not match the expected value. amount in account is $rt  expected value is 8500000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 ya1jw3alpjr2)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 ya1jw3alpjr2)
 
 ownerfound=false
 label1=""
@@ -3411,7 +3411,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO8F2A5jYWyihgudtLtvdxqURFwVGtxLDjwvcjWjWYxkZHuE2f5x
 #account tobk1eibvolo
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token tobk1eibvolo)
+resulttokens=$(./cleos.sh get currency balance fio.token tobk1eibvolo)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -3423,7 +3423,7 @@ if [ $rt != "10000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8F2A5jYWyihgudtLtvdxqURFwVGtxLDjwvcjWjWYxkZHuE2f5x tobk1eibvolo the amount in account tobk1eibvolo does not match the expected value. amount in account is $rt  expected value is 10000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 tobk1eibvolo)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 tobk1eibvolo)
 
 ownerfound=false
 label1=""
@@ -3469,9 +3469,9 @@ if [ "$ownerfound" = false ] ; then
  echo "VERIFICATION FAILURE -- FIO8F2A5jYWyihgudtLtvdxqURFwVGtxLDjwvcjWjWYxkZHuE2f5x tobk1eibvolo this account does not have a grant in the lockedtokens table"
 fi
 #validation for SINGLE locked token holder
-#pub key FIO7o7WAWN9CytsGcokb4Y9EvNcnP1f2VYGmAdKMB39z1KhjxDjtj
-#account y1t22edlkh4g
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token y1t22edlkh4g)
+#pub key FIO8VHb3sQ52KqjjLfGAyy31E6dAZv9Y8Mo4KsJTmyNEhXZGvG7Zg
+#account utpgt53qtsws
+resulttokens=$(./cleos.sh get currency balance fio.token utpgt53qtsws)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -3480,10 +3480,10 @@ if [ -z "$rt" ] ; then
 fi
 
 if [ $rt != "10000000000000000-FIO" ] ; then
-    echo "VERIFICATION FAILURE -- FIO7o7WAWN9CytsGcokb4Y9EvNcnP1f2VYGmAdKMB39z1KhjxDjtj y1t22edlkh4g the amount in account y1t22edlkh4g does not match the expected value. amount in account is $rt  expected value is 10000000000000000-FIO"
+    echo "VERIFICATION FAILURE -- FIO8VHb3sQ52KqjjLfGAyy31E6dAZv9Y8Mo4KsJTmyNEhXZGvG7Zg utpgt53qtsws the amount in account utpgt53qtsws does not match the expected value. amount in account is $rt  expected value is 10000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 y1t22edlkh4g)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 utpgt53qtsws)
 
 ownerfound=false
 label1=""
@@ -3497,41 +3497,41 @@ for ln in $resultlocked ; do
         label1=$ln
     elif [ $label1 = "\"owner\":" ] ; then
        ownerfound=true
-        if [ $ln != "\"y1t22edlkh4g\"," ] ; then
-            echo "VERIFICATION FAILURE -- FIO7o7WAWN9CytsGcokb4Y9EvNcnP1f2VYGmAdKMB39z1KhjxDjtj y1t22edlkh4g the owner does not match the expected value. lockedtokens value $ln expected value \"y1t22edlkh4g\","
+        if [ $ln != "\"utpgt53qtsws\"," ] ; then
+            echo "VERIFICATION FAILURE -- FIO8VHb3sQ52KqjjLfGAyy31E6dAZv9Y8Mo4KsJTmyNEhXZGvG7Zg utpgt53qtsws the owner does not match the expected value. lockedtokens value $ln expected value \"utpgt53qtsws\","
         fi
     elif [ $label1 = "\"total_grant_amount\":" ] ; then
         ln=$(echo $ln | tr -d ,)
         if [ $ln != 10000000000000000 ] ; then
-            echo "VERIFICATION FAILURE -- FIO7o7WAWN9CytsGcokb4Y9EvNcnP1f2VYGmAdKMB39z1KhjxDjtj y1t22edlkh4g the total_grant_amount does not match the expected value. lockedtokens value $ln expected value 10000000000000000,"
+            echo "VERIFICATION FAILURE -- FIO8VHb3sQ52KqjjLfGAyy31E6dAZv9Y8Mo4KsJTmyNEhXZGvG7Zg utpgt53qtsws the total_grant_amount does not match the expected value. lockedtokens value $ln expected value 10000000000000000,"
         fi
     elif [ $label1 = "\"unlocked_period_count\":" ] ; then
         if [ $ln != "0," ] ; then
-            echo "VERIFICATION FAILURE -- FIO7o7WAWN9CytsGcokb4Y9EvNcnP1f2VYGmAdKMB39z1KhjxDjtj y1t22edlkh4g the unlocked_period_count does not match the expected value. lockedtokens value $ln expected value 0,"
+            echo "VERIFICATION FAILURE -- FIO8VHb3sQ52KqjjLfGAyy31E6dAZv9Y8Mo4KsJTmyNEhXZGvG7Zg utpgt53qtsws the unlocked_period_count does not match the expected value. lockedtokens value $ln expected value 0,"
        fi
     elif [ $label1 = "\"grant_type\":" ] ; then
         if [ $ln != "2," ] ; then
-            echo "VERIFICATION FAILURE -- FIO7o7WAWN9CytsGcokb4Y9EvNcnP1f2VYGmAdKMB39z1KhjxDjtj y1t22edlkh4g the grant_type does not match the expected value. lockedtokens value $ln expected value 2,"
+            echo "VERIFICATION FAILURE -- FIO8VHb3sQ52KqjjLfGAyy31E6dAZv9Y8Mo4KsJTmyNEhXZGvG7Zg utpgt53qtsws the grant_type does not match the expected value. lockedtokens value $ln expected value 2,"
         fi
     elif [ $label1 = "\"inhibit_unlocking\":" ] ; then
         if [ $ln != "1," ] ; then
-            echo "VERIFICATION FAILURE -- FIO7o7WAWN9CytsGcokb4Y9EvNcnP1f2VYGmAdKMB39z1KhjxDjtj y1t22edlkh4g the inhibit_unlocking does not match the expected value. lockedtokens value $ln expected value 1,"
+            echo "VERIFICATION FAILURE -- FIO8VHb3sQ52KqjjLfGAyy31E6dAZv9Y8Mo4KsJTmyNEhXZGvG7Zg utpgt53qtsws the inhibit_unlocking does not match the expected value. lockedtokens value $ln expected value 1,"
         fi
     elif [ $label1 = "\"remaining_locked_amount\":" ] ; then
         ln=$(echo $ln | tr -d ,)
         if [ $ln != 10000000000000000 ] ; then
-            echo "VERIFICATION FAILURE -- FIO7o7WAWN9CytsGcokb4Y9EvNcnP1f2VYGmAdKMB39z1KhjxDjtj y1t22edlkh4g the remaining_locked_amount does not match the expected value. lockedtokens value $ln expected value 10000000000000000"
+            echo "VERIFICATION FAILURE -- FIO8VHb3sQ52KqjjLfGAyy31E6dAZv9Y8Mo4KsJTmyNEhXZGvG7Zg utpgt53qtsws the remaining_locked_amount does not match the expected value. lockedtokens value $ln expected value 10000000000000000"
         fi
 
     fi
 done
 if [ "$ownerfound" = false ] ; then
- echo "VERIFICATION FAILURE -- FIO7o7WAWN9CytsGcokb4Y9EvNcnP1f2VYGmAdKMB39z1KhjxDjtj y1t22edlkh4g this account does not have a grant in the lockedtokens table"
+ echo "VERIFICATION FAILURE -- FIO8VHb3sQ52KqjjLfGAyy31E6dAZv9Y8Mo4KsJTmyNEhXZGvG7Zg utpgt53qtsws this account does not have a grant in the lockedtokens table"
 fi
 #validation for SINGLE locked token holder
 #pub key FIO8Wyh738QK7iZRyL1tBZredeubrHugjYCjEPJGxc7Cvj3niML9G
 #account xkezj1ocwe4r
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token xkezj1ocwe4r)
+resulttokens=$(./cleos.sh get currency balance fio.token xkezj1ocwe4r)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -3543,7 +3543,7 @@ if [ $rt != "10000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8Wyh738QK7iZRyL1tBZredeubrHugjYCjEPJGxc7Cvj3niML9G xkezj1ocwe4r the amount in account xkezj1ocwe4r does not match the expected value. amount in account is $rt  expected value is 10000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 xkezj1ocwe4r)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 xkezj1ocwe4r)
 
 ownerfound=false
 label1=""
@@ -3591,7 +3591,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO7GFN3AyrxDJHgfojQXzbDtPcdWrfSGxVhX6GA6bz8WpMGdShTV
 #account sgqfpnfkjx1g
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token sgqfpnfkjx1g)
+resulttokens=$(./cleos.sh get currency balance fio.token sgqfpnfkjx1g)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -3603,7 +3603,7 @@ if [ $rt != "10000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7GFN3AyrxDJHgfojQXzbDtPcdWrfSGxVhX6GA6bz8WpMGdShTV sgqfpnfkjx1g the amount in account sgqfpnfkjx1g does not match the expected value. amount in account is $rt  expected value is 10000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 sgqfpnfkjx1g)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 sgqfpnfkjx1g)
 
 ownerfound=false
 label1=""
@@ -3649,9 +3649,9 @@ if [ "$ownerfound" = false ] ; then
  echo "VERIFICATION FAILURE -- FIO7GFN3AyrxDJHgfojQXzbDtPcdWrfSGxVhX6GA6bz8WpMGdShTV sgqfpnfkjx1g this account does not have a grant in the lockedtokens table"
 fi
 #validation for SINGLE locked token holder
-#pub key FIO5UgfzSzAXemcXk2n4oX2YvJitN8boN4zZvnYESr3Tgrp1eKNTt
-#account h4kn24tzigvh
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token h4kn24tzigvh)
+#pub key FIO7dLVFoN1HQWMh6Vx6zz8bTT3hEtVtHZuYnzyUy6LG49EWyyfuc
+#account cije3n1mr4mc
+resulttokens=$(./cleos.sh get currency balance fio.token cije3n1mr4mc)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -3660,10 +3660,10 @@ if [ -z "$rt" ] ; then
 fi
 
 if [ $rt != "10000000000000000-FIO" ] ; then
-    echo "VERIFICATION FAILURE -- FIO5UgfzSzAXemcXk2n4oX2YvJitN8boN4zZvnYESr3Tgrp1eKNTt h4kn24tzigvh the amount in account h4kn24tzigvh does not match the expected value. amount in account is $rt  expected value is 10000000000000000-FIO"
+    echo "VERIFICATION FAILURE -- FIO7dLVFoN1HQWMh6Vx6zz8bTT3hEtVtHZuYnzyUy6LG49EWyyfuc cije3n1mr4mc the amount in account cije3n1mr4mc does not match the expected value. amount in account is $rt  expected value is 10000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 h4kn24tzigvh)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 cije3n1mr4mc)
 
 ownerfound=false
 label1=""
@@ -3677,41 +3677,41 @@ for ln in $resultlocked ; do
         label1=$ln
     elif [ $label1 = "\"owner\":" ] ; then
        ownerfound=true
-        if [ $ln != "\"h4kn24tzigvh\"," ] ; then
-            echo "VERIFICATION FAILURE -- FIO5UgfzSzAXemcXk2n4oX2YvJitN8boN4zZvnYESr3Tgrp1eKNTt h4kn24tzigvh the owner does not match the expected value. lockedtokens value $ln expected value \"h4kn24tzigvh\","
+        if [ $ln != "\"cije3n1mr4mc\"," ] ; then
+            echo "VERIFICATION FAILURE -- FIO7dLVFoN1HQWMh6Vx6zz8bTT3hEtVtHZuYnzyUy6LG49EWyyfuc cije3n1mr4mc the owner does not match the expected value. lockedtokens value $ln expected value \"cije3n1mr4mc\","
         fi
     elif [ $label1 = "\"total_grant_amount\":" ] ; then
         ln=$(echo $ln | tr -d ,)
         if [ $ln != 10000000000000000 ] ; then
-            echo "VERIFICATION FAILURE -- FIO5UgfzSzAXemcXk2n4oX2YvJitN8boN4zZvnYESr3Tgrp1eKNTt h4kn24tzigvh the total_grant_amount does not match the expected value. lockedtokens value $ln expected value 10000000000000000,"
+            echo "VERIFICATION FAILURE -- FIO7dLVFoN1HQWMh6Vx6zz8bTT3hEtVtHZuYnzyUy6LG49EWyyfuc cije3n1mr4mc the total_grant_amount does not match the expected value. lockedtokens value $ln expected value 10000000000000000,"
         fi
     elif [ $label1 = "\"unlocked_period_count\":" ] ; then
         if [ $ln != "0," ] ; then
-            echo "VERIFICATION FAILURE -- FIO5UgfzSzAXemcXk2n4oX2YvJitN8boN4zZvnYESr3Tgrp1eKNTt h4kn24tzigvh the unlocked_period_count does not match the expected value. lockedtokens value $ln expected value 0,"
+            echo "VERIFICATION FAILURE -- FIO7dLVFoN1HQWMh6Vx6zz8bTT3hEtVtHZuYnzyUy6LG49EWyyfuc cije3n1mr4mc the unlocked_period_count does not match the expected value. lockedtokens value $ln expected value 0,"
        fi
     elif [ $label1 = "\"grant_type\":" ] ; then
         if [ $ln != "2," ] ; then
-            echo "VERIFICATION FAILURE -- FIO5UgfzSzAXemcXk2n4oX2YvJitN8boN4zZvnYESr3Tgrp1eKNTt h4kn24tzigvh the grant_type does not match the expected value. lockedtokens value $ln expected value 2,"
+            echo "VERIFICATION FAILURE -- FIO7dLVFoN1HQWMh6Vx6zz8bTT3hEtVtHZuYnzyUy6LG49EWyyfuc cije3n1mr4mc the grant_type does not match the expected value. lockedtokens value $ln expected value 2,"
         fi
     elif [ $label1 = "\"inhibit_unlocking\":" ] ; then
         if [ $ln != "1," ] ; then
-            echo "VERIFICATION FAILURE -- FIO5UgfzSzAXemcXk2n4oX2YvJitN8boN4zZvnYESr3Tgrp1eKNTt h4kn24tzigvh the inhibit_unlocking does not match the expected value. lockedtokens value $ln expected value 1,"
+            echo "VERIFICATION FAILURE -- FIO7dLVFoN1HQWMh6Vx6zz8bTT3hEtVtHZuYnzyUy6LG49EWyyfuc cije3n1mr4mc the inhibit_unlocking does not match the expected value. lockedtokens value $ln expected value 1,"
         fi
     elif [ $label1 = "\"remaining_locked_amount\":" ] ; then
         ln=$(echo $ln | tr -d ,)
         if [ $ln != 10000000000000000 ] ; then
-            echo "VERIFICATION FAILURE -- FIO5UgfzSzAXemcXk2n4oX2YvJitN8boN4zZvnYESr3Tgrp1eKNTt h4kn24tzigvh the remaining_locked_amount does not match the expected value. lockedtokens value $ln expected value 10000000000000000"
+            echo "VERIFICATION FAILURE -- FIO7dLVFoN1HQWMh6Vx6zz8bTT3hEtVtHZuYnzyUy6LG49EWyyfuc cije3n1mr4mc the remaining_locked_amount does not match the expected value. lockedtokens value $ln expected value 10000000000000000"
         fi
 
     fi
 done
 if [ "$ownerfound" = false ] ; then
- echo "VERIFICATION FAILURE -- FIO5UgfzSzAXemcXk2n4oX2YvJitN8boN4zZvnYESr3Tgrp1eKNTt h4kn24tzigvh this account does not have a grant in the lockedtokens table"
+ echo "VERIFICATION FAILURE -- FIO7dLVFoN1HQWMh6Vx6zz8bTT3hEtVtHZuYnzyUy6LG49EWyyfuc cije3n1mr4mc this account does not have a grant in the lockedtokens table"
 fi
 #validation for SINGLE locked token holder
 #pub key FIO7DVJTbCjmBev9oAggRP7kRjXJfZAE4228SnMfsyyBhv7wggxDB
 #account mck32myftiau
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token mck32myftiau)
+resulttokens=$(./cleos.sh get currency balance fio.token mck32myftiau)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -3723,7 +3723,7 @@ if [ $rt != "10000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7DVJTbCjmBev9oAggRP7kRjXJfZAE4228SnMfsyyBhv7wggxDB mck32myftiau the amount in account mck32myftiau does not match the expected value. amount in account is $rt  expected value is 10000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 mck32myftiau)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 mck32myftiau)
 
 ownerfound=false
 label1=""
@@ -3771,7 +3771,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO5qvQoxMJmbVrzikHErQCYz4jY9wBp7ZJxqkcvhCUEoZFHuhWm4
 #account xxxo54emdzwl
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token xxxo54emdzwl)
+resulttokens=$(./cleos.sh get currency balance fio.token xxxo54emdzwl)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -3783,7 +3783,7 @@ if [ $rt != "21678096000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5qvQoxMJmbVrzikHErQCYz4jY9wBp7ZJxqkcvhCUEoZFHuhWm4 xxxo54emdzwl the amount in account xxxo54emdzwl does not match the expected value. amount in account is $rt  expected value is 21678096000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 xxxo54emdzwl)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 xxxo54emdzwl)
 
 ownerfound=false
 label1=""
@@ -3831,7 +3831,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO82ioSXoweGmtLv2Bd5YTVYHjM3cpyS2c7475JEVxGmLj2BHhSg
 #account xbwifedutqoi
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token xbwifedutqoi)
+resulttokens=$(./cleos.sh get currency balance fio.token xbwifedutqoi)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -3846,7 +3846,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO6ubX2sJC99nvmBBpBbbjwmeSwrbKu8Y6dxEfmwbRCEbTfoPzKf
 #account dbrcrshk4o25
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token dbrcrshk4o25)
+resulttokens=$(./cleos.sh get currency balance fio.token dbrcrshk4o25)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -3858,7 +3858,7 @@ if [ $rt != "28776130500000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6ubX2sJC99nvmBBpBbbjwmeSwrbKu8Y6dxEfmwbRCEbTfoPzKf dbrcrshk4o25 the amount in account dbrcrshk4o25 does not match the expected value. amount in account is $rt  expected value is 28776130500000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 dbrcrshk4o25)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 dbrcrshk4o25)
 
 ownerfound=false
 label1=""
@@ -3906,7 +3906,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO5bm4N8cu1HRyZDtVHKm3gZfNva7du1jFLE1qToDdAp1qPgmSAV
 #account xptdulicmxd5
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token xptdulicmxd5)
+resulttokens=$(./cleos.sh get currency balance fio.token xptdulicmxd5)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -3918,7 +3918,7 @@ if [ $rt != "28776130500000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5bm4N8cu1HRyZDtVHKm3gZfNva7du1jFLE1qToDdAp1qPgmSAV xptdulicmxd5 the amount in account xptdulicmxd5 does not match the expected value. amount in account is $rt  expected value is 28776130500000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 xptdulicmxd5)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 xptdulicmxd5)
 
 ownerfound=false
 label1=""
@@ -3966,7 +3966,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO5Hgr19NA7jwCUnwTasv42e4ePjSZn9mRBo59eqtXLz8RER5rVH
 #account ogtanesrkrwp
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token ogtanesrkrwp)
+resulttokens=$(./cleos.sh get currency balance fio.token ogtanesrkrwp)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -3978,7 +3978,7 @@ if [ $rt != "28776130500000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5Hgr19NA7jwCUnwTasv42e4ePjSZn9mRBo59eqtXLz8RER5rVH ogtanesrkrwp the amount in account ogtanesrkrwp does not match the expected value. amount in account is $rt  expected value is 28776130500000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 ogtanesrkrwp)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 ogtanesrkrwp)
 
 ownerfound=false
 label1=""
@@ -4026,7 +4026,7 @@ fi
 #validation for SINGLE locked token holder
 #pub key FIO71SVy5QnNs7voExPPo9xMXsfVKVHB9dbi12oXhSoQ7aqtJ9g67
 #account rg2qz2rdbik5
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token rg2qz2rdbik5)
+resulttokens=$(./cleos.sh get currency balance fio.token rg2qz2rdbik5)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -4038,7 +4038,7 @@ if [ $rt != "28776130500000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO71SVy5QnNs7voExPPo9xMXsfVKVHB9dbi12oXhSoQ7aqtJ9g67 rg2qz2rdbik5 the amount in account rg2qz2rdbik5 does not match the expected value. amount in account is $rt  expected value is 28776130500000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 rg2qz2rdbik5)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 rg2qz2rdbik5)
 
 ownerfound=false
 label1=""
@@ -4086,7 +4086,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5GuBHP1xg4RF9MdLvTMXM6uBsjZrgLufeyUKef8WrzjozfcyFN
 #account m2e2eopcsgch
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token m2e2eopcsgch)
+resulttokens=$(./cleos.sh get currency balance fio.token m2e2eopcsgch)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -4098,7 +4098,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5GuBHP1xg4RF9MdLvTMXM6uBsjZrgLufeyUKef8WrzjozfcyFN m2e2eopcsgch the amount in account m2e2eopcsgch does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 m2e2eopcsgch)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 m2e2eopcsgch)
 
 ownerfound=false
 label1=""
@@ -4146,7 +4146,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO863b8EkCbCsaCHB7A41i7JuE7u8JyhYjmxC1o2issDHMjv6LLJ
 #account 5nxpbvzzvkcv
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 5nxpbvzzvkcv)
+resulttokens=$(./cleos.sh get currency balance fio.token 5nxpbvzzvkcv)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -4158,7 +4158,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO863b8EkCbCsaCHB7A41i7JuE7u8JyhYjmxC1o2issDHMjv6LLJ 5nxpbvzzvkcv the amount in account 5nxpbvzzvkcv does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 5nxpbvzzvkcv)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 5nxpbvzzvkcv)
 
 ownerfound=false
 label1=""
@@ -4206,7 +4206,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6m4xCzPMR52E9nuyccHPBAm8bPjptLJN2jVGxBnkbFf6jX4vEy
 #account qe541o1goylh
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token qe541o1goylh)
+resulttokens=$(./cleos.sh get currency balance fio.token qe541o1goylh)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -4218,7 +4218,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6m4xCzPMR52E9nuyccHPBAm8bPjptLJN2jVGxBnkbFf6jX4vEy qe541o1goylh the amount in account qe541o1goylh does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 qe541o1goylh)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 qe541o1goylh)
 
 ownerfound=false
 label1=""
@@ -4266,7 +4266,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8jfie8E1S64PQoq8SjRTGkDwAhniDfsWa6eoQ1UCibmwwg4v5c
 #account u1eynxw4chhz
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token u1eynxw4chhz)
+resulttokens=$(./cleos.sh get currency balance fio.token u1eynxw4chhz)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -4278,7 +4278,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8jfie8E1S64PQoq8SjRTGkDwAhniDfsWa6eoQ1UCibmwwg4v5c u1eynxw4chhz the amount in account u1eynxw4chhz does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 u1eynxw4chhz)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 u1eynxw4chhz)
 
 ownerfound=false
 label1=""
@@ -4326,7 +4326,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7rXyu5yzZsuXgGGPFPoeBbes5B1gnmEUCcp8BztJyrwvx1RWuS
 #account aa1z3ditzxhh
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token aa1z3ditzxhh)
+resulttokens=$(./cleos.sh get currency balance fio.token aa1z3ditzxhh)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -4338,7 +4338,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7rXyu5yzZsuXgGGPFPoeBbes5B1gnmEUCcp8BztJyrwvx1RWuS aa1z3ditzxhh the amount in account aa1z3ditzxhh does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 aa1z3ditzxhh)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 aa1z3ditzxhh)
 
 ownerfound=false
 label1=""
@@ -4386,7 +4386,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6kmvqaoxMaDX2KJfakkvRu4cG6wuXrPvFR2246rYYqMW3cyYww
 #account pdqlh4wdxove
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token pdqlh4wdxove)
+resulttokens=$(./cleos.sh get currency balance fio.token pdqlh4wdxove)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -4398,7 +4398,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6kmvqaoxMaDX2KJfakkvRu4cG6wuXrPvFR2246rYYqMW3cyYww pdqlh4wdxove the amount in account pdqlh4wdxove does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 pdqlh4wdxove)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 pdqlh4wdxove)
 
 ownerfound=false
 label1=""
@@ -4446,7 +4446,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO767cVqe5hGYtrZWNbPgULKtpXmQSeAdmfnuxN4CjeQsof6GRrL
 #account 1dxnkwvtw31s
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 1dxnkwvtw31s)
+resulttokens=$(./cleos.sh get currency balance fio.token 1dxnkwvtw31s)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -4458,7 +4458,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO767cVqe5hGYtrZWNbPgULKtpXmQSeAdmfnuxN4CjeQsof6GRrL 1dxnkwvtw31s the amount in account 1dxnkwvtw31s does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 1dxnkwvtw31s)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 1dxnkwvtw31s)
 
 ownerfound=false
 label1=""
@@ -4506,7 +4506,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5y1FxxV8x5kzvZLoaECgSBpdAGo7QSbjnQYonaBiNsbwPoEiwm
 #account hnbt3y3mrnci
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token hnbt3y3mrnci)
+resulttokens=$(./cleos.sh get currency balance fio.token hnbt3y3mrnci)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -4518,7 +4518,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5y1FxxV8x5kzvZLoaECgSBpdAGo7QSbjnQYonaBiNsbwPoEiwm hnbt3y3mrnci the amount in account hnbt3y3mrnci does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 hnbt3y3mrnci)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 hnbt3y3mrnci)
 
 ownerfound=false
 label1=""
@@ -4566,7 +4566,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5AMDfEAKBWrhtMko3jYyH25wWCHeE7rYbid7XESCnzKs7GSRy9
 #account 42lffaemqmdv
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 42lffaemqmdv)
+resulttokens=$(./cleos.sh get currency balance fio.token 42lffaemqmdv)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -4578,7 +4578,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5AMDfEAKBWrhtMko3jYyH25wWCHeE7rYbid7XESCnzKs7GSRy9 42lffaemqmdv the amount in account 42lffaemqmdv does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 42lffaemqmdv)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 42lffaemqmdv)
 
 ownerfound=false
 label1=""
@@ -4626,7 +4626,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6VFdcUZZ16pwtLUBAbgF4sM5XTiZLyw4vy31UdeVnwRbjeQ7kg
 #account m1pxzuhijlj3
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token m1pxzuhijlj3)
+resulttokens=$(./cleos.sh get currency balance fio.token m1pxzuhijlj3)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -4638,7 +4638,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6VFdcUZZ16pwtLUBAbgF4sM5XTiZLyw4vy31UdeVnwRbjeQ7kg m1pxzuhijlj3 the amount in account m1pxzuhijlj3 does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 m1pxzuhijlj3)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 m1pxzuhijlj3)
 
 ownerfound=false
 label1=""
@@ -4686,7 +4686,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO56wZsTu5u4V1aWm4ZFWVeEjTHGEtXEHQfLTGsfdFFYq5AnSMnQ
 #account walgh1f4wneb
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token walgh1f4wneb)
+resulttokens=$(./cleos.sh get currency balance fio.token walgh1f4wneb)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -4698,7 +4698,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO56wZsTu5u4V1aWm4ZFWVeEjTHGEtXEHQfLTGsfdFFYq5AnSMnQ walgh1f4wneb the amount in account walgh1f4wneb does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 walgh1f4wneb)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 walgh1f4wneb)
 
 ownerfound=false
 label1=""
@@ -4746,7 +4746,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6BABrSfyuXsBcHcmMXdS6snbd4QZ218WjySzvMzMbbKHrw1A3v
 #account dfym3zu3uelk
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token dfym3zu3uelk)
+resulttokens=$(./cleos.sh get currency balance fio.token dfym3zu3uelk)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -4758,7 +4758,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6BABrSfyuXsBcHcmMXdS6snbd4QZ218WjySzvMzMbbKHrw1A3v dfym3zu3uelk the amount in account dfym3zu3uelk does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 dfym3zu3uelk)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 dfym3zu3uelk)
 
 ownerfound=false
 label1=""
@@ -4806,7 +4806,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6cqXMBtqvjoQygyezMJbY6JHK9meiuFqDHJVdWZhDy23u7wyfF
 #account 3uokc41aui1b
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 3uokc41aui1b)
+resulttokens=$(./cleos.sh get currency balance fio.token 3uokc41aui1b)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -4818,7 +4818,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6cqXMBtqvjoQygyezMJbY6JHK9meiuFqDHJVdWZhDy23u7wyfF 3uokc41aui1b the amount in account 3uokc41aui1b does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 3uokc41aui1b)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 3uokc41aui1b)
 
 ownerfound=false
 label1=""
@@ -4866,7 +4866,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8keAU9c45icW7fgjNW1STxSfWzcBZK86TYBDq3vxFjSn8K4UJF
 #account wqxrrhyqvqsz
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token wqxrrhyqvqsz)
+resulttokens=$(./cleos.sh get currency balance fio.token wqxrrhyqvqsz)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -4878,7 +4878,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8keAU9c45icW7fgjNW1STxSfWzcBZK86TYBDq3vxFjSn8K4UJF wqxrrhyqvqsz the amount in account wqxrrhyqvqsz does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 wqxrrhyqvqsz)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 wqxrrhyqvqsz)
 
 ownerfound=false
 label1=""
@@ -4926,7 +4926,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8SWkfococ6dM6gowNwGv3p9qJMNQKuP6ZvQUGRY6MexffoFWPh
 #account nhmqnalk5nfh
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token nhmqnalk5nfh)
+resulttokens=$(./cleos.sh get currency balance fio.token nhmqnalk5nfh)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -4938,7 +4938,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8SWkfococ6dM6gowNwGv3p9qJMNQKuP6ZvQUGRY6MexffoFWPh nhmqnalk5nfh the amount in account nhmqnalk5nfh does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 nhmqnalk5nfh)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 nhmqnalk5nfh)
 
 ownerfound=false
 label1=""
@@ -4986,7 +4986,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8Lyh4foRSry52rm8KG3cQx3tLcRkM5DTXaLitbqQpwphpvZzqj
 #account bvy3fcujlife
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token bvy3fcujlife)
+resulttokens=$(./cleos.sh get currency balance fio.token bvy3fcujlife)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -4998,7 +4998,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8Lyh4foRSry52rm8KG3cQx3tLcRkM5DTXaLitbqQpwphpvZzqj bvy3fcujlife the amount in account bvy3fcujlife does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 bvy3fcujlife)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 bvy3fcujlife)
 
 ownerfound=false
 label1=""
@@ -5046,7 +5046,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5hfq5h16ha9Qoji2ZDvBUXrwnp6xtRnq5Uu1ea61Zy7dEwp7Np
 #account f1yws4dfphqt
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token f1yws4dfphqt)
+resulttokens=$(./cleos.sh get currency balance fio.token f1yws4dfphqt)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -5058,7 +5058,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5hfq5h16ha9Qoji2ZDvBUXrwnp6xtRnq5Uu1ea61Zy7dEwp7Np f1yws4dfphqt the amount in account f1yws4dfphqt does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 f1yws4dfphqt)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 f1yws4dfphqt)
 
 ownerfound=false
 label1=""
@@ -5106,7 +5106,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8AfsgncSt9dLHde9895WdEMnm7uR5kCYbsJkzMx7b8d55LdFN3
 #account jo3sizaqi1la
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token jo3sizaqi1la)
+resulttokens=$(./cleos.sh get currency balance fio.token jo3sizaqi1la)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -5118,7 +5118,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8AfsgncSt9dLHde9895WdEMnm7uR5kCYbsJkzMx7b8d55LdFN3 jo3sizaqi1la the amount in account jo3sizaqi1la does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 jo3sizaqi1la)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 jo3sizaqi1la)
 
 ownerfound=false
 label1=""
@@ -5166,7 +5166,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7fbo27eKhHXXgdutdSXNKgtmmuQuA73gq8rsHXNepmECLtVwow
 #account hm4gsyy1gfbi
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token hm4gsyy1gfbi)
+resulttokens=$(./cleos.sh get currency balance fio.token hm4gsyy1gfbi)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -5178,7 +5178,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7fbo27eKhHXXgdutdSXNKgtmmuQuA73gq8rsHXNepmECLtVwow hm4gsyy1gfbi the amount in account hm4gsyy1gfbi does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 hm4gsyy1gfbi)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 hm4gsyy1gfbi)
 
 ownerfound=false
 label1=""
@@ -5226,7 +5226,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO55qpPgLTXgs4ob9jzWJ3k8wrHUoTQsEaEmkjvY1zrfSYTEs5ot
 #account tbeztseg2uja
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token tbeztseg2uja)
+resulttokens=$(./cleos.sh get currency balance fio.token tbeztseg2uja)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -5238,7 +5238,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO55qpPgLTXgs4ob9jzWJ3k8wrHUoTQsEaEmkjvY1zrfSYTEs5ot tbeztseg2uja the amount in account tbeztseg2uja does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 tbeztseg2uja)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 tbeztseg2uja)
 
 ownerfound=false
 label1=""
@@ -5286,7 +5286,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO52ctPZeRAs5d3xcCDLbd99CkiWaz4JBLNEHEv9n9gWQF4xT5DL
 #account mpviu5pcztxk
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token mpviu5pcztxk)
+resulttokens=$(./cleos.sh get currency balance fio.token mpviu5pcztxk)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -5298,7 +5298,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO52ctPZeRAs5d3xcCDLbd99CkiWaz4JBLNEHEv9n9gWQF4xT5DL mpviu5pcztxk the amount in account mpviu5pcztxk does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 mpviu5pcztxk)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 mpviu5pcztxk)
 
 ownerfound=false
 label1=""
@@ -5346,7 +5346,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5CCsLSYsYPTBiBBVDecEQ7yaBfWV8s1GPkWdpS3S4o61hfYshY
 #account ctks41k4knto
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token ctks41k4knto)
+resulttokens=$(./cleos.sh get currency balance fio.token ctks41k4knto)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -5358,7 +5358,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5CCsLSYsYPTBiBBVDecEQ7yaBfWV8s1GPkWdpS3S4o61hfYshY ctks41k4knto the amount in account ctks41k4knto does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 ctks41k4knto)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 ctks41k4knto)
 
 ownerfound=false
 label1=""
@@ -5406,7 +5406,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO4yhY5JYseM5JShp2Gh6qs8GK6MC39mo49vQ7pkN9zVUTcEVkhR
 #account foy45sunbcje
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token foy45sunbcje)
+resulttokens=$(./cleos.sh get currency balance fio.token foy45sunbcje)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -5418,7 +5418,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO4yhY5JYseM5JShp2Gh6qs8GK6MC39mo49vQ7pkN9zVUTcEVkhR foy45sunbcje the amount in account foy45sunbcje does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 foy45sunbcje)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 foy45sunbcje)
 
 ownerfound=false
 label1=""
@@ -5466,7 +5466,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6JWxX64xASgNxaetZy677LLFNCMxM99QN37V7CByXojXtUdGAQ
 #account uvybcknbijdu
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token uvybcknbijdu)
+resulttokens=$(./cleos.sh get currency balance fio.token uvybcknbijdu)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -5478,7 +5478,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6JWxX64xASgNxaetZy677LLFNCMxM99QN37V7CByXojXtUdGAQ uvybcknbijdu the amount in account uvybcknbijdu does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 uvybcknbijdu)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 uvybcknbijdu)
 
 ownerfound=false
 label1=""
@@ -5526,7 +5526,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7ZtJBt2J6R4pEcXFiWReDifpXRxxhgAyRnQdSiKYcy2qtWkbP5
 #account sw2sebwymmzx
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token sw2sebwymmzx)
+resulttokens=$(./cleos.sh get currency balance fio.token sw2sebwymmzx)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -5538,7 +5538,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7ZtJBt2J6R4pEcXFiWReDifpXRxxhgAyRnQdSiKYcy2qtWkbP5 sw2sebwymmzx the amount in account sw2sebwymmzx does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 sw2sebwymmzx)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 sw2sebwymmzx)
 
 ownerfound=false
 label1=""
@@ -5586,7 +5586,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7kndGzGCbBJsuydxkqEBF7NdLWpWdAD161QRRsBBxGyR2NAGSH
 #account ttthrvpg2rj2
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token ttthrvpg2rj2)
+resulttokens=$(./cleos.sh get currency balance fio.token ttthrvpg2rj2)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -5598,7 +5598,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7kndGzGCbBJsuydxkqEBF7NdLWpWdAD161QRRsBBxGyR2NAGSH ttthrvpg2rj2 the amount in account ttthrvpg2rj2 does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 ttthrvpg2rj2)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 ttthrvpg2rj2)
 
 ownerfound=false
 label1=""
@@ -5646,7 +5646,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6nVRRSucMT9cVx96HUs6y4b5fY1EphKYoUqRTahouS6K3Edars
 #account t5c5opnrqd5d
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token t5c5opnrqd5d)
+resulttokens=$(./cleos.sh get currency balance fio.token t5c5opnrqd5d)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -5658,7 +5658,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6nVRRSucMT9cVx96HUs6y4b5fY1EphKYoUqRTahouS6K3Edars t5c5opnrqd5d the amount in account t5c5opnrqd5d does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 t5c5opnrqd5d)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 t5c5opnrqd5d)
 
 ownerfound=false
 label1=""
@@ -5706,7 +5706,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7r8knctF5fqnPs1xaXgaKcgenCftNJsbixQsN8xfGjeEAvs5gZ
 #account 5xw1uyhhqin4
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 5xw1uyhhqin4)
+resulttokens=$(./cleos.sh get currency balance fio.token 5xw1uyhhqin4)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -5718,7 +5718,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7r8knctF5fqnPs1xaXgaKcgenCftNJsbixQsN8xfGjeEAvs5gZ 5xw1uyhhqin4 the amount in account 5xw1uyhhqin4 does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 5xw1uyhhqin4)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 5xw1uyhhqin4)
 
 ownerfound=false
 label1=""
@@ -5766,7 +5766,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7DEmDQFXni28QuHfzLxm5e78jjmwLh77eC7mK3WSuL7HyEesag
 #account lqvsbbeksob1
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token lqvsbbeksob1)
+resulttokens=$(./cleos.sh get currency balance fio.token lqvsbbeksob1)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -5778,7 +5778,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7DEmDQFXni28QuHfzLxm5e78jjmwLh77eC7mK3WSuL7HyEesag lqvsbbeksob1 the amount in account lqvsbbeksob1 does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 lqvsbbeksob1)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 lqvsbbeksob1)
 
 ownerfound=false
 label1=""
@@ -5826,7 +5826,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6VtQxL6oztKxnzfo3voDtTqBSEKS8Wk3CsVU4PBciJWdNndEJ7
 #account omqz2xbtkg3s
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token omqz2xbtkg3s)
+resulttokens=$(./cleos.sh get currency balance fio.token omqz2xbtkg3s)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -5838,7 +5838,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6VtQxL6oztKxnzfo3voDtTqBSEKS8Wk3CsVU4PBciJWdNndEJ7 omqz2xbtkg3s the amount in account omqz2xbtkg3s does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 omqz2xbtkg3s)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 omqz2xbtkg3s)
 
 ownerfound=false
 label1=""
@@ -5886,7 +5886,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8EqeD6RaC9vHycuX8JRceSmnWg4uPMawFpdBtkGret9AHVCmWe
 #account tf5bvpfr3w2l
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token tf5bvpfr3w2l)
+resulttokens=$(./cleos.sh get currency balance fio.token tf5bvpfr3w2l)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -5898,7 +5898,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8EqeD6RaC9vHycuX8JRceSmnWg4uPMawFpdBtkGret9AHVCmWe tf5bvpfr3w2l the amount in account tf5bvpfr3w2l does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 tf5bvpfr3w2l)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 tf5bvpfr3w2l)
 
 ownerfound=false
 label1=""
@@ -5946,7 +5946,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO52mh1XtAJQbetvhFxM2qGpNNvKKzp7QFAJBNWwcfNb19joiyfD
 #account mhqwkmrv2bti
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token mhqwkmrv2bti)
+resulttokens=$(./cleos.sh get currency balance fio.token mhqwkmrv2bti)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -5958,7 +5958,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO52mh1XtAJQbetvhFxM2qGpNNvKKzp7QFAJBNWwcfNb19joiyfD mhqwkmrv2bti the amount in account mhqwkmrv2bti does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 mhqwkmrv2bti)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 mhqwkmrv2bti)
 
 ownerfound=false
 label1=""
@@ -6006,7 +6006,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7PrEJ3eEeWyrZx5p6cNk7tnVjwdz51hg9perXX7k5wz5oEpbjy
 #account eitgokheil3t
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token eitgokheil3t)
+resulttokens=$(./cleos.sh get currency balance fio.token eitgokheil3t)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -6018,7 +6018,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7PrEJ3eEeWyrZx5p6cNk7tnVjwdz51hg9perXX7k5wz5oEpbjy eitgokheil3t the amount in account eitgokheil3t does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 eitgokheil3t)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 eitgokheil3t)
 
 ownerfound=false
 label1=""
@@ -6066,7 +6066,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5P7SwZ5jiMbcjwan3VwML9t57oZANdLDHwhZGWxt2Ui8VLnRd4
 #account xjlrb43om5hl
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token xjlrb43om5hl)
+resulttokens=$(./cleos.sh get currency balance fio.token xjlrb43om5hl)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -6078,7 +6078,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5P7SwZ5jiMbcjwan3VwML9t57oZANdLDHwhZGWxt2Ui8VLnRd4 xjlrb43om5hl the amount in account xjlrb43om5hl does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 xjlrb43om5hl)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 xjlrb43om5hl)
 
 ownerfound=false
 label1=""
@@ -6126,7 +6126,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO73q2qxPVbxvbDfcGqAtrbLqG71tHffwdXqzZdyirBLnMaKwvra
 #account wt3jjzczlbty
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token wt3jjzczlbty)
+resulttokens=$(./cleos.sh get currency balance fio.token wt3jjzczlbty)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -6138,7 +6138,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO73q2qxPVbxvbDfcGqAtrbLqG71tHffwdXqzZdyirBLnMaKwvra wt3jjzczlbty the amount in account wt3jjzczlbty does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 wt3jjzczlbty)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 wt3jjzczlbty)
 
 ownerfound=false
 label1=""
@@ -6186,7 +6186,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5TTLu4MCTi1FsGa63iNjnM4aDNe6TpXVgttbiFtsQSfEFMvt2w
 #account eunpco5awt5z
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token eunpco5awt5z)
+resulttokens=$(./cleos.sh get currency balance fio.token eunpco5awt5z)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -6198,7 +6198,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5TTLu4MCTi1FsGa63iNjnM4aDNe6TpXVgttbiFtsQSfEFMvt2w eunpco5awt5z the amount in account eunpco5awt5z does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 eunpco5awt5z)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 eunpco5awt5z)
 
 ownerfound=false
 label1=""
@@ -6246,7 +6246,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6JjPnUMG7cL5GN4hnK53yZcm6pPkhGS1BXcNPrK8Lp5vXFG37j
 #account uxxycclbl5du
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token uxxycclbl5du)
+resulttokens=$(./cleos.sh get currency balance fio.token uxxycclbl5du)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -6258,7 +6258,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6JjPnUMG7cL5GN4hnK53yZcm6pPkhGS1BXcNPrK8Lp5vXFG37j uxxycclbl5du the amount in account uxxycclbl5du does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 uxxycclbl5du)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 uxxycclbl5du)
 
 ownerfound=false
 label1=""
@@ -6306,7 +6306,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7wS6TBQdwCbcwcRLDYuqP26bZEQTq2kBMhDzxJGFgnmm6eSMSW
 #account l5bcr1cygpfq
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token l5bcr1cygpfq)
+resulttokens=$(./cleos.sh get currency balance fio.token l5bcr1cygpfq)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -6318,7 +6318,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7wS6TBQdwCbcwcRLDYuqP26bZEQTq2kBMhDzxJGFgnmm6eSMSW l5bcr1cygpfq the amount in account l5bcr1cygpfq does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 l5bcr1cygpfq)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 l5bcr1cygpfq)
 
 ownerfound=false
 label1=""
@@ -6366,7 +6366,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6CKwHgFp76jTSMh3w4ZykZKyqiu8K5pzc5HTsGwpBvoVm6NEKY
 #account gmu2wczk1mzb
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token gmu2wczk1mzb)
+resulttokens=$(./cleos.sh get currency balance fio.token gmu2wczk1mzb)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -6378,7 +6378,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6CKwHgFp76jTSMh3w4ZykZKyqiu8K5pzc5HTsGwpBvoVm6NEKY gmu2wczk1mzb the amount in account gmu2wczk1mzb does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 gmu2wczk1mzb)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 gmu2wczk1mzb)
 
 ownerfound=false
 label1=""
@@ -6426,7 +6426,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8DhzBAkTSqUvFPuZk7yHqdkQXALykh5acKVh9YK72Gpv3zvqCi
 #account qt4qkigtcxnt
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token qt4qkigtcxnt)
+resulttokens=$(./cleos.sh get currency balance fio.token qt4qkigtcxnt)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -6438,7 +6438,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8DhzBAkTSqUvFPuZk7yHqdkQXALykh5acKVh9YK72Gpv3zvqCi qt4qkigtcxnt the amount in account qt4qkigtcxnt does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 qt4qkigtcxnt)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 qt4qkigtcxnt)
 
 ownerfound=false
 label1=""
@@ -6486,7 +6486,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7p3AutVSEH5WLtGSz3hfA71u2EHvKMH3QG4f2LrvwLdhK31DGZ
 #account vqigapvjmoxn
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token vqigapvjmoxn)
+resulttokens=$(./cleos.sh get currency balance fio.token vqigapvjmoxn)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -6498,7 +6498,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7p3AutVSEH5WLtGSz3hfA71u2EHvKMH3QG4f2LrvwLdhK31DGZ vqigapvjmoxn the amount in account vqigapvjmoxn does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 vqigapvjmoxn)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 vqigapvjmoxn)
 
 ownerfound=false
 label1=""
@@ -6546,7 +6546,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7DHRj39sLn86gd26D7LiNPtSPrBSK8i3bVnofD6Dk3sj5asT2C
 #account mlhim3yc1n1y
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token mlhim3yc1n1y)
+resulttokens=$(./cleos.sh get currency balance fio.token mlhim3yc1n1y)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -6558,7 +6558,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7DHRj39sLn86gd26D7LiNPtSPrBSK8i3bVnofD6Dk3sj5asT2C mlhim3yc1n1y the amount in account mlhim3yc1n1y does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 mlhim3yc1n1y)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 mlhim3yc1n1y)
 
 ownerfound=false
 label1=""
@@ -6606,7 +6606,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5exEeM8nr2AJRJrtirbtgibaHmvMkMnHnGtBVvL71B4JgwCkLf
 #account 4pp2l4ixkmp2
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 4pp2l4ixkmp2)
+resulttokens=$(./cleos.sh get currency balance fio.token 4pp2l4ixkmp2)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -6618,7 +6618,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5exEeM8nr2AJRJrtirbtgibaHmvMkMnHnGtBVvL71B4JgwCkLf 4pp2l4ixkmp2 the amount in account 4pp2l4ixkmp2 does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 4pp2l4ixkmp2)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 4pp2l4ixkmp2)
 
 ownerfound=false
 label1=""
@@ -6666,7 +6666,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO53UacjrTgMH9xud4aAqNZBDWhALtbe3ckNTaaEBfrEftJHF6MH
 #account ob3nr24lbsia
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token ob3nr24lbsia)
+resulttokens=$(./cleos.sh get currency balance fio.token ob3nr24lbsia)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -6678,7 +6678,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO53UacjrTgMH9xud4aAqNZBDWhALtbe3ckNTaaEBfrEftJHF6MH ob3nr24lbsia the amount in account ob3nr24lbsia does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 ob3nr24lbsia)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 ob3nr24lbsia)
 
 ownerfound=false
 label1=""
@@ -6726,7 +6726,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO68RgStXiuP5FBN5FfRqf9R22cwhuLG72rvxvHRqu9V9PZ2uCPH
 #account 3rhxd2ylt1jj
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 3rhxd2ylt1jj)
+resulttokens=$(./cleos.sh get currency balance fio.token 3rhxd2ylt1jj)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -6738,7 +6738,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO68RgStXiuP5FBN5FfRqf9R22cwhuLG72rvxvHRqu9V9PZ2uCPH 3rhxd2ylt1jj the amount in account 3rhxd2ylt1jj does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 3rhxd2ylt1jj)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 3rhxd2ylt1jj)
 
 ownerfound=false
 label1=""
@@ -6786,7 +6786,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5xM6ekig8NtVqntorBvGdP2DMnU4goELVLYx2N3RtwmueozTKJ
 #account gooau4igyqrt
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token gooau4igyqrt)
+resulttokens=$(./cleos.sh get currency balance fio.token gooau4igyqrt)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -6798,7 +6798,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5xM6ekig8NtVqntorBvGdP2DMnU4goELVLYx2N3RtwmueozTKJ gooau4igyqrt the amount in account gooau4igyqrt does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 gooau4igyqrt)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 gooau4igyqrt)
 
 ownerfound=false
 label1=""
@@ -6846,7 +6846,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6gGt6Tm1eBhemof83GaFfBh12fL9VZNioSs27eD3re2tgooyww
 #account fciohugqtz2g
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token fciohugqtz2g)
+resulttokens=$(./cleos.sh get currency balance fio.token fciohugqtz2g)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -6858,7 +6858,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6gGt6Tm1eBhemof83GaFfBh12fL9VZNioSs27eD3re2tgooyww fciohugqtz2g the amount in account fciohugqtz2g does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 fciohugqtz2g)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 fciohugqtz2g)
 
 ownerfound=false
 label1=""
@@ -6906,7 +6906,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5dPMcbgQN2mN8LHovTHwZsnWcWqrGNzmHcbjifi296vsQFptho
 #account 1abu2fx2z1fy
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 1abu2fx2z1fy)
+resulttokens=$(./cleos.sh get currency balance fio.token 1abu2fx2z1fy)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -6918,7 +6918,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5dPMcbgQN2mN8LHovTHwZsnWcWqrGNzmHcbjifi296vsQFptho 1abu2fx2z1fy the amount in account 1abu2fx2z1fy does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 1abu2fx2z1fy)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 1abu2fx2z1fy)
 
 ownerfound=false
 label1=""
@@ -6966,7 +6966,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7wuiuMNW64LfSX9n18kkMvweUaJqUhDXNmk2o2LEn7M3fzeyeL
 #account muggcdjzkg5k
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token muggcdjzkg5k)
+resulttokens=$(./cleos.sh get currency balance fio.token muggcdjzkg5k)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -6978,7 +6978,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7wuiuMNW64LfSX9n18kkMvweUaJqUhDXNmk2o2LEn7M3fzeyeL muggcdjzkg5k the amount in account muggcdjzkg5k does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 muggcdjzkg5k)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 muggcdjzkg5k)
 
 ownerfound=false
 label1=""
@@ -7026,7 +7026,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6ua9YW81L5558TtdzAqwEE6GJkWZ4AMRxLqXJXyY7hixYSXQq9
 #account dtvcjtchid43
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token dtvcjtchid43)
+resulttokens=$(./cleos.sh get currency balance fio.token dtvcjtchid43)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -7038,7 +7038,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6ua9YW81L5558TtdzAqwEE6GJkWZ4AMRxLqXJXyY7hixYSXQq9 dtvcjtchid43 the amount in account dtvcjtchid43 does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 dtvcjtchid43)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 dtvcjtchid43)
 
 ownerfound=false
 label1=""
@@ -7086,7 +7086,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7JRrKkHvArAsRN6yn4xJUvvAfmZM5GLBS7WDpnzq46rKvzSDrQ
 #account x1owsqe5ljsl
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token x1owsqe5ljsl)
+resulttokens=$(./cleos.sh get currency balance fio.token x1owsqe5ljsl)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -7098,7 +7098,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7JRrKkHvArAsRN6yn4xJUvvAfmZM5GLBS7WDpnzq46rKvzSDrQ x1owsqe5ljsl the amount in account x1owsqe5ljsl does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 x1owsqe5ljsl)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 x1owsqe5ljsl)
 
 ownerfound=false
 label1=""
@@ -7146,7 +7146,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6FGYhNQyxq1JZuB33hcria3MGk1VQqTgqy1QeoUPZ66oxbbTa2
 #account msyogoc3k54z
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token msyogoc3k54z)
+resulttokens=$(./cleos.sh get currency balance fio.token msyogoc3k54z)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -7158,7 +7158,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6FGYhNQyxq1JZuB33hcria3MGk1VQqTgqy1QeoUPZ66oxbbTa2 msyogoc3k54z the amount in account msyogoc3k54z does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 msyogoc3k54z)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 msyogoc3k54z)
 
 ownerfound=false
 label1=""
@@ -7206,7 +7206,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6mZMdnvL3ckKxyN2SAnSP6ZcbwC5sU7ufF5Mx9RpVZ3P6DmdBP
 #account rbkndlq3x3dm
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token rbkndlq3x3dm)
+resulttokens=$(./cleos.sh get currency balance fio.token rbkndlq3x3dm)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -7218,7 +7218,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6mZMdnvL3ckKxyN2SAnSP6ZcbwC5sU7ufF5Mx9RpVZ3P6DmdBP rbkndlq3x3dm the amount in account rbkndlq3x3dm does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 rbkndlq3x3dm)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 rbkndlq3x3dm)
 
 ownerfound=false
 label1=""
@@ -7266,7 +7266,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8EgRKHcx7VH14q2WhrUP4vRWvKdC6Lbt12uXEhvp311Prgt9Hw
 #account sjszzwmdvj5z
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token sjszzwmdvj5z)
+resulttokens=$(./cleos.sh get currency balance fio.token sjszzwmdvj5z)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -7278,7 +7278,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8EgRKHcx7VH14q2WhrUP4vRWvKdC6Lbt12uXEhvp311Prgt9Hw sjszzwmdvj5z the amount in account sjszzwmdvj5z does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 sjszzwmdvj5z)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 sjszzwmdvj5z)
 
 ownerfound=false
 label1=""
@@ -7326,7 +7326,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7P9NQW657x6SmBAjM79okBKoa9Q2E9zjUN52ouPYzt75fZ5ELx
 #account cpsse1mdvaxm
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token cpsse1mdvaxm)
+resulttokens=$(./cleos.sh get currency balance fio.token cpsse1mdvaxm)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -7338,7 +7338,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7P9NQW657x6SmBAjM79okBKoa9Q2E9zjUN52ouPYzt75fZ5ELx cpsse1mdvaxm the amount in account cpsse1mdvaxm does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 cpsse1mdvaxm)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 cpsse1mdvaxm)
 
 ownerfound=false
 label1=""
@@ -7386,7 +7386,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7YySYrjaGkzzUWthuYk4i7X3vgnVQ7H9rnCyqTBgQvpZL8jcwq
 #account ya2y5je3vz2k
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token ya2y5je3vz2k)
+resulttokens=$(./cleos.sh get currency balance fio.token ya2y5je3vz2k)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -7398,7 +7398,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7YySYrjaGkzzUWthuYk4i7X3vgnVQ7H9rnCyqTBgQvpZL8jcwq ya2y5je3vz2k the amount in account ya2y5je3vz2k does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 ya2y5je3vz2k)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 ya2y5je3vz2k)
 
 ownerfound=false
 label1=""
@@ -7446,7 +7446,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5BF2QuytssedGF7PLnt36WFB1Xp9ZHXyiLX7sW4LxA7H9cHuei
 #account ae5ejweqmqo1
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token ae5ejweqmqo1)
+resulttokens=$(./cleos.sh get currency balance fio.token ae5ejweqmqo1)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -7458,7 +7458,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5BF2QuytssedGF7PLnt36WFB1Xp9ZHXyiLX7sW4LxA7H9cHuei ae5ejweqmqo1 the amount in account ae5ejweqmqo1 does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 ae5ejweqmqo1)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 ae5ejweqmqo1)
 
 ownerfound=false
 label1=""
@@ -7506,7 +7506,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5KN13XBetWdSBFNMXaVJFf519fsaRXuZZ3Gs2yNaQY3h77aWTu
 #account sugiahlvdrbt
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token sugiahlvdrbt)
+resulttokens=$(./cleos.sh get currency balance fio.token sugiahlvdrbt)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -7518,7 +7518,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5KN13XBetWdSBFNMXaVJFf519fsaRXuZZ3Gs2yNaQY3h77aWTu sugiahlvdrbt the amount in account sugiahlvdrbt does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 sugiahlvdrbt)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 sugiahlvdrbt)
 
 ownerfound=false
 label1=""
@@ -7566,7 +7566,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5EdsbU5NPBB1YDoMNJS7WHRbVjMtwoFtSMKoMFWvpigEMNixE7
 #account hysv2nrgicvx
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token hysv2nrgicvx)
+resulttokens=$(./cleos.sh get currency balance fio.token hysv2nrgicvx)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -7578,7 +7578,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5EdsbU5NPBB1YDoMNJS7WHRbVjMtwoFtSMKoMFWvpigEMNixE7 hysv2nrgicvx the amount in account hysv2nrgicvx does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 hysv2nrgicvx)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 hysv2nrgicvx)
 
 ownerfound=false
 label1=""
@@ -7626,7 +7626,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO89mJGQ5tVM9Dpds3mwTfCy3ELxj7M3NvtTPSUTABq7RRTUvvgx
 #account h5rvdxh2vvmo
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token h5rvdxh2vvmo)
+resulttokens=$(./cleos.sh get currency balance fio.token h5rvdxh2vvmo)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -7638,7 +7638,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO89mJGQ5tVM9Dpds3mwTfCy3ELxj7M3NvtTPSUTABq7RRTUvvgx h5rvdxh2vvmo the amount in account h5rvdxh2vvmo does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 h5rvdxh2vvmo)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 h5rvdxh2vvmo)
 
 ownerfound=false
 label1=""
@@ -7686,7 +7686,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8ei86f4ncmnCpWFGsftz5rx3kAStZZ3BpbHbzyR7XaWruPSqz7
 #account jyycflvhz2in
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token jyycflvhz2in)
+resulttokens=$(./cleos.sh get currency balance fio.token jyycflvhz2in)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -7698,7 +7698,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8ei86f4ncmnCpWFGsftz5rx3kAStZZ3BpbHbzyR7XaWruPSqz7 jyycflvhz2in the amount in account jyycflvhz2in does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 jyycflvhz2in)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 jyycflvhz2in)
 
 ownerfound=false
 label1=""
@@ -7746,7 +7746,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6s2cdUVtdSTn7MjVArgxdTuDAGCThovYNZ9KDGZiBwgYqLZWAw
 #account 4n5teulwbfqt
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 4n5teulwbfqt)
+resulttokens=$(./cleos.sh get currency balance fio.token 4n5teulwbfqt)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -7758,7 +7758,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6s2cdUVtdSTn7MjVArgxdTuDAGCThovYNZ9KDGZiBwgYqLZWAw 4n5teulwbfqt the amount in account 4n5teulwbfqt does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 4n5teulwbfqt)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 4n5teulwbfqt)
 
 ownerfound=false
 label1=""
@@ -7806,7 +7806,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6jfjwR8cTN72tCe6iRuL9Ef516ZQnd8RarcnQmRCJLWmdZBZAR
 #account nwxkkx5xyrx2
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token nwxkkx5xyrx2)
+resulttokens=$(./cleos.sh get currency balance fio.token nwxkkx5xyrx2)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -7818,7 +7818,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6jfjwR8cTN72tCe6iRuL9Ef516ZQnd8RarcnQmRCJLWmdZBZAR nwxkkx5xyrx2 the amount in account nwxkkx5xyrx2 does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 nwxkkx5xyrx2)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 nwxkkx5xyrx2)
 
 ownerfound=false
 label1=""
@@ -7866,7 +7866,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6iDH8mGLynTHieEGgUWY94LLBXaWSBphAURbMDAAgw1jVtvqvA
 #account ki1gugl1hml4
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token ki1gugl1hml4)
+resulttokens=$(./cleos.sh get currency balance fio.token ki1gugl1hml4)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -7878,7 +7878,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6iDH8mGLynTHieEGgUWY94LLBXaWSBphAURbMDAAgw1jVtvqvA ki1gugl1hml4 the amount in account ki1gugl1hml4 does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 ki1gugl1hml4)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 ki1gugl1hml4)
 
 ownerfound=false
 label1=""
@@ -7926,7 +7926,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8XzHyNA8SjupHn8oM4AQL2Jskj8GPz5h8edymvMuZApoqRPRD5
 #account vs2eqx4hi5zd
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token vs2eqx4hi5zd)
+resulttokens=$(./cleos.sh get currency balance fio.token vs2eqx4hi5zd)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -7938,7 +7938,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8XzHyNA8SjupHn8oM4AQL2Jskj8GPz5h8edymvMuZApoqRPRD5 vs2eqx4hi5zd the amount in account vs2eqx4hi5zd does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 vs2eqx4hi5zd)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 vs2eqx4hi5zd)
 
 ownerfound=false
 label1=""
@@ -7986,7 +7986,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5oZkvNbUsZn5T2TVnyVzi2RwqjBJJLBAXYRdnLe4bBjon3mNXw
 #account s3lr2k1ssubv
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token s3lr2k1ssubv)
+resulttokens=$(./cleos.sh get currency balance fio.token s3lr2k1ssubv)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -7998,7 +7998,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5oZkvNbUsZn5T2TVnyVzi2RwqjBJJLBAXYRdnLe4bBjon3mNXw s3lr2k1ssubv the amount in account s3lr2k1ssubv does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 s3lr2k1ssubv)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 s3lr2k1ssubv)
 
 ownerfound=false
 label1=""
@@ -8046,7 +8046,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8j6sfPM5CJ2TQQmfdjJJxarLFksXWfDCpuNtGQMctryAFQajT5
 #account trzwzbw23dwq
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token trzwzbw23dwq)
+resulttokens=$(./cleos.sh get currency balance fio.token trzwzbw23dwq)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -8058,7 +8058,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8j6sfPM5CJ2TQQmfdjJJxarLFksXWfDCpuNtGQMctryAFQajT5 trzwzbw23dwq the amount in account trzwzbw23dwq does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 trzwzbw23dwq)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 trzwzbw23dwq)
 
 ownerfound=false
 label1=""
@@ -8106,7 +8106,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7r2TiJoFX7jEogtopVvZo1iJiKpS1S1GqPyzJ6cCA9MJoSxWMc
 #account 5yaqb3bonc2y
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 5yaqb3bonc2y)
+resulttokens=$(./cleos.sh get currency balance fio.token 5yaqb3bonc2y)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -8118,7 +8118,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7r2TiJoFX7jEogtopVvZo1iJiKpS1S1GqPyzJ6cCA9MJoSxWMc 5yaqb3bonc2y the amount in account 5yaqb3bonc2y does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 5yaqb3bonc2y)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 5yaqb3bonc2y)
 
 ownerfound=false
 label1=""
@@ -8166,7 +8166,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5NhRrZnHyEseRLNdkj5f2oJcjQdsnbo6icCjqPQyYCLorphpRS
 #account gs2hwrme23gd
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token gs2hwrme23gd)
+resulttokens=$(./cleos.sh get currency balance fio.token gs2hwrme23gd)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -8178,7 +8178,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5NhRrZnHyEseRLNdkj5f2oJcjQdsnbo6icCjqPQyYCLorphpRS gs2hwrme23gd the amount in account gs2hwrme23gd does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 gs2hwrme23gd)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 gs2hwrme23gd)
 
 ownerfound=false
 label1=""
@@ -8226,7 +8226,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5Ez6AGD818hD5nbcL2SkN8FWwVkmVeRSPanqgdeFaYRXmAS8Ai
 #account ido555zod2ty
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token ido555zod2ty)
+resulttokens=$(./cleos.sh get currency balance fio.token ido555zod2ty)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -8238,7 +8238,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5Ez6AGD818hD5nbcL2SkN8FWwVkmVeRSPanqgdeFaYRXmAS8Ai ido555zod2ty the amount in account ido555zod2ty does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 ido555zod2ty)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 ido555zod2ty)
 
 ownerfound=false
 label1=""
@@ -8286,7 +8286,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6mL9ppYFJrDywSyF5B3qujH5xisqkCcL3MdENa8A4jgjJUyUQo
 #account r3w1w2p354qd
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token r3w1w2p354qd)
+resulttokens=$(./cleos.sh get currency balance fio.token r3w1w2p354qd)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -8298,7 +8298,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6mL9ppYFJrDywSyF5B3qujH5xisqkCcL3MdENa8A4jgjJUyUQo r3w1w2p354qd the amount in account r3w1w2p354qd does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 r3w1w2p354qd)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 r3w1w2p354qd)
 
 ownerfound=false
 label1=""
@@ -8346,7 +8346,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6QgP172Rhz4tem9EU1b9ig5TftLxGfnb4FsB8dVzxe459Numrq
 #account czqvtfk1uvkm
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token czqvtfk1uvkm)
+resulttokens=$(./cleos.sh get currency balance fio.token czqvtfk1uvkm)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -8358,7 +8358,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6QgP172Rhz4tem9EU1b9ig5TftLxGfnb4FsB8dVzxe459Numrq czqvtfk1uvkm the amount in account czqvtfk1uvkm does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 czqvtfk1uvkm)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 czqvtfk1uvkm)
 
 ownerfound=false
 label1=""
@@ -8406,7 +8406,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO65pY5bjBKH9vMK5Xu7he3eTzqGWF183EFcT2UqdnJwoCsah4LT
 #account xgauy2u1ks5t
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token xgauy2u1ks5t)
+resulttokens=$(./cleos.sh get currency balance fio.token xgauy2u1ks5t)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -8418,7 +8418,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO65pY5bjBKH9vMK5Xu7he3eTzqGWF183EFcT2UqdnJwoCsah4LT xgauy2u1ks5t the amount in account xgauy2u1ks5t does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 xgauy2u1ks5t)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 xgauy2u1ks5t)
 
 ownerfound=false
 label1=""
@@ -8466,7 +8466,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO64q3ZSNBcLXrhz93St94eruf7nE2ew2SeptUwrQeozNM6d5Ghu
 #account vgrbduebaobk
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token vgrbduebaobk)
+resulttokens=$(./cleos.sh get currency balance fio.token vgrbduebaobk)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -8478,7 +8478,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO64q3ZSNBcLXrhz93St94eruf7nE2ew2SeptUwrQeozNM6d5Ghu vgrbduebaobk the amount in account vgrbduebaobk does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 vgrbduebaobk)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 vgrbduebaobk)
 
 ownerfound=false
 label1=""
@@ -8526,7 +8526,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8JcKeXXyffqM8gpYSVf9zrsNXW9iaq6qqrVi4iuxekhEbxe3XS
 #account 1v5mcyzkppdp
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 1v5mcyzkppdp)
+resulttokens=$(./cleos.sh get currency balance fio.token 1v5mcyzkppdp)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -8538,7 +8538,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8JcKeXXyffqM8gpYSVf9zrsNXW9iaq6qqrVi4iuxekhEbxe3XS 1v5mcyzkppdp the amount in account 1v5mcyzkppdp does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 1v5mcyzkppdp)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 1v5mcyzkppdp)
 
 ownerfound=false
 label1=""
@@ -8586,7 +8586,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8BwkYzG77sFvZsjKxHf8JudbNp6rcMQg9anS9myH85Zjyt3pf8
 #account msdubdhojute
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token msdubdhojute)
+resulttokens=$(./cleos.sh get currency balance fio.token msdubdhojute)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -8598,7 +8598,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8BwkYzG77sFvZsjKxHf8JudbNp6rcMQg9anS9myH85Zjyt3pf8 msdubdhojute the amount in account msdubdhojute does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 msdubdhojute)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 msdubdhojute)
 
 ownerfound=false
 label1=""
@@ -8646,7 +8646,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5L7XkSbtWkcBNfPEXwz1EF9rYqBb8wTAJsoRwJXNVbUAQxES3i
 #account uih15bnvp43h
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token uih15bnvp43h)
+resulttokens=$(./cleos.sh get currency balance fio.token uih15bnvp43h)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -8658,7 +8658,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5L7XkSbtWkcBNfPEXwz1EF9rYqBb8wTAJsoRwJXNVbUAQxES3i uih15bnvp43h the amount in account uih15bnvp43h does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 uih15bnvp43h)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 uih15bnvp43h)
 
 ownerfound=false
 label1=""
@@ -8706,7 +8706,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5uarKjm1wmy9uu5PPudmzZT9GfmkwNhbi3i4rDptEo7KfCxP7b
 #account ain3zyiremg3
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token ain3zyiremg3)
+resulttokens=$(./cleos.sh get currency balance fio.token ain3zyiremg3)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -8718,7 +8718,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5uarKjm1wmy9uu5PPudmzZT9GfmkwNhbi3i4rDptEo7KfCxP7b ain3zyiremg3 the amount in account ain3zyiremg3 does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 ain3zyiremg3)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 ain3zyiremg3)
 
 ownerfound=false
 label1=""
@@ -8766,7 +8766,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO4xBqRcxq3ZXJ7aQdNF5V7jv7AvfsMC9Z31fJyWnUTgp38WzhMU
 #account c5hvqtfbypu3
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token c5hvqtfbypu3)
+resulttokens=$(./cleos.sh get currency balance fio.token c5hvqtfbypu3)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -8778,7 +8778,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO4xBqRcxq3ZXJ7aQdNF5V7jv7AvfsMC9Z31fJyWnUTgp38WzhMU c5hvqtfbypu3 the amount in account c5hvqtfbypu3 does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 c5hvqtfbypu3)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 c5hvqtfbypu3)
 
 ownerfound=false
 label1=""
@@ -8826,7 +8826,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5Wt3t7QDLwbkw8ydcvRPUWxzdV74WqxmdanyHcavXC2nnDBzzZ
 #account m1aevrwtnmu4
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token m1aevrwtnmu4)
+resulttokens=$(./cleos.sh get currency balance fio.token m1aevrwtnmu4)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -8838,7 +8838,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5Wt3t7QDLwbkw8ydcvRPUWxzdV74WqxmdanyHcavXC2nnDBzzZ m1aevrwtnmu4 the amount in account m1aevrwtnmu4 does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 m1aevrwtnmu4)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 m1aevrwtnmu4)
 
 ownerfound=false
 label1=""
@@ -8886,7 +8886,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6uBqVgFiKLmZoU4BwncMNN51Vj2S9qRoDgU1U6SuibiNTsX3r5
 #account cuesfioaymci
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token cuesfioaymci)
+resulttokens=$(./cleos.sh get currency balance fio.token cuesfioaymci)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -8898,7 +8898,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6uBqVgFiKLmZoU4BwncMNN51Vj2S9qRoDgU1U6SuibiNTsX3r5 cuesfioaymci the amount in account cuesfioaymci does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 cuesfioaymci)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 cuesfioaymci)
 
 ownerfound=false
 label1=""
@@ -8946,7 +8946,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6WTZ5S6Mu3NGWDeCxDybmsDeNUJDqRyMthifKbJZWkvKvai7AF
 #account pyr3sevfxcad
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token pyr3sevfxcad)
+resulttokens=$(./cleos.sh get currency balance fio.token pyr3sevfxcad)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -8958,7 +8958,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6WTZ5S6Mu3NGWDeCxDybmsDeNUJDqRyMthifKbJZWkvKvai7AF pyr3sevfxcad the amount in account pyr3sevfxcad does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 pyr3sevfxcad)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 pyr3sevfxcad)
 
 ownerfound=false
 label1=""
@@ -9006,7 +9006,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7gJSfpVDtXKPsa8nRUvREkws7AMnw7JqUrYXsTgjx6GUvAYPNC
 #account jdcdtbtvojzd
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token jdcdtbtvojzd)
+resulttokens=$(./cleos.sh get currency balance fio.token jdcdtbtvojzd)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -9018,7 +9018,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7gJSfpVDtXKPsa8nRUvREkws7AMnw7JqUrYXsTgjx6GUvAYPNC jdcdtbtvojzd the amount in account jdcdtbtvojzd does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 jdcdtbtvojzd)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 jdcdtbtvojzd)
 
 ownerfound=false
 label1=""
@@ -9066,7 +9066,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8fXuFVj7JyoNVGUqmwDpgW4RZpVzFMrBja8v4LURPkkPq88fMh
 #account lxp1qqjdat5o
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token lxp1qqjdat5o)
+resulttokens=$(./cleos.sh get currency balance fio.token lxp1qqjdat5o)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -9078,7 +9078,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8fXuFVj7JyoNVGUqmwDpgW4RZpVzFMrBja8v4LURPkkPq88fMh lxp1qqjdat5o the amount in account lxp1qqjdat5o does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 lxp1qqjdat5o)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 lxp1qqjdat5o)
 
 ownerfound=false
 label1=""
@@ -9126,7 +9126,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5pNL39K51ZPa3gL8rui7kfpByp2MkigLtjxdZzVPgWCxFbqKfz
 #account uqi3maehckxk
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token uqi3maehckxk)
+resulttokens=$(./cleos.sh get currency balance fio.token uqi3maehckxk)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -9138,7 +9138,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5pNL39K51ZPa3gL8rui7kfpByp2MkigLtjxdZzVPgWCxFbqKfz uqi3maehckxk the amount in account uqi3maehckxk does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 uqi3maehckxk)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 uqi3maehckxk)
 
 ownerfound=false
 label1=""
@@ -9186,7 +9186,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7izX9atGGtsFAP6xqC5g79sqjpzrexGMpNeQWUg7X9bbjmURDc
 #account payypnaf5kww
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token payypnaf5kww)
+resulttokens=$(./cleos.sh get currency balance fio.token payypnaf5kww)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -9198,7 +9198,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7izX9atGGtsFAP6xqC5g79sqjpzrexGMpNeQWUg7X9bbjmURDc payypnaf5kww the amount in account payypnaf5kww does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 payypnaf5kww)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 payypnaf5kww)
 
 ownerfound=false
 label1=""
@@ -9246,7 +9246,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5auqUD7rCkE6GWW9MzNUtSKdfANNsf4KiR8DC6KxbAfPMKaryr
 #account vcehqb25xrs3
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token vcehqb25xrs3)
+resulttokens=$(./cleos.sh get currency balance fio.token vcehqb25xrs3)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -9258,7 +9258,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5auqUD7rCkE6GWW9MzNUtSKdfANNsf4KiR8DC6KxbAfPMKaryr vcehqb25xrs3 the amount in account vcehqb25xrs3 does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 vcehqb25xrs3)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 vcehqb25xrs3)
 
 ownerfound=false
 label1=""
@@ -9306,7 +9306,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5bDNX3tsjkSA8kpyLvGtyHe1nQpizBvspK6GvnKhnhYTsrMP3f
 #account wsc1lvpohajq
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token wsc1lvpohajq)
+resulttokens=$(./cleos.sh get currency balance fio.token wsc1lvpohajq)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -9318,7 +9318,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5bDNX3tsjkSA8kpyLvGtyHe1nQpizBvspK6GvnKhnhYTsrMP3f wsc1lvpohajq the amount in account wsc1lvpohajq does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 wsc1lvpohajq)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 wsc1lvpohajq)
 
 ownerfound=false
 label1=""
@@ -9366,7 +9366,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7vPzZnXjD49C39oJu7syJshNEA2bK48k3pcD479BCTbhYeCmC8
 #account jfkvuglqbhjv
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token jfkvuglqbhjv)
+resulttokens=$(./cleos.sh get currency balance fio.token jfkvuglqbhjv)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -9378,7 +9378,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7vPzZnXjD49C39oJu7syJshNEA2bK48k3pcD479BCTbhYeCmC8 jfkvuglqbhjv the amount in account jfkvuglqbhjv does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 jfkvuglqbhjv)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 jfkvuglqbhjv)
 
 ownerfound=false
 label1=""
@@ -9426,7 +9426,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO842nSjR35LpC6DyhAUAfydTQW13RUsU5Gt5HG5MaRKkoESujE6
 #account 1xyj1i2j1kko
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 1xyj1i2j1kko)
+resulttokens=$(./cleos.sh get currency balance fio.token 1xyj1i2j1kko)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -9438,7 +9438,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO842nSjR35LpC6DyhAUAfydTQW13RUsU5Gt5HG5MaRKkoESujE6 1xyj1i2j1kko the amount in account 1xyj1i2j1kko does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 1xyj1i2j1kko)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 1xyj1i2j1kko)
 
 ownerfound=false
 label1=""
@@ -9486,7 +9486,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5UQMB4WTytgFm4f6Z5oNRELkaGfj7hnsSKA1H1tBnoVor5XMey
 #account h1quqf5tklcs
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token h1quqf5tklcs)
+resulttokens=$(./cleos.sh get currency balance fio.token h1quqf5tklcs)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -9498,7 +9498,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5UQMB4WTytgFm4f6Z5oNRELkaGfj7hnsSKA1H1tBnoVor5XMey h1quqf5tklcs the amount in account h1quqf5tklcs does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 h1quqf5tklcs)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 h1quqf5tklcs)
 
 ownerfound=false
 label1=""
@@ -9546,7 +9546,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO58ms74WoYhGpHhokoxQSkRumGu792uvmxmwCAzU5eNQWrcrk33
 #account j2q1ajc4vuft
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token j2q1ajc4vuft)
+resulttokens=$(./cleos.sh get currency balance fio.token j2q1ajc4vuft)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -9558,7 +9558,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO58ms74WoYhGpHhokoxQSkRumGu792uvmxmwCAzU5eNQWrcrk33 j2q1ajc4vuft the amount in account j2q1ajc4vuft does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 j2q1ajc4vuft)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 j2q1ajc4vuft)
 
 ownerfound=false
 label1=""
@@ -9606,7 +9606,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6hXzj2FTsW7PdojFrdYPRmxZcfLqve4Zm5gogMuTeaXz11USCB
 #account i4joti2tttti
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token i4joti2tttti)
+resulttokens=$(./cleos.sh get currency balance fio.token i4joti2tttti)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -9618,7 +9618,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6hXzj2FTsW7PdojFrdYPRmxZcfLqve4Zm5gogMuTeaXz11USCB i4joti2tttti the amount in account i4joti2tttti does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 i4joti2tttti)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 i4joti2tttti)
 
 ownerfound=false
 label1=""
@@ -9666,7 +9666,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO67n3ihrkqQkMEYy93iUB5g6b1NHjttft4oS9AuDubSUJ4UJAcQ
 #account 1y3fc1awpiyo
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 1y3fc1awpiyo)
+resulttokens=$(./cleos.sh get currency balance fio.token 1y3fc1awpiyo)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -9678,7 +9678,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO67n3ihrkqQkMEYy93iUB5g6b1NHjttft4oS9AuDubSUJ4UJAcQ 1y3fc1awpiyo the amount in account 1y3fc1awpiyo does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 1y3fc1awpiyo)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 1y3fc1awpiyo)
 
 ownerfound=false
 label1=""
@@ -9726,7 +9726,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5KK4dtEyXPJezqE2J2kefvN9CCWmeSsduWohMdFnLV4JwtJ1zf
 #account swubpxvmdesx
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token swubpxvmdesx)
+resulttokens=$(./cleos.sh get currency balance fio.token swubpxvmdesx)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -9738,7 +9738,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5KK4dtEyXPJezqE2J2kefvN9CCWmeSsduWohMdFnLV4JwtJ1zf swubpxvmdesx the amount in account swubpxvmdesx does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 swubpxvmdesx)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 swubpxvmdesx)
 
 ownerfound=false
 label1=""
@@ -9786,7 +9786,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO61stYNPiZczrryM2odq5kxEfwqXarsJZ5gVHKYyanRm82wuL5Y
 #account ot24hy3r2eyi
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token ot24hy3r2eyi)
+resulttokens=$(./cleos.sh get currency balance fio.token ot24hy3r2eyi)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -9798,7 +9798,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO61stYNPiZczrryM2odq5kxEfwqXarsJZ5gVHKYyanRm82wuL5Y ot24hy3r2eyi the amount in account ot24hy3r2eyi does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 ot24hy3r2eyi)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 ot24hy3r2eyi)
 
 ownerfound=false
 label1=""
@@ -9846,7 +9846,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5A5Q47vjQdRVAGXNvVuUDmhtd8JdZcJFX2PmSuf9TGr3jqzhne
 #account 34324n5cgund
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 34324n5cgund)
+resulttokens=$(./cleos.sh get currency balance fio.token 34324n5cgund)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -9858,7 +9858,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5A5Q47vjQdRVAGXNvVuUDmhtd8JdZcJFX2PmSuf9TGr3jqzhne 34324n5cgund the amount in account 34324n5cgund does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 34324n5cgund)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 34324n5cgund)
 
 ownerfound=false
 label1=""
@@ -9906,7 +9906,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8dYcS4oLe5yHTV629ad4ZuexR8WNhkTQLkhACUyoTezHPfo8be
 #account gu3oaiy5bqsd
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token gu3oaiy5bqsd)
+resulttokens=$(./cleos.sh get currency balance fio.token gu3oaiy5bqsd)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -9918,7 +9918,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8dYcS4oLe5yHTV629ad4ZuexR8WNhkTQLkhACUyoTezHPfo8be gu3oaiy5bqsd the amount in account gu3oaiy5bqsd does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 gu3oaiy5bqsd)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 gu3oaiy5bqsd)
 
 ownerfound=false
 label1=""
@@ -9966,7 +9966,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5KkYEPt9pNYPjSFr7dwNeiukgfndiJreYNaAExqhGm4gPkSBA1
 #account twgy4dmxreph
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token twgy4dmxreph)
+resulttokens=$(./cleos.sh get currency balance fio.token twgy4dmxreph)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -9978,7 +9978,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5KkYEPt9pNYPjSFr7dwNeiukgfndiJreYNaAExqhGm4gPkSBA1 twgy4dmxreph the amount in account twgy4dmxreph does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 twgy4dmxreph)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 twgy4dmxreph)
 
 ownerfound=false
 label1=""
@@ -10026,7 +10026,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO63Funa6hespHGAtEAQPHmDAvyZ1hmGK2Lwev61Nd97EUonE9c9
 #account ruxltaz35pof
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token ruxltaz35pof)
+resulttokens=$(./cleos.sh get currency balance fio.token ruxltaz35pof)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -10038,7 +10038,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO63Funa6hespHGAtEAQPHmDAvyZ1hmGK2Lwev61Nd97EUonE9c9 ruxltaz35pof the amount in account ruxltaz35pof does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 ruxltaz35pof)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 ruxltaz35pof)
 
 ownerfound=false
 label1=""
@@ -10086,7 +10086,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5ptKAfqveoipp4YBZoJ7tFvM3tW2heCxNn5orpHKYcUDJcwHZX
 #account v3lffrq12akf
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token v3lffrq12akf)
+resulttokens=$(./cleos.sh get currency balance fio.token v3lffrq12akf)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -10098,7 +10098,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5ptKAfqveoipp4YBZoJ7tFvM3tW2heCxNn5orpHKYcUDJcwHZX v3lffrq12akf the amount in account v3lffrq12akf does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 v3lffrq12akf)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 v3lffrq12akf)
 
 ownerfound=false
 label1=""
@@ -10146,7 +10146,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7vkrtz2UtZe8eYumYbx2LZaJbNqrRBWJx1212z3cdZ1EMYwhzU
 #account kwnmlj55gjpg
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token kwnmlj55gjpg)
+resulttokens=$(./cleos.sh get currency balance fio.token kwnmlj55gjpg)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -10158,7 +10158,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7vkrtz2UtZe8eYumYbx2LZaJbNqrRBWJx1212z3cdZ1EMYwhzU kwnmlj55gjpg the amount in account kwnmlj55gjpg does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 kwnmlj55gjpg)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 kwnmlj55gjpg)
 
 ownerfound=false
 label1=""
@@ -10206,7 +10206,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO897wMTf5PRPKb35fG65oGZvdrYMWvZ7z52trWkdhAwt7X6PjGx
 #account gjdt5bf5ecx2
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token gjdt5bf5ecx2)
+resulttokens=$(./cleos.sh get currency balance fio.token gjdt5bf5ecx2)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -10218,7 +10218,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO897wMTf5PRPKb35fG65oGZvdrYMWvZ7z52trWkdhAwt7X6PjGx gjdt5bf5ecx2 the amount in account gjdt5bf5ecx2 does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 gjdt5bf5ecx2)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 gjdt5bf5ecx2)
 
 ownerfound=false
 label1=""
@@ -10266,7 +10266,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6P9iCqoqPwhXALY2Qn83nBvzFWccYwTq6rUrH76U6ReQJYxEma
 #account 4alufjfoz34w
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 4alufjfoz34w)
+resulttokens=$(./cleos.sh get currency balance fio.token 4alufjfoz34w)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -10278,7 +10278,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6P9iCqoqPwhXALY2Qn83nBvzFWccYwTq6rUrH76U6ReQJYxEma 4alufjfoz34w the amount in account 4alufjfoz34w does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 4alufjfoz34w)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 4alufjfoz34w)
 
 ownerfound=false
 label1=""
@@ -10326,7 +10326,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO81dbaLb3MpFeGJePWMhTLfLP2Pan7Mqyphj3gPz5LSBs3oFuEN
 #account vifm3zgpm2h4
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token vifm3zgpm2h4)
+resulttokens=$(./cleos.sh get currency balance fio.token vifm3zgpm2h4)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -10338,7 +10338,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO81dbaLb3MpFeGJePWMhTLfLP2Pan7Mqyphj3gPz5LSBs3oFuEN vifm3zgpm2h4 the amount in account vifm3zgpm2h4 does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 vifm3zgpm2h4)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 vifm3zgpm2h4)
 
 ownerfound=false
 label1=""
@@ -10386,7 +10386,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6Y9dwSaQwu34pFJSkJttSiTH362GFZGE7GUeLSd9HFjpDegkZU
 #account tpsqzm1vhnxi
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token tpsqzm1vhnxi)
+resulttokens=$(./cleos.sh get currency balance fio.token tpsqzm1vhnxi)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -10398,7 +10398,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6Y9dwSaQwu34pFJSkJttSiTH362GFZGE7GUeLSd9HFjpDegkZU tpsqzm1vhnxi the amount in account tpsqzm1vhnxi does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 tpsqzm1vhnxi)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 tpsqzm1vhnxi)
 
 ownerfound=false
 label1=""
@@ -10446,7 +10446,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO64fR2AqHHxTQSmhBpkkmcxUjkLov7cSdwEBioyLJrUDa4iAfWZ
 #account ufo3zfsxsonz
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token ufo3zfsxsonz)
+resulttokens=$(./cleos.sh get currency balance fio.token ufo3zfsxsonz)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -10458,7 +10458,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO64fR2AqHHxTQSmhBpkkmcxUjkLov7cSdwEBioyLJrUDa4iAfWZ ufo3zfsxsonz the amount in account ufo3zfsxsonz does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 ufo3zfsxsonz)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 ufo3zfsxsonz)
 
 ownerfound=false
 label1=""
@@ -10506,7 +10506,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO71PtSUGc69bf1edbdtsons3xegEMJUTMRJS4fPpTicyNzx2n7c
 #account rmnrq5nrzp2k
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token rmnrq5nrzp2k)
+resulttokens=$(./cleos.sh get currency balance fio.token rmnrq5nrzp2k)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -10518,7 +10518,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO71PtSUGc69bf1edbdtsons3xegEMJUTMRJS4fPpTicyNzx2n7c rmnrq5nrzp2k the amount in account rmnrq5nrzp2k does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 rmnrq5nrzp2k)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 rmnrq5nrzp2k)
 
 ownerfound=false
 label1=""
@@ -10566,7 +10566,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7Q16Rma59zmv5fxQET2ZyTqkJEXpjPahMm9xKQhvMJzkJZtmv8
 #account ebkjumpwngcz
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token ebkjumpwngcz)
+resulttokens=$(./cleos.sh get currency balance fio.token ebkjumpwngcz)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -10578,7 +10578,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7Q16Rma59zmv5fxQET2ZyTqkJEXpjPahMm9xKQhvMJzkJZtmv8 ebkjumpwngcz the amount in account ebkjumpwngcz does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 ebkjumpwngcz)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 ebkjumpwngcz)
 
 ownerfound=false
 label1=""
@@ -10626,7 +10626,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7V9Eazhzmv8uVJCXEBVBCvAodfERnh6vJUf9LA4fhDkF3HygQh
 #account qngyvzzuhosb
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token qngyvzzuhosb)
+resulttokens=$(./cleos.sh get currency balance fio.token qngyvzzuhosb)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -10638,7 +10638,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7V9Eazhzmv8uVJCXEBVBCvAodfERnh6vJUf9LA4fhDkF3HygQh qngyvzzuhosb the amount in account qngyvzzuhosb does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 qngyvzzuhosb)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 qngyvzzuhosb)
 
 ownerfound=false
 label1=""
@@ -10686,7 +10686,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO4zXbn8KUVmCYnmn4mnNnLazXSn9CHHGsuoiXVLTGJZZUoyMmyk
 #account hql5apvwbzey
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token hql5apvwbzey)
+resulttokens=$(./cleos.sh get currency balance fio.token hql5apvwbzey)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -10698,7 +10698,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO4zXbn8KUVmCYnmn4mnNnLazXSn9CHHGsuoiXVLTGJZZUoyMmyk hql5apvwbzey the amount in account hql5apvwbzey does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 hql5apvwbzey)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 hql5apvwbzey)
 
 ownerfound=false
 label1=""
@@ -10746,7 +10746,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8HN66AiGFi17Leiqjmmc49yr3fa88rG2nAVZhcBBnBgtx9uSFd
 #account zbqaaewu22ce
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token zbqaaewu22ce)
+resulttokens=$(./cleos.sh get currency balance fio.token zbqaaewu22ce)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -10758,7 +10758,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8HN66AiGFi17Leiqjmmc49yr3fa88rG2nAVZhcBBnBgtx9uSFd zbqaaewu22ce the amount in account zbqaaewu22ce does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 zbqaaewu22ce)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 zbqaaewu22ce)
 
 ownerfound=false
 label1=""
@@ -10806,7 +10806,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7QGvzttU2qkqss4qmkLioyWEZciLwYpBavoUnUG8o1pUfocu3v
 #account fad2tkah2oh4
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token fad2tkah2oh4)
+resulttokens=$(./cleos.sh get currency balance fio.token fad2tkah2oh4)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -10818,7 +10818,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7QGvzttU2qkqss4qmkLioyWEZciLwYpBavoUnUG8o1pUfocu3v fad2tkah2oh4 the amount in account fad2tkah2oh4 does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 fad2tkah2oh4)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 fad2tkah2oh4)
 
 ownerfound=false
 label1=""
@@ -10866,7 +10866,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7vMuuUybwze7ZxLagdQK6FSndcbJ32jH4jXoi3pogqrXwwbhFb
 #account jqqdfznotuim
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token jqqdfznotuim)
+resulttokens=$(./cleos.sh get currency balance fio.token jqqdfznotuim)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -10878,7 +10878,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7vMuuUybwze7ZxLagdQK6FSndcbJ32jH4jXoi3pogqrXwwbhFb jqqdfznotuim the amount in account jqqdfznotuim does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 jqqdfznotuim)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 jqqdfznotuim)
 
 ownerfound=false
 label1=""
@@ -10926,7 +10926,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8Y34XfBHTrRGfBh78C7fTMtC112NfydLKZ8LaCDsNdYh98Kfhy
 #account rrddu21iulj1
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token rrddu21iulj1)
+resulttokens=$(./cleos.sh get currency balance fio.token rrddu21iulj1)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -10938,7 +10938,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8Y34XfBHTrRGfBh78C7fTMtC112NfydLKZ8LaCDsNdYh98Kfhy rrddu21iulj1 the amount in account rrddu21iulj1 does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 rrddu21iulj1)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 rrddu21iulj1)
 
 ownerfound=false
 label1=""
@@ -10986,7 +10986,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8eaJMaEYWTVVsfJposqeoXSDmKVzssTJRBcb7weFnt5Fb1rQkE
 #account jkqrtiyjd2ea
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token jkqrtiyjd2ea)
+resulttokens=$(./cleos.sh get currency balance fio.token jkqrtiyjd2ea)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -10998,7 +10998,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8eaJMaEYWTVVsfJposqeoXSDmKVzssTJRBcb7weFnt5Fb1rQkE jkqrtiyjd2ea the amount in account jkqrtiyjd2ea does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 jkqrtiyjd2ea)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 jkqrtiyjd2ea)
 
 ownerfound=false
 label1=""
@@ -11046,7 +11046,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5tKYjDp1yHgm24U1Us2wzUMDthdJ78pQWJVzZsqyTDqvdYGRnG
 #account 3jhwid32vgj5
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 3jhwid32vgj5)
+resulttokens=$(./cleos.sh get currency balance fio.token 3jhwid32vgj5)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -11058,7 +11058,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5tKYjDp1yHgm24U1Us2wzUMDthdJ78pQWJVzZsqyTDqvdYGRnG 3jhwid32vgj5 the amount in account 3jhwid32vgj5 does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 3jhwid32vgj5)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 3jhwid32vgj5)
 
 ownerfound=false
 label1=""
@@ -11106,7 +11106,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7bwL6GBaBe1wW7n8qxBMRZuXpJ1LVQR6VKQUBeZB5E9kTxn6di
 #account 51k5usx1dho4
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 51k5usx1dho4)
+resulttokens=$(./cleos.sh get currency balance fio.token 51k5usx1dho4)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -11118,7 +11118,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7bwL6GBaBe1wW7n8qxBMRZuXpJ1LVQR6VKQUBeZB5E9kTxn6di 51k5usx1dho4 the amount in account 51k5usx1dho4 does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 51k5usx1dho4)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 51k5usx1dho4)
 
 ownerfound=false
 label1=""
@@ -11166,7 +11166,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5rVo6kp6dc1Aa6AzD9VaUZuzTU4c9hr2Toh6TbbzMTVm2RVr5R
 #account zgmclpqlt12z
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token zgmclpqlt12z)
+resulttokens=$(./cleos.sh get currency balance fio.token zgmclpqlt12z)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -11178,7 +11178,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5rVo6kp6dc1Aa6AzD9VaUZuzTU4c9hr2Toh6TbbzMTVm2RVr5R zgmclpqlt12z the amount in account zgmclpqlt12z does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 zgmclpqlt12z)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 zgmclpqlt12z)
 
 ownerfound=false
 label1=""
@@ -11226,7 +11226,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8U2Wn8ew1jif5iJJEjdJtYRXUUit8wwecqJcX3d4oKxULLrWDr
 #account rxwabphgbu2n
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token rxwabphgbu2n)
+resulttokens=$(./cleos.sh get currency balance fio.token rxwabphgbu2n)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -11238,7 +11238,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8U2Wn8ew1jif5iJJEjdJtYRXUUit8wwecqJcX3d4oKxULLrWDr rxwabphgbu2n the amount in account rxwabphgbu2n does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 rxwabphgbu2n)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 rxwabphgbu2n)
 
 ownerfound=false
 label1=""
@@ -11286,7 +11286,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6poYf9BQpKDCQqUPMT92JG34AyLWb1cciUUWwgAUNe7gJ3tYRf
 #account z5x3zsknxfwj
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token z5x3zsknxfwj)
+resulttokens=$(./cleos.sh get currency balance fio.token z5x3zsknxfwj)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -11298,7 +11298,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6poYf9BQpKDCQqUPMT92JG34AyLWb1cciUUWwgAUNe7gJ3tYRf z5x3zsknxfwj the amount in account z5x3zsknxfwj does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 z5x3zsknxfwj)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 z5x3zsknxfwj)
 
 ownerfound=false
 label1=""
@@ -11346,7 +11346,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO65Yyku5qzqP6AMAhRzRrbGPFj2kTRk28YbkcGp4QCRaswaeoju
 #account wkwwjus1fufz
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token wkwwjus1fufz)
+resulttokens=$(./cleos.sh get currency balance fio.token wkwwjus1fufz)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -11358,7 +11358,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO65Yyku5qzqP6AMAhRzRrbGPFj2kTRk28YbkcGp4QCRaswaeoju wkwwjus1fufz the amount in account wkwwjus1fufz does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 wkwwjus1fufz)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 wkwwjus1fufz)
 
 ownerfound=false
 label1=""
@@ -11406,7 +11406,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5xSrU7Mzzpyu8jryx5uM9qbQXjpHrhF9kKvk94ApjyxAewVqiS
 #account gi3yydbnyky2
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token gi3yydbnyky2)
+resulttokens=$(./cleos.sh get currency balance fio.token gi3yydbnyky2)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -11418,7 +11418,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5xSrU7Mzzpyu8jryx5uM9qbQXjpHrhF9kKvk94ApjyxAewVqiS gi3yydbnyky2 the amount in account gi3yydbnyky2 does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 gi3yydbnyky2)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 gi3yydbnyky2)
 
 ownerfound=false
 label1=""
@@ -11466,7 +11466,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7qzFD7jq2NnYBXbwahe9sGH94rPwvFhzQgN3LSaHPYp9PYDaVm
 #account 5cmphynu5vrk
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 5cmphynu5vrk)
+resulttokens=$(./cleos.sh get currency balance fio.token 5cmphynu5vrk)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -11478,7 +11478,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7qzFD7jq2NnYBXbwahe9sGH94rPwvFhzQgN3LSaHPYp9PYDaVm 5cmphynu5vrk the amount in account 5cmphynu5vrk does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 5cmphynu5vrk)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 5cmphynu5vrk)
 
 ownerfound=false
 label1=""
@@ -11526,7 +11526,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO4xYk6VLMBzkie6ZLjVknHFetTpTwkoHiKKrGfL2uCStUfWBvQF
 #account drsffuyaymck
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token drsffuyaymck)
+resulttokens=$(./cleos.sh get currency balance fio.token drsffuyaymck)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -11538,7 +11538,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO4xYk6VLMBzkie6ZLjVknHFetTpTwkoHiKKrGfL2uCStUfWBvQF drsffuyaymck the amount in account drsffuyaymck does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 drsffuyaymck)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 drsffuyaymck)
 
 ownerfound=false
 label1=""
@@ -11586,7 +11586,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7pwRVpb1FLn5qU3bv2CcHKCPmXJQLwALNyurDxRoqBtapwT6eF
 #account 3a1vxxdo2xol
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 3a1vxxdo2xol)
+resulttokens=$(./cleos.sh get currency balance fio.token 3a1vxxdo2xol)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -11598,7 +11598,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7pwRVpb1FLn5qU3bv2CcHKCPmXJQLwALNyurDxRoqBtapwT6eF 3a1vxxdo2xol the amount in account 3a1vxxdo2xol does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 3a1vxxdo2xol)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 3a1vxxdo2xol)
 
 ownerfound=false
 label1=""
@@ -11646,7 +11646,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO83XvFiq248TppDGEznru78frCVzoBLFeoZGhj8ViBLRqDmMdqb
 #account zzntq151451x
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token zzntq151451x)
+resulttokens=$(./cleos.sh get currency balance fio.token zzntq151451x)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -11658,7 +11658,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO83XvFiq248TppDGEznru78frCVzoBLFeoZGhj8ViBLRqDmMdqb zzntq151451x the amount in account zzntq151451x does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 zzntq151451x)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 zzntq151451x)
 
 ownerfound=false
 label1=""
@@ -11706,7 +11706,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO756sdaEAGZZGrEHJKVkjtMewfqBQLMkNBCU3fCDA3j8cybjzJY
 #account zxhu5xnwlqlg
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token zxhu5xnwlqlg)
+resulttokens=$(./cleos.sh get currency balance fio.token zxhu5xnwlqlg)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -11718,7 +11718,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO756sdaEAGZZGrEHJKVkjtMewfqBQLMkNBCU3fCDA3j8cybjzJY zxhu5xnwlqlg the amount in account zxhu5xnwlqlg does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 zxhu5xnwlqlg)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 zxhu5xnwlqlg)
 
 ownerfound=false
 label1=""
@@ -11766,7 +11766,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO78AjiobVPakqNR68A3PTBVPqnczjyt3uM1Un3cpNUBYzzrYhQK
 #account anwjgwmncf5f
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token anwjgwmncf5f)
+resulttokens=$(./cleos.sh get currency balance fio.token anwjgwmncf5f)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -11778,7 +11778,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO78AjiobVPakqNR68A3PTBVPqnczjyt3uM1Un3cpNUBYzzrYhQK anwjgwmncf5f the amount in account anwjgwmncf5f does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 anwjgwmncf5f)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 anwjgwmncf5f)
 
 ownerfound=false
 label1=""
@@ -11826,7 +11826,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6PA3v7qsZapaSVNLuwTF8pjUaJyroJJ3mRaULUXRQqXAeTDXdh
 #account 4dti5uxlbea5
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 4dti5uxlbea5)
+resulttokens=$(./cleos.sh get currency balance fio.token 4dti5uxlbea5)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -11838,7 +11838,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6PA3v7qsZapaSVNLuwTF8pjUaJyroJJ3mRaULUXRQqXAeTDXdh 4dti5uxlbea5 the amount in account 4dti5uxlbea5 does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 4dti5uxlbea5)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 4dti5uxlbea5)
 
 ownerfound=false
 label1=""
@@ -11886,7 +11886,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8SMb84y3JiytR11ieyAwggMphbKS9UYWt1GE7fnKB4SXtBa5wm
 #account nltmha1oxcxq
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token nltmha1oxcxq)
+resulttokens=$(./cleos.sh get currency balance fio.token nltmha1oxcxq)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -11898,7 +11898,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8SMb84y3JiytR11ieyAwggMphbKS9UYWt1GE7fnKB4SXtBa5wm nltmha1oxcxq the amount in account nltmha1oxcxq does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 nltmha1oxcxq)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 nltmha1oxcxq)
 
 ownerfound=false
 label1=""
@@ -11946,7 +11946,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8dewZxACE1GsnX1VNKX79nMJAezZDNYZQUQn1yyUPf7eefYVBV
 #account htolktfksidj
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token htolktfksidj)
+resulttokens=$(./cleos.sh get currency balance fio.token htolktfksidj)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -11958,7 +11958,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8dewZxACE1GsnX1VNKX79nMJAezZDNYZQUQn1yyUPf7eefYVBV htolktfksidj the amount in account htolktfksidj does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 htolktfksidj)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 htolktfksidj)
 
 ownerfound=false
 label1=""
@@ -12006,7 +12006,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO4xNbwko4KW5Z7yHWPgPQ8TQ7nNwijVsMMKmhhXaNFKD6ucFGxm
 #account clrcwgxgjbhz
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token clrcwgxgjbhz)
+resulttokens=$(./cleos.sh get currency balance fio.token clrcwgxgjbhz)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -12018,7 +12018,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO4xNbwko4KW5Z7yHWPgPQ8TQ7nNwijVsMMKmhhXaNFKD6ucFGxm clrcwgxgjbhz the amount in account clrcwgxgjbhz does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 clrcwgxgjbhz)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 clrcwgxgjbhz)
 
 ownerfound=false
 label1=""
@@ -12066,7 +12066,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8LojZwtCj8M2MNu7MDoDZFtXKPMCxuzHqwBnMkNDPxHaHzn7A4
 #account asoswxrtp3un
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token asoswxrtp3un)
+resulttokens=$(./cleos.sh get currency balance fio.token asoswxrtp3un)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -12078,7 +12078,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8LojZwtCj8M2MNu7MDoDZFtXKPMCxuzHqwBnMkNDPxHaHzn7A4 asoswxrtp3un the amount in account asoswxrtp3un does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 asoswxrtp3un)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 asoswxrtp3un)
 
 ownerfound=false
 label1=""
@@ -12126,7 +12126,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8AVAHs6QJKFNBnhLgSL7pRQFTc53hde9rbQAx1dSQD7jFoSQQK
 #account jd3arte4xwux
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token jd3arte4xwux)
+resulttokens=$(./cleos.sh get currency balance fio.token jd3arte4xwux)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -12138,7 +12138,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8AVAHs6QJKFNBnhLgSL7pRQFTc53hde9rbQAx1dSQD7jFoSQQK jd3arte4xwux the amount in account jd3arte4xwux does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 jd3arte4xwux)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 jd3arte4xwux)
 
 ownerfound=false
 label1=""
@@ -12186,7 +12186,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8UCDX7oXsQJCCRE8zPX61v4ohAdqu1QjnqCk3ZrV2dqesjdAV7
 #account ryteexucpnsq
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token ryteexucpnsq)
+resulttokens=$(./cleos.sh get currency balance fio.token ryteexucpnsq)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -12198,7 +12198,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8UCDX7oXsQJCCRE8zPX61v4ohAdqu1QjnqCk3ZrV2dqesjdAV7 ryteexucpnsq the amount in account ryteexucpnsq does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 ryteexucpnsq)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 ryteexucpnsq)
 
 ownerfound=false
 label1=""
@@ -12246,7 +12246,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6Y3s6XxtGSdMD7uyZFMBjy3axvVvRyDP7u5ckrLPnAtxEVPmZD
 #account svwo3feehas1
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token svwo3feehas1)
+resulttokens=$(./cleos.sh get currency balance fio.token svwo3feehas1)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -12258,7 +12258,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6Y3s6XxtGSdMD7uyZFMBjy3axvVvRyDP7u5ckrLPnAtxEVPmZD svwo3feehas1 the amount in account svwo3feehas1 does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 svwo3feehas1)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 svwo3feehas1)
 
 ownerfound=false
 label1=""
@@ -12306,7 +12306,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5B3ayoYsSFUqK4W3H59nY1nCRSt8M4B98pGPL3zvGj8t4xA8bm
 #account 5r24yi3jkcpk
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 5r24yi3jkcpk)
+resulttokens=$(./cleos.sh get currency balance fio.token 5r24yi3jkcpk)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -12318,7 +12318,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5B3ayoYsSFUqK4W3H59nY1nCRSt8M4B98pGPL3zvGj8t4xA8bm 5r24yi3jkcpk the amount in account 5r24yi3jkcpk does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 5r24yi3jkcpk)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 5r24yi3jkcpk)
 
 ownerfound=false
 label1=""
@@ -12366,7 +12366,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7m84yX8FGKAjvXZwSEDG3MvfvF5dECmYZ6SWSfYQhcqiAbJauw
 #account uwp2aknjupcr
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token uwp2aknjupcr)
+resulttokens=$(./cleos.sh get currency balance fio.token uwp2aknjupcr)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -12378,7 +12378,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7m84yX8FGKAjvXZwSEDG3MvfvF5dECmYZ6SWSfYQhcqiAbJauw uwp2aknjupcr the amount in account uwp2aknjupcr does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 uwp2aknjupcr)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 uwp2aknjupcr)
 
 ownerfound=false
 label1=""
@@ -12426,7 +12426,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6YX6hezW5H7fFoJQLxpXaiXw8U15t9UnHBTy5F6GksF24Zf3A8
 #account ugi11vlvojqi
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token ugi11vlvojqi)
+resulttokens=$(./cleos.sh get currency balance fio.token ugi11vlvojqi)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -12438,7 +12438,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6YX6hezW5H7fFoJQLxpXaiXw8U15t9UnHBTy5F6GksF24Zf3A8 ugi11vlvojqi the amount in account ugi11vlvojqi does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 ugi11vlvojqi)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 ugi11vlvojqi)
 
 ownerfound=false
 label1=""
@@ -12486,7 +12486,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5DioEgDiqyWBRi1CYznui2ysuBREa1Z2sqBVSfJmBeCbzUxuyv
 #account ffgefjhmgyef
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token ffgefjhmgyef)
+resulttokens=$(./cleos.sh get currency balance fio.token ffgefjhmgyef)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -12498,7 +12498,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5DioEgDiqyWBRi1CYznui2ysuBREa1Z2sqBVSfJmBeCbzUxuyv ffgefjhmgyef the amount in account ffgefjhmgyef does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 ffgefjhmgyef)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 ffgefjhmgyef)
 
 ownerfound=false
 label1=""
@@ -12546,7 +12546,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7rs8sQ3Xjp5jYcmpsFevAbYFNBAyThPS57YqJb5tK95NE29uEM
 #account batwjzteuipu
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token batwjzteuipu)
+resulttokens=$(./cleos.sh get currency balance fio.token batwjzteuipu)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -12558,7 +12558,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7rs8sQ3Xjp5jYcmpsFevAbYFNBAyThPS57YqJb5tK95NE29uEM batwjzteuipu the amount in account batwjzteuipu does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 batwjzteuipu)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 batwjzteuipu)
 
 ownerfound=false
 label1=""
@@ -12606,7 +12606,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8DkonfZWquLQDpBgmfDsKQvpRYeNmY868uDRKF2xztK5XkqBwZ
 #account qpd3lzmjk5rn
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token qpd3lzmjk5rn)
+resulttokens=$(./cleos.sh get currency balance fio.token qpd3lzmjk5rn)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -12618,7 +12618,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8DkonfZWquLQDpBgmfDsKQvpRYeNmY868uDRKF2xztK5XkqBwZ qpd3lzmjk5rn the amount in account qpd3lzmjk5rn does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 qpd3lzmjk5rn)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 qpd3lzmjk5rn)
 
 ownerfound=false
 label1=""
@@ -12666,7 +12666,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7z8CUhUqfQ1D2HzSQ8hYUWxAFRR84UtWJNAKfidX1ZiJqnKEfW
 #account r22ux1on2a2t
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token r22ux1on2a2t)
+resulttokens=$(./cleos.sh get currency balance fio.token r22ux1on2a2t)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -12678,7 +12678,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7z8CUhUqfQ1D2HzSQ8hYUWxAFRR84UtWJNAKfidX1ZiJqnKEfW r22ux1on2a2t the amount in account r22ux1on2a2t does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 r22ux1on2a2t)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 r22ux1on2a2t)
 
 ownerfound=false
 label1=""
@@ -12726,7 +12726,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7MiZwS3TUPR1NDnAfvc2EkRW9whfGQxooZLhC2fmJMSYY1Sktk
 #account 5r2t1chudpsr
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 5r2t1chudpsr)
+resulttokens=$(./cleos.sh get currency balance fio.token 5r2t1chudpsr)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -12738,7 +12738,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7MiZwS3TUPR1NDnAfvc2EkRW9whfGQxooZLhC2fmJMSYY1Sktk 5r2t1chudpsr the amount in account 5r2t1chudpsr does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 5r2t1chudpsr)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 5r2t1chudpsr)
 
 ownerfound=false
 label1=""
@@ -12786,7 +12786,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5Z2fkmcKLNP7hGkoiavTmhn6YM1nNjEo456A77ZiJZjdrGjVwn
 #account r2psdsfqwgos
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token r2psdsfqwgos)
+resulttokens=$(./cleos.sh get currency balance fio.token r2psdsfqwgos)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -12798,7 +12798,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5Z2fkmcKLNP7hGkoiavTmhn6YM1nNjEo456A77ZiJZjdrGjVwn r2psdsfqwgos the amount in account r2psdsfqwgos does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 r2psdsfqwgos)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 r2psdsfqwgos)
 
 ownerfound=false
 label1=""
@@ -12846,7 +12846,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5sRvf1ziLQX5VX8o5bJZ5pVk9BQvzAySRXcjxD3jfTRLEBfRg8
 #account 1elorqezwugk
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 1elorqezwugk)
+resulttokens=$(./cleos.sh get currency balance fio.token 1elorqezwugk)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -12858,7 +12858,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5sRvf1ziLQX5VX8o5bJZ5pVk9BQvzAySRXcjxD3jfTRLEBfRg8 1elorqezwugk the amount in account 1elorqezwugk does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 1elorqezwugk)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 1elorqezwugk)
 
 ownerfound=false
 label1=""
@@ -12906,7 +12906,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7R1mnxQSoaRuBxbzdDiQbkW1J2ph2aPgKtfsLieboyJVnHH9Fm
 #account gn5rzb3fw4lx
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token gn5rzb3fw4lx)
+resulttokens=$(./cleos.sh get currency balance fio.token gn5rzb3fw4lx)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -12918,7 +12918,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7R1mnxQSoaRuBxbzdDiQbkW1J2ph2aPgKtfsLieboyJVnHH9Fm gn5rzb3fw4lx the amount in account gn5rzb3fw4lx does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 gn5rzb3fw4lx)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 gn5rzb3fw4lx)
 
 ownerfound=false
 label1=""
@@ -12966,7 +12966,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7RUcwZUiGzzuhEAcpZcq3QpEtrRRzxuzBxeVghAn2okfkYZGVN
 #account hqz4aqss31tz
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token hqz4aqss31tz)
+resulttokens=$(./cleos.sh get currency balance fio.token hqz4aqss31tz)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -12978,7 +12978,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7RUcwZUiGzzuhEAcpZcq3QpEtrRRzxuzBxeVghAn2okfkYZGVN hqz4aqss31tz the amount in account hqz4aqss31tz does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 hqz4aqss31tz)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 hqz4aqss31tz)
 
 ownerfound=false
 label1=""
@@ -13026,7 +13026,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8DSEmUR42uPsS3uzxF8fBS4NuTc5DAKXCUwEoTpbEgB4H9YbLK
 #account qvjmzbifwmtf
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token qvjmzbifwmtf)
+resulttokens=$(./cleos.sh get currency balance fio.token qvjmzbifwmtf)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -13038,7 +13038,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8DSEmUR42uPsS3uzxF8fBS4NuTc5DAKXCUwEoTpbEgB4H9YbLK qvjmzbifwmtf the amount in account qvjmzbifwmtf does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 qvjmzbifwmtf)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 qvjmzbifwmtf)
 
 ownerfound=false
 label1=""
@@ -13086,7 +13086,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO83Moh1ZYex219qVTzwoAoE1hh7Rm6SLqfap1UibWxbxEqTyTJy
 #account zusa35iadwby
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token zusa35iadwby)
+resulttokens=$(./cleos.sh get currency balance fio.token zusa35iadwby)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -13098,7 +13098,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO83Moh1ZYex219qVTzwoAoE1hh7Rm6SLqfap1UibWxbxEqTyTJy zusa35iadwby the amount in account zusa35iadwby does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 zusa35iadwby)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 zusa35iadwby)
 
 ownerfound=false
 label1=""
@@ -13146,7 +13146,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8bsh7me2eLz7AMTxSDycTFNsmAf3bmAcCbY3pFMAshBrSdeVUt
 #account dijnua2s2rx4
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token dijnua2s2rx4)
+resulttokens=$(./cleos.sh get currency balance fio.token dijnua2s2rx4)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -13158,7 +13158,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8bsh7me2eLz7AMTxSDycTFNsmAf3bmAcCbY3pFMAshBrSdeVUt dijnua2s2rx4 the amount in account dijnua2s2rx4 does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 dijnua2s2rx4)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 dijnua2s2rx4)
 
 ownerfound=false
 label1=""
@@ -13206,7 +13206,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO4uXrESk1nuzwxhTxrMEHhMrHQdVbkehA7mNkitT6WKJG97vrPQ
 #account 2yfw3w3evcze
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 2yfw3w3evcze)
+resulttokens=$(./cleos.sh get currency balance fio.token 2yfw3w3evcze)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -13218,7 +13218,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO4uXrESk1nuzwxhTxrMEHhMrHQdVbkehA7mNkitT6WKJG97vrPQ 2yfw3w3evcze the amount in account 2yfw3w3evcze does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 2yfw3w3evcze)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 2yfw3w3evcze)
 
 ownerfound=false
 label1=""
@@ -13266,7 +13266,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6NFchzpeuyyNDAMh3NJhytdzLjiNZFgUnxCys7wwQGTQ8wotzV
 #account 2wsh33kym3ii
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 2wsh33kym3ii)
+resulttokens=$(./cleos.sh get currency balance fio.token 2wsh33kym3ii)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -13278,7 +13278,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6NFchzpeuyyNDAMh3NJhytdzLjiNZFgUnxCys7wwQGTQ8wotzV 2wsh33kym3ii the amount in account 2wsh33kym3ii does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 2wsh33kym3ii)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 2wsh33kym3ii)
 
 ownerfound=false
 label1=""
@@ -13326,7 +13326,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5Qe1cMN3vqnJTSVHtgsYiJL6ADXsMHerMNM7A6AfjafEpr1QKZ
 #account 4p5r3fi5y1ri
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 4p5r3fi5y1ri)
+resulttokens=$(./cleos.sh get currency balance fio.token 4p5r3fi5y1ri)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -13338,7 +13338,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5Qe1cMN3vqnJTSVHtgsYiJL6ADXsMHerMNM7A6AfjafEpr1QKZ 4p5r3fi5y1ri the amount in account 4p5r3fi5y1ri does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 4p5r3fi5y1ri)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 4p5r3fi5y1ri)
 
 ownerfound=false
 label1=""
@@ -13386,7 +13386,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6bVzfzvbk9CbwD2WvtEkkdpo19gNNdweuHrsSJvR9n7p9ABorq
 #account loniosr4lxkh
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token loniosr4lxkh)
+resulttokens=$(./cleos.sh get currency balance fio.token loniosr4lxkh)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -13398,7 +13398,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6bVzfzvbk9CbwD2WvtEkkdpo19gNNdweuHrsSJvR9n7p9ABorq loniosr4lxkh the amount in account loniosr4lxkh does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 loniosr4lxkh)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 loniosr4lxkh)
 
 ownerfound=false
 label1=""
@@ -13446,7 +13446,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5tupKLKbH3T4F6jHDddxzb4U4HbiTxBCxxC1nD16eA19KqT1Pf
 #account 4by4jpnazs1k
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 4by4jpnazs1k)
+resulttokens=$(./cleos.sh get currency balance fio.token 4by4jpnazs1k)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -13458,7 +13458,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5tupKLKbH3T4F6jHDddxzb4U4HbiTxBCxxC1nD16eA19KqT1Pf 4by4jpnazs1k the amount in account 4by4jpnazs1k does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 4by4jpnazs1k)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 4by4jpnazs1k)
 
 ownerfound=false
 label1=""
@@ -13506,7 +13506,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7gnc83M1g4pziLvc7DexwZufG5wTuaM9rcku4Y7FUs5Tvpw71o
 #account k4ctixt1r2az
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token k4ctixt1r2az)
+resulttokens=$(./cleos.sh get currency balance fio.token k4ctixt1r2az)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -13518,7 +13518,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7gnc83M1g4pziLvc7DexwZufG5wTuaM9rcku4Y7FUs5Tvpw71o k4ctixt1r2az the amount in account k4ctixt1r2az does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 k4ctixt1r2az)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 k4ctixt1r2az)
 
 ownerfound=false
 label1=""
@@ -13566,7 +13566,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6APwN4tBJXNHGG6bM7HKHNtxeYuzZyxcah24r87zJXqvopnnRL
 #account bk5jnf12kdta
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token bk5jnf12kdta)
+resulttokens=$(./cleos.sh get currency balance fio.token bk5jnf12kdta)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -13578,7 +13578,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6APwN4tBJXNHGG6bM7HKHNtxeYuzZyxcah24r87zJXqvopnnRL bk5jnf12kdta the amount in account bk5jnf12kdta does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 bk5jnf12kdta)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 bk5jnf12kdta)
 
 ownerfound=false
 label1=""
@@ -13626,7 +13626,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7yFH93uCCqkmSt6kXoHHGL5D3t5kQxFXZA2BYaDdJTpKoncBy6
 #account p3lkmumkk4qr
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token p3lkmumkk4qr)
+resulttokens=$(./cleos.sh get currency balance fio.token p3lkmumkk4qr)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -13638,7 +13638,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7yFH93uCCqkmSt6kXoHHGL5D3t5kQxFXZA2BYaDdJTpKoncBy6 p3lkmumkk4qr the amount in account p3lkmumkk4qr does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 p3lkmumkk4qr)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 p3lkmumkk4qr)
 
 ownerfound=false
 label1=""
@@ -13686,7 +13686,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO54YJCGX5wqirm4YWiDbNZVJne2E2GTqAJfQmqzFU4AwVKuJVHK
 #account qmfxnyzinaz2
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token qmfxnyzinaz2)
+resulttokens=$(./cleos.sh get currency balance fio.token qmfxnyzinaz2)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -13698,7 +13698,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO54YJCGX5wqirm4YWiDbNZVJne2E2GTqAJfQmqzFU4AwVKuJVHK qmfxnyzinaz2 the amount in account qmfxnyzinaz2 does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 qmfxnyzinaz2)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 qmfxnyzinaz2)
 
 ownerfound=false
 label1=""
@@ -13746,7 +13746,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8N97DHa7fbLj3iPztrztco5fhfeYZp5Kb1t6pCytZ9n4EqDzqo
 #account dz4isn2snkg3
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token dz4isn2snkg3)
+resulttokens=$(./cleos.sh get currency balance fio.token dz4isn2snkg3)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -13758,7 +13758,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8N97DHa7fbLj3iPztrztco5fhfeYZp5Kb1t6pCytZ9n4EqDzqo dz4isn2snkg3 the amount in account dz4isn2snkg3 does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 dz4isn2snkg3)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 dz4isn2snkg3)
 
 ownerfound=false
 label1=""
@@ -13806,7 +13806,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6AjGuxfnmHBRDHVNh83Vu7u6vodRwncAp6xLyvGPnLoFEjnddE
 #account cml33zyapklk
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token cml33zyapklk)
+resulttokens=$(./cleos.sh get currency balance fio.token cml33zyapklk)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -13818,7 +13818,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6AjGuxfnmHBRDHVNh83Vu7u6vodRwncAp6xLyvGPnLoFEjnddE cml33zyapklk the amount in account cml33zyapklk does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 cml33zyapklk)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 cml33zyapklk)
 
 ownerfound=false
 label1=""
@@ -13866,7 +13866,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7V6jmq4Am5dDqqSYDtHAsKjCfyWzuc5MHSSr4UJuGS9CVNzrHa
 #account pua4racfgzgy
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token pua4racfgzgy)
+resulttokens=$(./cleos.sh get currency balance fio.token pua4racfgzgy)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -13878,7 +13878,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7V6jmq4Am5dDqqSYDtHAsKjCfyWzuc5MHSSr4UJuGS9CVNzrHa pua4racfgzgy the amount in account pua4racfgzgy does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 pua4racfgzgy)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 pua4racfgzgy)
 
 ownerfound=false
 label1=""
@@ -13926,7 +13926,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO827puHivaAMcb5HY4R6mPsXu2knXE6VRan1cU7tFNuEENsJ14g
 #account wdrkmj5fi3kv
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token wdrkmj5fi3kv)
+resulttokens=$(./cleos.sh get currency balance fio.token wdrkmj5fi3kv)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -13938,7 +13938,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO827puHivaAMcb5HY4R6mPsXu2knXE6VRan1cU7tFNuEENsJ14g wdrkmj5fi3kv the amount in account wdrkmj5fi3kv does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 wdrkmj5fi3kv)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 wdrkmj5fi3kv)
 
 ownerfound=false
 label1=""
@@ -13986,7 +13986,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5r9rS4n9tN6bK1ektVg712RnbewQVjMtMQZfCnya6SisqvbXJu
 #account y4ocvutifoff
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token y4ocvutifoff)
+resulttokens=$(./cleos.sh get currency balance fio.token y4ocvutifoff)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -13998,7 +13998,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5r9rS4n9tN6bK1ektVg712RnbewQVjMtMQZfCnya6SisqvbXJu y4ocvutifoff the amount in account y4ocvutifoff does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 y4ocvutifoff)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 y4ocvutifoff)
 
 ownerfound=false
 label1=""
@@ -14046,7 +14046,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7fkPW42PimxE8VwRCyNX63u9BRMuULpA59s5Zmsd7E3caXBpBr
 #account icbbengoai25
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token icbbengoai25)
+resulttokens=$(./cleos.sh get currency balance fio.token icbbengoai25)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -14058,7 +14058,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7fkPW42PimxE8VwRCyNX63u9BRMuULpA59s5Zmsd7E3caXBpBr icbbengoai25 the amount in account icbbengoai25 does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 icbbengoai25)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 icbbengoai25)
 
 ownerfound=false
 label1=""
@@ -14106,7 +14106,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6G9vinKve4H5v1F9NcEM5N4wQPatCg8G4brnPnw3pLMrkuYDSe
 #account o3at32azaqyz
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token o3at32azaqyz)
+resulttokens=$(./cleos.sh get currency balance fio.token o3at32azaqyz)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -14118,7 +14118,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6G9vinKve4H5v1F9NcEM5N4wQPatCg8G4brnPnw3pLMrkuYDSe o3at32azaqyz the amount in account o3at32azaqyz does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 o3at32azaqyz)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 o3at32azaqyz)
 
 ownerfound=false
 label1=""
@@ -14166,7 +14166,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5FakngzqURsBResKjUpP2D6xYS744VkwEZBh7sJcndrDRGwuta
 #account j51qe53bavxk
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token j51qe53bavxk)
+resulttokens=$(./cleos.sh get currency balance fio.token j51qe53bavxk)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -14178,7 +14178,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5FakngzqURsBResKjUpP2D6xYS744VkwEZBh7sJcndrDRGwuta j51qe53bavxk the amount in account j51qe53bavxk does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 j51qe53bavxk)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 j51qe53bavxk)
 
 ownerfound=false
 label1=""
@@ -14226,7 +14226,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6tSpHMp87JGDjQkPxBhYFfNeN1mxLovxp5UUeM6z652ZzEq88L
 #account beruvmvvriqf
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token beruvmvvriqf)
+resulttokens=$(./cleos.sh get currency balance fio.token beruvmvvriqf)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -14238,7 +14238,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6tSpHMp87JGDjQkPxBhYFfNeN1mxLovxp5UUeM6z652ZzEq88L beruvmvvriqf the amount in account beruvmvvriqf does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 beruvmvvriqf)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 beruvmvvriqf)
 
 ownerfound=false
 label1=""
@@ -14286,7 +14286,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6mjkydragQeD7Sh2ntzf28cFcBuxZ5ytUUA8HA9GYxGKcjEqxZ
 #account sjlqnlh4k4be
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token sjlqnlh4k4be)
+resulttokens=$(./cleos.sh get currency balance fio.token sjlqnlh4k4be)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -14298,7 +14298,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6mjkydragQeD7Sh2ntzf28cFcBuxZ5ytUUA8HA9GYxGKcjEqxZ sjlqnlh4k4be the amount in account sjlqnlh4k4be does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 sjlqnlh4k4be)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 sjlqnlh4k4be)
 
 ownerfound=false
 label1=""
@@ -14346,7 +14346,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5L7Lpq7J5oKCeJHLBxRQGDhCfoLFjtEahVvhBUdQ6xxomvsYNZ
 #account uge3nsooaiky
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token uge3nsooaiky)
+resulttokens=$(./cleos.sh get currency balance fio.token uge3nsooaiky)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -14358,7 +14358,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5L7Lpq7J5oKCeJHLBxRQGDhCfoLFjtEahVvhBUdQ6xxomvsYNZ uge3nsooaiky the amount in account uge3nsooaiky does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 uge3nsooaiky)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 uge3nsooaiky)
 
 ownerfound=false
 label1=""
@@ -14406,7 +14406,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7mUUMvk8YEVRmoVDSf94hoWKqGh2Sw1iQpAE7cGpNARVTiyNbq
 #account vcklv4wujvhn
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token vcklv4wujvhn)
+resulttokens=$(./cleos.sh get currency balance fio.token vcklv4wujvhn)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -14418,7 +14418,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7mUUMvk8YEVRmoVDSf94hoWKqGh2Sw1iQpAE7cGpNARVTiyNbq vcklv4wujvhn the amount in account vcklv4wujvhn does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 vcklv4wujvhn)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 vcklv4wujvhn)
 
 ownerfound=false
 label1=""
@@ -14466,7 +14466,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO53G9Az9WM4ybjdtDS4d4GiQNFeVGgXH9XPYusciqwgeKHdzdAg
 #account nfuf2zbf5boi
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token nfuf2zbf5boi)
+resulttokens=$(./cleos.sh get currency balance fio.token nfuf2zbf5boi)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -14478,7 +14478,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO53G9Az9WM4ybjdtDS4d4GiQNFeVGgXH9XPYusciqwgeKHdzdAg nfuf2zbf5boi the amount in account nfuf2zbf5boi does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 nfuf2zbf5boi)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 nfuf2zbf5boi)
 
 ownerfound=false
 label1=""
@@ -14526,7 +14526,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5DhJ5tqg3aiyfZEyfBRfNpCorxqpNSmyzRPt8b7uQnMF2QYYSK
 #account fvwz22b3g4ch
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token fvwz22b3g4ch)
+resulttokens=$(./cleos.sh get currency balance fio.token fvwz22b3g4ch)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -14538,7 +14538,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5DhJ5tqg3aiyfZEyfBRfNpCorxqpNSmyzRPt8b7uQnMF2QYYSK fvwz22b3g4ch the amount in account fvwz22b3g4ch does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 fvwz22b3g4ch)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 fvwz22b3g4ch)
 
 ownerfound=false
 label1=""
@@ -14586,7 +14586,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6MjtHpngywkTmEBso95WRFxgPufewGvnrw4yP8CuvNBb3F6bkF
 #account 1mvzgqaeervg
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 1mvzgqaeervg)
+resulttokens=$(./cleos.sh get currency balance fio.token 1mvzgqaeervg)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -14598,7 +14598,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6MjtHpngywkTmEBso95WRFxgPufewGvnrw4yP8CuvNBb3F6bkF 1mvzgqaeervg the amount in account 1mvzgqaeervg does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 1mvzgqaeervg)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 1mvzgqaeervg)
 
 ownerfound=false
 label1=""
@@ -14646,7 +14646,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7RXv6BFGgjF8AWFZ8qZuwVVGoonMDLEXGz25ozTHfF4RYaRHWo
 #account h1x2t3smtztl
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token h1x2t3smtztl)
+resulttokens=$(./cleos.sh get currency balance fio.token h1x2t3smtztl)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -14658,7 +14658,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7RXv6BFGgjF8AWFZ8qZuwVVGoonMDLEXGz25ozTHfF4RYaRHWo h1x2t3smtztl the amount in account h1x2t3smtztl does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 h1x2t3smtztl)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 h1x2t3smtztl)
 
 ownerfound=false
 label1=""
@@ -14706,7 +14706,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6qE3Diu7UpkLZeHWXJqZ42xUGEcHhuRf2GciJH966suRDbsnpn
 #account zvorw15amtpu
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token zvorw15amtpu)
+resulttokens=$(./cleos.sh get currency balance fio.token zvorw15amtpu)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -14718,7 +14718,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6qE3Diu7UpkLZeHWXJqZ42xUGEcHhuRf2GciJH966suRDbsnpn zvorw15amtpu the amount in account zvorw15amtpu does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 zvorw15amtpu)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 zvorw15amtpu)
 
 ownerfound=false
 label1=""
@@ -14766,7 +14766,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO89ZnaV9fhf4wYTCLjqY3Sgscfd4bjf9JtmCJiypFUYwxWtoXjG
 #account hmrui25awp2q
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token hmrui25awp2q)
+resulttokens=$(./cleos.sh get currency balance fio.token hmrui25awp2q)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -14778,7 +14778,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO89ZnaV9fhf4wYTCLjqY3Sgscfd4bjf9JtmCJiypFUYwxWtoXjG hmrui25awp2q the amount in account hmrui25awp2q does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 hmrui25awp2q)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 hmrui25awp2q)
 
 ownerfound=false
 label1=""
@@ -14826,7 +14826,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6oVbL3cWRY8y7BtWRsWxmzmMZwn49FcZ85UaKoPdWyzB3X2y8R
 #account wga2vmljou4z
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token wga2vmljou4z)
+resulttokens=$(./cleos.sh get currency balance fio.token wga2vmljou4z)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -14838,7 +14838,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6oVbL3cWRY8y7BtWRsWxmzmMZwn49FcZ85UaKoPdWyzB3X2y8R wga2vmljou4z the amount in account wga2vmljou4z does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 wga2vmljou4z)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 wga2vmljou4z)
 
 ownerfound=false
 label1=""
@@ -14886,7 +14886,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8ey9nBDbHsBDtfbcQm6iJkfdvtNCrLYj7N5ySFS9B9mZK7SssC
 #account kpxwouzkloer
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token kpxwouzkloer)
+resulttokens=$(./cleos.sh get currency balance fio.token kpxwouzkloer)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -14898,7 +14898,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8ey9nBDbHsBDtfbcQm6iJkfdvtNCrLYj7N5ySFS9B9mZK7SssC kpxwouzkloer the amount in account kpxwouzkloer does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 kpxwouzkloer)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 kpxwouzkloer)
 
 ownerfound=false
 label1=""
@@ -14946,7 +14946,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6iBJybYYZXywunarvFX3v78mkUF2uV78d8m2L6NrtXDdsHya5x
 #account jubvirhqhwzq
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token jubvirhqhwzq)
+resulttokens=$(./cleos.sh get currency balance fio.token jubvirhqhwzq)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -14958,7 +14958,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6iBJybYYZXywunarvFX3v78mkUF2uV78d8m2L6NrtXDdsHya5x jubvirhqhwzq the amount in account jubvirhqhwzq does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 jubvirhqhwzq)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 jubvirhqhwzq)
 
 ownerfound=false
 label1=""
@@ -15006,7 +15006,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5UiuFFvZeDNNHZcHCrAFtdbjK2Gbr8ZEcWpGyxfJUsC1qteXQJ
 #account hvaslccezlbm
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token hvaslccezlbm)
+resulttokens=$(./cleos.sh get currency balance fio.token hvaslccezlbm)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -15018,7 +15018,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5UiuFFvZeDNNHZcHCrAFtdbjK2Gbr8ZEcWpGyxfJUsC1qteXQJ hvaslccezlbm the amount in account hvaslccezlbm does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 hvaslccezlbm)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 hvaslccezlbm)
 
 ownerfound=false
 label1=""
@@ -15066,7 +15066,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6HZf1hgsW6VhuMv6vEres5fjXGpEVWnXN66DVhDGG6YXPVtk44
 #account sqy33gbqi5d3
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token sqy33gbqi5d3)
+resulttokens=$(./cleos.sh get currency balance fio.token sqy33gbqi5d3)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -15078,7 +15078,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6HZf1hgsW6VhuMv6vEres5fjXGpEVWnXN66DVhDGG6YXPVtk44 sqy33gbqi5d3 the amount in account sqy33gbqi5d3 does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 sqy33gbqi5d3)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 sqy33gbqi5d3)
 
 ownerfound=false
 label1=""
@@ -15126,7 +15126,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8UdqyCV8ckC1u6Hcd3X4ivzvGrX7VAUoR998di238v559zxtZm
 #account sznlswzqnpnf
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token sznlswzqnpnf)
+resulttokens=$(./cleos.sh get currency balance fio.token sznlswzqnpnf)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -15138,7 +15138,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8UdqyCV8ckC1u6Hcd3X4ivzvGrX7VAUoR998di238v559zxtZm sznlswzqnpnf the amount in account sznlswzqnpnf does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 sznlswzqnpnf)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 sznlswzqnpnf)
 
 ownerfound=false
 label1=""
@@ -15186,7 +15186,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6a91CUj6CAYGe2TNWqzGvYySSBk6fPVRoRgBhrXZWPu9s2mjCU
 #account xtiwnk4i2clu
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token xtiwnk4i2clu)
+resulttokens=$(./cleos.sh get currency balance fio.token xtiwnk4i2clu)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -15198,7 +15198,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6a91CUj6CAYGe2TNWqzGvYySSBk6fPVRoRgBhrXZWPu9s2mjCU xtiwnk4i2clu the amount in account xtiwnk4i2clu does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 xtiwnk4i2clu)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 xtiwnk4i2clu)
 
 ownerfound=false
 label1=""
@@ -15246,7 +15246,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7jUzEX8kFqGJR6AmcBb3xeK8jq1Afk4CA9j3MrtWgSiUb82vKy
 #account q3fryq13zwkx
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token q3fryq13zwkx)
+resulttokens=$(./cleos.sh get currency balance fio.token q3fryq13zwkx)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -15258,7 +15258,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7jUzEX8kFqGJR6AmcBb3xeK8jq1Afk4CA9j3MrtWgSiUb82vKy q3fryq13zwkx the amount in account q3fryq13zwkx does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 q3fryq13zwkx)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 q3fryq13zwkx)
 
 ownerfound=false
 label1=""
@@ -15306,7 +15306,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5KNbSPXugSC2MPy5V5kkQxnyxKapDBPa8qN6MqNvY2keYgTGzJ
 #account syztwarkkljj
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token syztwarkkljj)
+resulttokens=$(./cleos.sh get currency balance fio.token syztwarkkljj)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -15318,7 +15318,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5KNbSPXugSC2MPy5V5kkQxnyxKapDBPa8qN6MqNvY2keYgTGzJ syztwarkkljj the amount in account syztwarkkljj does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 syztwarkkljj)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 syztwarkkljj)
 
 ownerfound=false
 label1=""
@@ -15366,7 +15366,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5j1SJGSRUL1hTzGFjUJmoRU3UHXNNDBWE7GMhAUtLKrUjHfM2r
 #account iebuy2iz3kqh
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token iebuy2iz3kqh)
+resulttokens=$(./cleos.sh get currency balance fio.token iebuy2iz3kqh)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -15378,7 +15378,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5j1SJGSRUL1hTzGFjUJmoRU3UHXNNDBWE7GMhAUtLKrUjHfM2r iebuy2iz3kqh the amount in account iebuy2iz3kqh does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 iebuy2iz3kqh)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 iebuy2iz3kqh)
 
 ownerfound=false
 label1=""
@@ -15426,7 +15426,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7RGc61PL1zi44MS6gDd6Rk9ts5HFHwNCHwXSefPqkjQprTiK53
 #account hcgltvoi23bx
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token hcgltvoi23bx)
+resulttokens=$(./cleos.sh get currency balance fio.token hcgltvoi23bx)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -15438,7 +15438,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7RGc61PL1zi44MS6gDd6Rk9ts5HFHwNCHwXSefPqkjQprTiK53 hcgltvoi23bx the amount in account hcgltvoi23bx does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 hcgltvoi23bx)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 hcgltvoi23bx)
 
 ownerfound=false
 label1=""
@@ -15486,7 +15486,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6UQimMzaVtG2znGcvwdJjFTkJT6XVcXDZZUNyNQRrvXvaJB7MB
 #account kr41ft2wu25w
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token kr41ft2wu25w)
+resulttokens=$(./cleos.sh get currency balance fio.token kr41ft2wu25w)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -15498,7 +15498,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6UQimMzaVtG2znGcvwdJjFTkJT6XVcXDZZUNyNQRrvXvaJB7MB kr41ft2wu25w the amount in account kr41ft2wu25w does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 kr41ft2wu25w)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 kr41ft2wu25w)
 
 ownerfound=false
 label1=""
@@ -15546,7 +15546,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6h8T7Yx59X9YAoarn6DDwS12rNAHHmX1aTbohBj5imvzE3LhPL
 #account hsrwm51aba11
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token hsrwm51aba11)
+resulttokens=$(./cleos.sh get currency balance fio.token hsrwm51aba11)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -15558,7 +15558,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6h8T7Yx59X9YAoarn6DDwS12rNAHHmX1aTbohBj5imvzE3LhPL hsrwm51aba11 the amount in account hsrwm51aba11 does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 hsrwm51aba11)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 hsrwm51aba11)
 
 ownerfound=false
 label1=""
@@ -15606,7 +15606,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8PKiQqQnCJPJ8ZXWzeQNra4dbS2LpAZff8kj3TQ2ZJRbK2NNwv
 #account gjtm2qjjfz2f
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token gjtm2qjjfz2f)
+resulttokens=$(./cleos.sh get currency balance fio.token gjtm2qjjfz2f)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -15618,7 +15618,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8PKiQqQnCJPJ8ZXWzeQNra4dbS2LpAZff8kj3TQ2ZJRbK2NNwv gjtm2qjjfz2f the amount in account gjtm2qjjfz2f does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 gjtm2qjjfz2f)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 gjtm2qjjfz2f)
 
 ownerfound=false
 label1=""
@@ -15666,7 +15666,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8CjRqUTARZR45r7TYKDSCmdMNdPhhXMysLNKyuKMm9fGsg2qeM
 #account o2ln5hthddpf
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token o2ln5hthddpf)
+resulttokens=$(./cleos.sh get currency balance fio.token o2ln5hthddpf)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -15678,7 +15678,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8CjRqUTARZR45r7TYKDSCmdMNdPhhXMysLNKyuKMm9fGsg2qeM o2ln5hthddpf the amount in account o2ln5hthddpf does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 o2ln5hthddpf)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 o2ln5hthddpf)
 
 ownerfound=false
 label1=""
@@ -15726,7 +15726,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO816SuxuhQ7hyxUYYf1T38VsAPDgSEMvaRR1W6MbmzZRvkCkjtB
 #account upxthepjzjgg
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token upxthepjzjgg)
+resulttokens=$(./cleos.sh get currency balance fio.token upxthepjzjgg)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -15738,7 +15738,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO816SuxuhQ7hyxUYYf1T38VsAPDgSEMvaRR1W6MbmzZRvkCkjtB upxthepjzjgg the amount in account upxthepjzjgg does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 upxthepjzjgg)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 upxthepjzjgg)
 
 ownerfound=false
 label1=""
@@ -15786,7 +15786,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8h7eAqJz9LeDqVbtNa7yK68bSEE4kpk86SdMCVAckZoiKUNudA
 #account op1dxelawmnu
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token op1dxelawmnu)
+resulttokens=$(./cleos.sh get currency balance fio.token op1dxelawmnu)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -15798,7 +15798,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8h7eAqJz9LeDqVbtNa7yK68bSEE4kpk86SdMCVAckZoiKUNudA op1dxelawmnu the amount in account op1dxelawmnu does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 op1dxelawmnu)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 op1dxelawmnu)
 
 ownerfound=false
 label1=""
@@ -15846,7 +15846,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7sc4soxki4Xmuwa4VW1JjWKe6zBimaxQXARFZ8LuLTaSBuD8sZ
 #account dowezsui5w5y
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token dowezsui5w5y)
+resulttokens=$(./cleos.sh get currency balance fio.token dowezsui5w5y)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -15858,7 +15858,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7sc4soxki4Xmuwa4VW1JjWKe6zBimaxQXARFZ8LuLTaSBuD8sZ dowezsui5w5y the amount in account dowezsui5w5y does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 dowezsui5w5y)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 dowezsui5w5y)
 
 ownerfound=false
 label1=""
@@ -15906,7 +15906,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7JHTGv9wfJ8bHEK1VFa2yqUcTurii3feBTzqc2jyYtuLNq1qrd
 #account xfs1biiu3snw
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token xfs1biiu3snw)
+resulttokens=$(./cleos.sh get currency balance fio.token xfs1biiu3snw)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -15918,7 +15918,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7JHTGv9wfJ8bHEK1VFa2yqUcTurii3feBTzqc2jyYtuLNq1qrd xfs1biiu3snw the amount in account xfs1biiu3snw does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 xfs1biiu3snw)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 xfs1biiu3snw)
 
 ownerfound=false
 label1=""
@@ -15966,7 +15966,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5pyrYAzT5D91KrXAkzARNoqhYM9WqP1icWEv7RghaZGsuFGSoX
 #account vutsk3tanwxu
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token vutsk3tanwxu)
+resulttokens=$(./cleos.sh get currency balance fio.token vutsk3tanwxu)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -15978,7 +15978,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5pyrYAzT5D91KrXAkzARNoqhYM9WqP1icWEv7RghaZGsuFGSoX vutsk3tanwxu the amount in account vutsk3tanwxu does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 vutsk3tanwxu)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 vutsk3tanwxu)
 
 ownerfound=false
 label1=""
@@ -16026,7 +16026,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO686KFeUWTsQTFBgrsiAqh4gpRtKstEp3zt3mZwFgyntxBkVKE5
 #account 2pskukj2gk1k
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 2pskukj2gk1k)
+resulttokens=$(./cleos.sh get currency balance fio.token 2pskukj2gk1k)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -16038,7 +16038,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO686KFeUWTsQTFBgrsiAqh4gpRtKstEp3zt3mZwFgyntxBkVKE5 2pskukj2gk1k the amount in account 2pskukj2gk1k does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 2pskukj2gk1k)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 2pskukj2gk1k)
 
 ownerfound=false
 label1=""
@@ -16086,7 +16086,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6SCHhEJPiVYQvejVb2VK3ztqRiKNiCT5iBDuFJ3MuaTomkkSbc
 #account fkwoggelwmvq
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token fkwoggelwmvq)
+resulttokens=$(./cleos.sh get currency balance fio.token fkwoggelwmvq)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -16098,7 +16098,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6SCHhEJPiVYQvejVb2VK3ztqRiKNiCT5iBDuFJ3MuaTomkkSbc fkwoggelwmvq the amount in account fkwoggelwmvq does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 fkwoggelwmvq)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 fkwoggelwmvq)
 
 ownerfound=false
 label1=""
@@ -16146,7 +16146,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5JVDBpHRFxRfnPi9cFCAseqRKUXFjScqJ7hRv1foi6X9jN6x9y
 #account qx5ugghegin4
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token qx5ugghegin4)
+resulttokens=$(./cleos.sh get currency balance fio.token qx5ugghegin4)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -16158,7 +16158,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5JVDBpHRFxRfnPi9cFCAseqRKUXFjScqJ7hRv1foi6X9jN6x9y qx5ugghegin4 the amount in account qx5ugghegin4 does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 qx5ugghegin4)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 qx5ugghegin4)
 
 ownerfound=false
 label1=""
@@ -16206,7 +16206,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8ZHsipFDyNPhvnGzGQfcJbSKX5rKtjmqGJZH6bLzqQq8dwuzBm
 #account 3lpd2zzwxzwk
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 3lpd2zzwxzwk)
+resulttokens=$(./cleos.sh get currency balance fio.token 3lpd2zzwxzwk)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -16218,7 +16218,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8ZHsipFDyNPhvnGzGQfcJbSKX5rKtjmqGJZH6bLzqQq8dwuzBm 3lpd2zzwxzwk the amount in account 3lpd2zzwxzwk does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 3lpd2zzwxzwk)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 3lpd2zzwxzwk)
 
 ownerfound=false
 label1=""
@@ -16266,7 +16266,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8C76JHK1qY419ZQgyocT7T9gCzYPhtn8YfTvKnBoBHaKLSDZhm
 #account nq5dawvmot1n
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token nq5dawvmot1n)
+resulttokens=$(./cleos.sh get currency balance fio.token nq5dawvmot1n)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -16278,7 +16278,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8C76JHK1qY419ZQgyocT7T9gCzYPhtn8YfTvKnBoBHaKLSDZhm nq5dawvmot1n the amount in account nq5dawvmot1n does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 nq5dawvmot1n)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 nq5dawvmot1n)
 
 ownerfound=false
 label1=""
@@ -16326,7 +16326,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8khS1yNcvVkzn8mwzsbZ2CF8ZnWT1c9Jz7M4xisLdQiXFcbhF2
 #account xryozq5resxx
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token xryozq5resxx)
+resulttokens=$(./cleos.sh get currency balance fio.token xryozq5resxx)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -16338,7 +16338,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8khS1yNcvVkzn8mwzsbZ2CF8ZnWT1c9Jz7M4xisLdQiXFcbhF2 xryozq5resxx the amount in account xryozq5resxx does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 xryozq5resxx)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 xryozq5resxx)
 
 ownerfound=false
 label1=""
@@ -16386,7 +16386,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8TVqVTU469j69ynfMYwL8iLvgzoXmc3135jjszoAK7buX2ktJu
 #account qddvzhak2xns
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token qddvzhak2xns)
+resulttokens=$(./cleos.sh get currency balance fio.token qddvzhak2xns)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -16398,7 +16398,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8TVqVTU469j69ynfMYwL8iLvgzoXmc3135jjszoAK7buX2ktJu qddvzhak2xns the amount in account qddvzhak2xns does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 qddvzhak2xns)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 qddvzhak2xns)
 
 ownerfound=false
 label1=""
@@ -16446,7 +16446,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5TuLtXKBETE2Y5Qr632bviUowUK9DNkyMS8j7Eva1eMMhiHk2R
 #account fy5wvlqboy3v
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token fy5wvlqboy3v)
+resulttokens=$(./cleos.sh get currency balance fio.token fy5wvlqboy3v)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -16458,7 +16458,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5TuLtXKBETE2Y5Qr632bviUowUK9DNkyMS8j7Eva1eMMhiHk2R fy5wvlqboy3v the amount in account fy5wvlqboy3v does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 fy5wvlqboy3v)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 fy5wvlqboy3v)
 
 ownerfound=false
 label1=""
@@ -16506,7 +16506,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5yCSRKwrWnk6pu2cUSqKf5MvJA2Cc9sKk3a5YQ6QZWgPvdyeVz
 #account i3ohd4gr4kle
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token i3ohd4gr4kle)
+resulttokens=$(./cleos.sh get currency balance fio.token i3ohd4gr4kle)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -16518,7 +16518,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5yCSRKwrWnk6pu2cUSqKf5MvJA2Cc9sKk3a5YQ6QZWgPvdyeVz i3ohd4gr4kle the amount in account i3ohd4gr4kle does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 i3ohd4gr4kle)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 i3ohd4gr4kle)
 
 ownerfound=false
 label1=""
@@ -16566,7 +16566,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7ytGzg9tBKajQUgpQQb4ETJag3fsSKt9A8YZa2oZj5x5UHh5hU
 #account rqvu4vgzyuw5
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token rqvu4vgzyuw5)
+resulttokens=$(./cleos.sh get currency balance fio.token rqvu4vgzyuw5)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -16578,7 +16578,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7ytGzg9tBKajQUgpQQb4ETJag3fsSKt9A8YZa2oZj5x5UHh5hU rqvu4vgzyuw5 the amount in account rqvu4vgzyuw5 does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 rqvu4vgzyuw5)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 rqvu4vgzyuw5)
 
 ownerfound=false
 label1=""
@@ -16626,7 +16626,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8A9vRuE869TPmapaLeCBGCrE8h6jq9B8j68GkoBdAbb9cPpY4f
 #account icng2vjaey5f
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token icng2vjaey5f)
+resulttokens=$(./cleos.sh get currency balance fio.token icng2vjaey5f)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -16638,7 +16638,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8A9vRuE869TPmapaLeCBGCrE8h6jq9B8j68GkoBdAbb9cPpY4f icng2vjaey5f the amount in account icng2vjaey5f does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 icng2vjaey5f)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 icng2vjaey5f)
 
 ownerfound=false
 label1=""
@@ -16686,7 +16686,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6RT2yLuAfcaRk9Q1YztVSohLt85ZjgEsRrrGkgb9pcheBZfZt2
 #account dyycp5yqb1qt
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token dyycp5yqb1qt)
+resulttokens=$(./cleos.sh get currency balance fio.token dyycp5yqb1qt)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -16698,7 +16698,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6RT2yLuAfcaRk9Q1YztVSohLt85ZjgEsRrrGkgb9pcheBZfZt2 dyycp5yqb1qt the amount in account dyycp5yqb1qt does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 dyycp5yqb1qt)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 dyycp5yqb1qt)
 
 ownerfound=false
 label1=""
@@ -16746,7 +16746,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5aTLRSjpaYxaGoWeHn38LGDRDsVh1iUs4XyqpMzfMb8sDWZpC7
 #account uymj2z3432hf
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token uymj2z3432hf)
+resulttokens=$(./cleos.sh get currency balance fio.token uymj2z3432hf)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -16758,7 +16758,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5aTLRSjpaYxaGoWeHn38LGDRDsVh1iUs4XyqpMzfMb8sDWZpC7 uymj2z3432hf the amount in account uymj2z3432hf does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 uymj2z3432hf)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 uymj2z3432hf)
 
 ownerfound=false
 label1=""
@@ -16806,7 +16806,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO561b7edKk9JLWagnYQPgE3z3BjRiDJjVCAPZqJ3uhiuJdVZH75
 #account udrid2l3x4rg
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token udrid2l3x4rg)
+resulttokens=$(./cleos.sh get currency balance fio.token udrid2l3x4rg)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -16818,7 +16818,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO561b7edKk9JLWagnYQPgE3z3BjRiDJjVCAPZqJ3uhiuJdVZH75 udrid2l3x4rg the amount in account udrid2l3x4rg does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 udrid2l3x4rg)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 udrid2l3x4rg)
 
 ownerfound=false
 label1=""
@@ -16866,7 +16866,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO67tACqE2mx4wsvDhAGp7UbdNcwLZSckXnXB7nGM4nAKcqFrhsC
 #account 2v4es5gqenfo
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 2v4es5gqenfo)
+resulttokens=$(./cleos.sh get currency balance fio.token 2v4es5gqenfo)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -16878,7 +16878,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO67tACqE2mx4wsvDhAGp7UbdNcwLZSckXnXB7nGM4nAKcqFrhsC 2v4es5gqenfo the amount in account 2v4es5gqenfo does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 2v4es5gqenfo)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 2v4es5gqenfo)
 
 ownerfound=false
 label1=""
@@ -16926,7 +16926,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5TihRMrV7gbCvZEEeH9QtD4f1yfU4wZFSVZFTaostLF4CbXvr2
 #account fnntsggngp55
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token fnntsggngp55)
+resulttokens=$(./cleos.sh get currency balance fio.token fnntsggngp55)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -16938,7 +16938,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5TihRMrV7gbCvZEEeH9QtD4f1yfU4wZFSVZFTaostLF4CbXvr2 fnntsggngp55 the amount in account fnntsggngp55 does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 fnntsggngp55)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 fnntsggngp55)
 
 ownerfound=false
 label1=""
@@ -16986,7 +16986,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5UvMm2RxQhXoY6E4p7E2c1z6wyx1cWUMmGPm1TBLhvmpKcJc6g
 #account iitb4cgawb4a
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token iitb4cgawb4a)
+resulttokens=$(./cleos.sh get currency balance fio.token iitb4cgawb4a)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -16998,7 +16998,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5UvMm2RxQhXoY6E4p7E2c1z6wyx1cWUMmGPm1TBLhvmpKcJc6g iitb4cgawb4a the amount in account iitb4cgawb4a does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 iitb4cgawb4a)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 iitb4cgawb4a)
 
 ownerfound=false
 label1=""
@@ -17046,7 +17046,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5KVJZCwpz6GeMeQZZWdZbynWu8q9B78F6oEn76qS8v9qU5FQCd
 #account s3utxn5nvshi
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token s3utxn5nvshi)
+resulttokens=$(./cleos.sh get currency balance fio.token s3utxn5nvshi)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -17058,7 +17058,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5KVJZCwpz6GeMeQZZWdZbynWu8q9B78F6oEn76qS8v9qU5FQCd s3utxn5nvshi the amount in account s3utxn5nvshi does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 s3utxn5nvshi)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 s3utxn5nvshi)
 
 ownerfound=false
 label1=""
@@ -17106,7 +17106,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7zTRXEN4GBiLijy7SSYNPXfZHrep1ZmVQ9BMzxUwJ5E14zYQmF
 #account s2j11234xiec
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token s2j11234xiec)
+resulttokens=$(./cleos.sh get currency balance fio.token s2j11234xiec)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -17118,7 +17118,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7zTRXEN4GBiLijy7SSYNPXfZHrep1ZmVQ9BMzxUwJ5E14zYQmF s2j11234xiec the amount in account s2j11234xiec does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 s2j11234xiec)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 s2j11234xiec)
 
 ownerfound=false
 label1=""
@@ -17166,7 +17166,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6jxDw8pScHXhwvz4VA2CoUsZrTQRQLMHNrxyguqLm8tTEmURwh
 #account o2ico1ckmqhp
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token o2ico1ckmqhp)
+resulttokens=$(./cleos.sh get currency balance fio.token o2ico1ckmqhp)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -17178,7 +17178,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6jxDw8pScHXhwvz4VA2CoUsZrTQRQLMHNrxyguqLm8tTEmURwh o2ico1ckmqhp the amount in account o2ico1ckmqhp does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 o2ico1ckmqhp)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 o2ico1ckmqhp)
 
 ownerfound=false
 label1=""
@@ -17226,7 +17226,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8jiLPKpALzz7ZCUAyyfpxWpUgWQRGuJzpLvmSpVU78U6CvHbss
 #account uv3s3trpv4u4
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token uv3s3trpv4u4)
+resulttokens=$(./cleos.sh get currency balance fio.token uv3s3trpv4u4)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -17238,7 +17238,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8jiLPKpALzz7ZCUAyyfpxWpUgWQRGuJzpLvmSpVU78U6CvHbss uv3s3trpv4u4 the amount in account uv3s3trpv4u4 does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 uv3s3trpv4u4)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 uv3s3trpv4u4)
 
 ownerfound=false
 label1=""
@@ -17286,7 +17286,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5B8pi2GK7drPV38HYLewDDi1wdMRxZdn4qHHXCvjnZLBLnXPeS
 #account 5fy2rcs23ibo
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 5fy2rcs23ibo)
+resulttokens=$(./cleos.sh get currency balance fio.token 5fy2rcs23ibo)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -17298,7 +17298,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5B8pi2GK7drPV38HYLewDDi1wdMRxZdn4qHHXCvjnZLBLnXPeS 5fy2rcs23ibo the amount in account 5fy2rcs23ibo does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 5fy2rcs23ibo)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 5fy2rcs23ibo)
 
 ownerfound=false
 label1=""
@@ -17346,7 +17346,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7zZRGCawAKjvMxgY7ZNSwAJG423zBoCnim7DtobRz6rHCjv4Fz
 #account sz5foihf13vx
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token sz5foihf13vx)
+resulttokens=$(./cleos.sh get currency balance fio.token sz5foihf13vx)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -17358,7 +17358,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7zZRGCawAKjvMxgY7ZNSwAJG423zBoCnim7DtobRz6rHCjv4Fz sz5foihf13vx the amount in account sz5foihf13vx does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 sz5foihf13vx)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 sz5foihf13vx)
 
 ownerfound=false
 label1=""
@@ -17406,7 +17406,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO52Ti8sne4sJ3hfzGVc2DzVKNUyktrvdiQNoT2Z2g5EbZzWm9ux
 #account mt3igloxz1cd
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token mt3igloxz1cd)
+resulttokens=$(./cleos.sh get currency balance fio.token mt3igloxz1cd)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -17418,7 +17418,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO52Ti8sne4sJ3hfzGVc2DzVKNUyktrvdiQNoT2Z2g5EbZzWm9ux mt3igloxz1cd the amount in account mt3igloxz1cd does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 mt3igloxz1cd)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 mt3igloxz1cd)
 
 ownerfound=false
 label1=""
@@ -17466,7 +17466,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7oBz1SccpWwcmk7Kax9j7p3irW8HYRRBFUt1JAbfkV9QWcP5b2
 #account ziz5z1oevrpd
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token ziz5z1oevrpd)
+resulttokens=$(./cleos.sh get currency balance fio.token ziz5z1oevrpd)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -17478,7 +17478,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7oBz1SccpWwcmk7Kax9j7p3irW8HYRRBFUt1JAbfkV9QWcP5b2 ziz5z1oevrpd the amount in account ziz5z1oevrpd does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 ziz5z1oevrpd)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 ziz5z1oevrpd)
 
 ownerfound=false
 label1=""
@@ -17526,7 +17526,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5PcSgYKPscU1YTRSx5i1Q3VMLVyYGoZMiKVeJwuDhL1gnc2epb
 #account 2bzd1t25nux4
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 2bzd1t25nux4)
+resulttokens=$(./cleos.sh get currency balance fio.token 2bzd1t25nux4)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -17538,7 +17538,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5PcSgYKPscU1YTRSx5i1Q3VMLVyYGoZMiKVeJwuDhL1gnc2epb 2bzd1t25nux4 the amount in account 2bzd1t25nux4 does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 2bzd1t25nux4)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 2bzd1t25nux4)
 
 ownerfound=false
 label1=""
@@ -17586,7 +17586,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7jgaPhq8oWgJeWWfCF1X8zXWKGn32cd14krjWv6TJn839bLa5H
 #account rrkprqftjw5b
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token rrkprqftjw5b)
+resulttokens=$(./cleos.sh get currency balance fio.token rrkprqftjw5b)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -17598,7 +17598,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7jgaPhq8oWgJeWWfCF1X8zXWKGn32cd14krjWv6TJn839bLa5H rrkprqftjw5b the amount in account rrkprqftjw5b does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 rrkprqftjw5b)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 rrkprqftjw5b)
 
 ownerfound=false
 label1=""
@@ -17646,7 +17646,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6Zw4XYZyXJ2Kgz6D48mrcagxdSoTupD2AoCzwyxZRLpD6ETyT4
 #account x1xt4lz2e2np
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token x1xt4lz2e2np)
+resulttokens=$(./cleos.sh get currency balance fio.token x1xt4lz2e2np)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -17658,7 +17658,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6Zw4XYZyXJ2Kgz6D48mrcagxdSoTupD2AoCzwyxZRLpD6ETyT4 x1xt4lz2e2np the amount in account x1xt4lz2e2np does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 x1xt4lz2e2np)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 x1xt4lz2e2np)
 
 ownerfound=false
 label1=""
@@ -17706,7 +17706,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7aoLfSAv87oFHKNc6AczwJm9ekQTQTah4i7r2oYyMTeGtyqyUT
 #account 2fp4fhzaqcjt
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 2fp4fhzaqcjt)
+resulttokens=$(./cleos.sh get currency balance fio.token 2fp4fhzaqcjt)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -17718,7 +17718,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7aoLfSAv87oFHKNc6AczwJm9ekQTQTah4i7r2oYyMTeGtyqyUT 2fp4fhzaqcjt the amount in account 2fp4fhzaqcjt does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 2fp4fhzaqcjt)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 2fp4fhzaqcjt)
 
 ownerfound=false
 label1=""
@@ -17766,7 +17766,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5Kvk5jy2fXycDJ357B2SmBjeEY8DydaysCEuGMnyHx1K4tTzWt
 #account t2ljzivsxnoi
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token t2ljzivsxnoi)
+resulttokens=$(./cleos.sh get currency balance fio.token t2ljzivsxnoi)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -17778,7 +17778,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5Kvk5jy2fXycDJ357B2SmBjeEY8DydaysCEuGMnyHx1K4tTzWt t2ljzivsxnoi the amount in account t2ljzivsxnoi does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 t2ljzivsxnoi)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 t2ljzivsxnoi)
 
 ownerfound=false
 label1=""
@@ -17826,7 +17826,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO53ZKXPjNs3be2nkDTyyPwZsFBNBZR1gbQ8L4w8ks6EwCcRmf9q
 #account or4nodkvrdi3
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token or4nodkvrdi3)
+resulttokens=$(./cleos.sh get currency balance fio.token or4nodkvrdi3)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -17838,7 +17838,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO53ZKXPjNs3be2nkDTyyPwZsFBNBZR1gbQ8L4w8ks6EwCcRmf9q or4nodkvrdi3 the amount in account or4nodkvrdi3 does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 or4nodkvrdi3)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 or4nodkvrdi3)
 
 ownerfound=false
 label1=""
@@ -17886,7 +17886,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6XQFhbugtD5gaRFajhXMLtZfU4KTiXT5ts7us38TXRHwsT4QMs
 #account r2hhwf2o4qyw
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token r2hhwf2o4qyw)
+resulttokens=$(./cleos.sh get currency balance fio.token r2hhwf2o4qyw)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -17898,7 +17898,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6XQFhbugtD5gaRFajhXMLtZfU4KTiXT5ts7us38TXRHwsT4QMs r2hhwf2o4qyw the amount in account r2hhwf2o4qyw does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 r2hhwf2o4qyw)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 r2hhwf2o4qyw)
 
 ownerfound=false
 label1=""
@@ -17946,7 +17946,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7UkZftXwR5QAMippsQKEdf4QkE9XsZppW1amXnPiL3W8xyUYNP
 #account pkqnkgnbw5x1
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token pkqnkgnbw5x1)
+resulttokens=$(./cleos.sh get currency balance fio.token pkqnkgnbw5x1)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -17958,7 +17958,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7UkZftXwR5QAMippsQKEdf4QkE9XsZppW1amXnPiL3W8xyUYNP pkqnkgnbw5x1 the amount in account pkqnkgnbw5x1 does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 pkqnkgnbw5x1)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 pkqnkgnbw5x1)
 
 ownerfound=false
 label1=""
@@ -18006,7 +18006,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8QD57crweTtGNiYf86TbJKvGapKawphfb1R3D9Zhdv5SExFExy
 #account ilhwhyggxrzx
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token ilhwhyggxrzx)
+resulttokens=$(./cleos.sh get currency balance fio.token ilhwhyggxrzx)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -18018,7 +18018,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8QD57crweTtGNiYf86TbJKvGapKawphfb1R3D9Zhdv5SExFExy ilhwhyggxrzx the amount in account ilhwhyggxrzx does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 ilhwhyggxrzx)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 ilhwhyggxrzx)
 
 ownerfound=false
 label1=""
@@ -18066,7 +18066,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7jyND3aY2zahCZbGT6xWyfPoQFR6CgYYeuNaxThSaMvE2qDTej
 #account rzpzei4raovk
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token rzpzei4raovk)
+resulttokens=$(./cleos.sh get currency balance fio.token rzpzei4raovk)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -18078,7 +18078,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7jyND3aY2zahCZbGT6xWyfPoQFR6CgYYeuNaxThSaMvE2qDTej rzpzei4raovk the amount in account rzpzei4raovk does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 rzpzei4raovk)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 rzpzei4raovk)
 
 ownerfound=false
 label1=""
@@ -18126,7 +18126,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5Dkz7nN5BcfAxYSho133Qh7BgF8D39mDgqFHcmKD3HyYfVbocy
 #account fsdcb3l4mk54
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token fsdcb3l4mk54)
+resulttokens=$(./cleos.sh get currency balance fio.token fsdcb3l4mk54)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -18138,7 +18138,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5Dkz7nN5BcfAxYSho133Qh7BgF8D39mDgqFHcmKD3HyYfVbocy fsdcb3l4mk54 the amount in account fsdcb3l4mk54 does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 fsdcb3l4mk54)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 fsdcb3l4mk54)
 
 ownerfound=false
 label1=""
@@ -18186,7 +18186,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6dhy46U8G8ESN2GHLWxAC1sJ7YCMTnLQiFq6kwg37h5HNMxwdS
 #account 5nuhxa22jeg2
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 5nuhxa22jeg2)
+resulttokens=$(./cleos.sh get currency balance fio.token 5nuhxa22jeg2)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -18198,7 +18198,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6dhy46U8G8ESN2GHLWxAC1sJ7YCMTnLQiFq6kwg37h5HNMxwdS 5nuhxa22jeg2 the amount in account 5nuhxa22jeg2 does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 5nuhxa22jeg2)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 5nuhxa22jeg2)
 
 ownerfound=false
 label1=""
@@ -18246,7 +18246,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5ik9T9442yYWFGWH4czNcepgVT5ZqG5EQhkYaKKEwUEpYvvW9L
 #account hldg4151jmnm
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token hldg4151jmnm)
+resulttokens=$(./cleos.sh get currency balance fio.token hldg4151jmnm)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -18258,7 +18258,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5ik9T9442yYWFGWH4czNcepgVT5ZqG5EQhkYaKKEwUEpYvvW9L hldg4151jmnm the amount in account hldg4151jmnm does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 hldg4151jmnm)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 hldg4151jmnm)
 
 ownerfound=false
 label1=""
@@ -18306,7 +18306,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6MgG8WU6U6Lf5tPkgzRu3NRqgjattwYCMB7nP3Qsb9CCaGHHft
 #account 1ikrrp3ewjjb
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 1ikrrp3ewjjb)
+resulttokens=$(./cleos.sh get currency balance fio.token 1ikrrp3ewjjb)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -18318,7 +18318,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6MgG8WU6U6Lf5tPkgzRu3NRqgjattwYCMB7nP3Qsb9CCaGHHft 1ikrrp3ewjjb the amount in account 1ikrrp3ewjjb does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 1ikrrp3ewjjb)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 1ikrrp3ewjjb)
 
 ownerfound=false
 label1=""
@@ -18366,7 +18366,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6u1skNrcbgRshmXGBdD3uveJnCsLNdbTiySgiLpSi4UzaNHS1o
 #account cqf15wmsbq4b
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token cqf15wmsbq4b)
+resulttokens=$(./cleos.sh get currency balance fio.token cqf15wmsbq4b)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -18378,7 +18378,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6u1skNrcbgRshmXGBdD3uveJnCsLNdbTiySgiLpSi4UzaNHS1o cqf15wmsbq4b the amount in account cqf15wmsbq4b does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 cqf15wmsbq4b)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 cqf15wmsbq4b)
 
 ownerfound=false
 label1=""
@@ -18426,7 +18426,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO73ZNRZoMH4xmoLB21oCxDxxjiWJZpwPK1Ms31koZg1qJe63jUu
 #account vwfmbytsfi2m
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token vwfmbytsfi2m)
+resulttokens=$(./cleos.sh get currency balance fio.token vwfmbytsfi2m)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -18438,7 +18438,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO73ZNRZoMH4xmoLB21oCxDxxjiWJZpwPK1Ms31koZg1qJe63jUu vwfmbytsfi2m the amount in account vwfmbytsfi2m does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 vwfmbytsfi2m)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 vwfmbytsfi2m)
 
 ownerfound=false
 label1=""
@@ -18486,7 +18486,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6nxMYaJavU6JqcAGU5Pv7qTVduz6bDLF9j7okFfkGyYNTXEyJk
 #account unpttkyy15yz
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token unpttkyy15yz)
+resulttokens=$(./cleos.sh get currency balance fio.token unpttkyy15yz)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -18498,7 +18498,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6nxMYaJavU6JqcAGU5Pv7qTVduz6bDLF9j7okFfkGyYNTXEyJk unpttkyy15yz the amount in account unpttkyy15yz does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 unpttkyy15yz)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 unpttkyy15yz)
 
 ownerfound=false
 label1=""
@@ -18546,7 +18546,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7PZ2kkWLHkw87sj5b7kaZ3w1ccREs9Rrxf3YjVFZM5jp94YKzd
 #account d2vtciqkyyjl
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token d2vtciqkyyjl)
+resulttokens=$(./cleos.sh get currency balance fio.token d2vtciqkyyjl)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -18558,7 +18558,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7PZ2kkWLHkw87sj5b7kaZ3w1ccREs9Rrxf3YjVFZM5jp94YKzd d2vtciqkyyjl the amount in account d2vtciqkyyjl does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 d2vtciqkyyjl)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 d2vtciqkyyjl)
 
 ownerfound=false
 label1=""
@@ -18606,7 +18606,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO52QQhVZPPh5q1RioDy3xMefYCMjmUYfVPRHtke5wJgjnhXWoQr
 #account lsi1y5u21deq
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token lsi1y5u21deq)
+resulttokens=$(./cleos.sh get currency balance fio.token lsi1y5u21deq)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -18618,7 +18618,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO52QQhVZPPh5q1RioDy3xMefYCMjmUYfVPRHtke5wJgjnhXWoQr lsi1y5u21deq the amount in account lsi1y5u21deq does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 lsi1y5u21deq)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 lsi1y5u21deq)
 
 ownerfound=false
 label1=""
@@ -18666,7 +18666,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7AugFrCHPwvRaH8yTUiuMJo1yt7V2Tp9yN16vbrctmbjZEyf8K
 #account gg5xvpuumlbb
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token gg5xvpuumlbb)
+resulttokens=$(./cleos.sh get currency balance fio.token gg5xvpuumlbb)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -18678,7 +18678,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7AugFrCHPwvRaH8yTUiuMJo1yt7V2Tp9yN16vbrctmbjZEyf8K gg5xvpuumlbb the amount in account gg5xvpuumlbb does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 gg5xvpuumlbb)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 gg5xvpuumlbb)
 
 ownerfound=false
 label1=""
@@ -18726,7 +18726,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO76wG8pYxA6rr1TyrfDPttL2CrR5EpPsmug31TikVzFKCADS4zH
 #account 3bb12ezqdzpv
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 3bb12ezqdzpv)
+resulttokens=$(./cleos.sh get currency balance fio.token 3bb12ezqdzpv)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -18738,7 +18738,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO76wG8pYxA6rr1TyrfDPttL2CrR5EpPsmug31TikVzFKCADS4zH 3bb12ezqdzpv the amount in account 3bb12ezqdzpv does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 3bb12ezqdzpv)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 3bb12ezqdzpv)
 
 ownerfound=false
 label1=""
@@ -18786,7 +18786,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6eAwwJWzrdLwiP3NtJ4pSnXXeCNpx3X1ZAuT4N3XP1E2daWd1C
 #account a2b5ast1g3sy
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token a2b5ast1g3sy)
+resulttokens=$(./cleos.sh get currency balance fio.token a2b5ast1g3sy)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -18798,7 +18798,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6eAwwJWzrdLwiP3NtJ4pSnXXeCNpx3X1ZAuT4N3XP1E2daWd1C a2b5ast1g3sy the amount in account a2b5ast1g3sy does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 a2b5ast1g3sy)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 a2b5ast1g3sy)
 
 ownerfound=false
 label1=""
@@ -18846,7 +18846,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6mDXFUqZzL6GJUBfLKhWte2TQVqo7LfhT4zedxQGYaM3zHLJRP
 #account qcuf3wuqtwux
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token qcuf3wuqtwux)
+resulttokens=$(./cleos.sh get currency balance fio.token qcuf3wuqtwux)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -18858,7 +18858,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6mDXFUqZzL6GJUBfLKhWte2TQVqo7LfhT4zedxQGYaM3zHLJRP qcuf3wuqtwux the amount in account qcuf3wuqtwux does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 qcuf3wuqtwux)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 qcuf3wuqtwux)
 
 ownerfound=false
 label1=""
@@ -18906,7 +18906,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7YBotvvhQsc2Ai1dWzcXEu6VUMS9zXonenZe3j1d22HVxt9PzV
 #account wxjzqixt45z4
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token wxjzqixt45z4)
+resulttokens=$(./cleos.sh get currency balance fio.token wxjzqixt45z4)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -18918,7 +18918,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7YBotvvhQsc2Ai1dWzcXEu6VUMS9zXonenZe3j1d22HVxt9PzV wxjzqixt45z4 the amount in account wxjzqixt45z4 does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 wxjzqixt45z4)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 wxjzqixt45z4)
 
 ownerfound=false
 label1=""
@@ -18966,7 +18966,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8it5QLWdEGTtRQZ7qLZEEf3KUQaUmYB2jxtbeMMgGKzW3gH4Bj
 #account srxgghbxg4hi
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token srxgghbxg4hi)
+resulttokens=$(./cleos.sh get currency balance fio.token srxgghbxg4hi)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -18978,7 +18978,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8it5QLWdEGTtRQZ7qLZEEf3KUQaUmYB2jxtbeMMgGKzW3gH4Bj srxgghbxg4hi the amount in account srxgghbxg4hi does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 srxgghbxg4hi)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 srxgghbxg4hi)
 
 ownerfound=false
 label1=""
@@ -19026,7 +19026,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO4zv2BsZuVfC5rMGYRhrnR5qPGbUkN2HjB8SdTkH7YwWaTGDv98
 #account iq51znxjjohn
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token iq51znxjjohn)
+resulttokens=$(./cleos.sh get currency balance fio.token iq51znxjjohn)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -19038,7 +19038,7 @@ if [ $rt != "200000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO4zv2BsZuVfC5rMGYRhrnR5qPGbUkN2HjB8SdTkH7YwWaTGDv98 iq51znxjjohn the amount in account iq51znxjjohn does not match the expected value. amount in account is $rt  expected value is 200000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 iq51znxjjohn)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 iq51znxjjohn)
 
 ownerfound=false
 label1=""
@@ -19086,7 +19086,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7J5BNii2DcvDGWVhN2qxTFuKPSi2YKbPHzHDyh3DdjyyPWzNfk
 #account wkoczdqbtekr
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token wkoczdqbtekr)
+resulttokens=$(./cleos.sh get currency balance fio.token wkoczdqbtekr)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -19098,7 +19098,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7J5BNii2DcvDGWVhN2qxTFuKPSi2YKbPHzHDyh3DdjyyPWzNfk wkoczdqbtekr the amount in account wkoczdqbtekr does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 wkoczdqbtekr)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 wkoczdqbtekr)
 
 ownerfound=false
 label1=""
@@ -19146,7 +19146,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5PMxCnnCSz7gAmKUpyNecsqWwxKdrzzYR2ph1P3c9zRPmMx3ub
 #account 1ihkchozxs2y
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 1ihkchozxs2y)
+resulttokens=$(./cleos.sh get currency balance fio.token 1ihkchozxs2y)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -19158,7 +19158,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5PMxCnnCSz7gAmKUpyNecsqWwxKdrzzYR2ph1P3c9zRPmMx3ub 1ihkchozxs2y the amount in account 1ihkchozxs2y does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 1ihkchozxs2y)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 1ihkchozxs2y)
 
 ownerfound=false
 label1=""
@@ -19206,7 +19206,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6bgy1mprvBnSU6yNE1cmvFJut4nXxjaKyobdkhmvf5M5r7WmiQ
 #account 1zdgszxwrxsy
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 1zdgszxwrxsy)
+resulttokens=$(./cleos.sh get currency balance fio.token 1zdgszxwrxsy)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -19218,7 +19218,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6bgy1mprvBnSU6yNE1cmvFJut4nXxjaKyobdkhmvf5M5r7WmiQ 1zdgszxwrxsy the amount in account 1zdgszxwrxsy does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 1zdgszxwrxsy)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 1zdgszxwrxsy)
 
 ownerfound=false
 label1=""
@@ -19266,7 +19266,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6gmVGK4R44bgPbvyBM3qwjszmGTvLeiNfiiGkZWrJCPfy7XhVw
 #account gazj42zt3ga3
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token gazj42zt3ga3)
+resulttokens=$(./cleos.sh get currency balance fio.token gazj42zt3ga3)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -19278,7 +19278,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6gmVGK4R44bgPbvyBM3qwjszmGTvLeiNfiiGkZWrJCPfy7XhVw gazj42zt3ga3 the amount in account gazj42zt3ga3 does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 gazj42zt3ga3)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 gazj42zt3ga3)
 
 ownerfound=false
 label1=""
@@ -19326,7 +19326,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5bcFAYkGudDQvXCmHAeUHRRaih3kiHnPxrAFsvFmmN9kL8Ugmh
 #account xx4sprhjof2w
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token xx4sprhjof2w)
+resulttokens=$(./cleos.sh get currency balance fio.token xx4sprhjof2w)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -19338,7 +19338,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5bcFAYkGudDQvXCmHAeUHRRaih3kiHnPxrAFsvFmmN9kL8Ugmh xx4sprhjof2w the amount in account xx4sprhjof2w does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 xx4sprhjof2w)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 xx4sprhjof2w)
 
 ownerfound=false
 label1=""
@@ -19386,7 +19386,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5GwFi679XVo8v6wF4Sn48npUDdrhxjMGK8TWSaHvab3SQVetbC
 #account mrtq4avm5wzq
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token mrtq4avm5wzq)
+resulttokens=$(./cleos.sh get currency balance fio.token mrtq4avm5wzq)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -19398,7 +19398,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5GwFi679XVo8v6wF4Sn48npUDdrhxjMGK8TWSaHvab3SQVetbC mrtq4avm5wzq the amount in account mrtq4avm5wzq does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 mrtq4avm5wzq)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 mrtq4avm5wzq)
 
 ownerfound=false
 label1=""
@@ -19446,7 +19446,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO4xffLgGZucKcGXUPCmhAj9SHaa7EkLGjE2G1gYNkYsKTVD4jkg
 #account dwhrcjzk2m1v
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token dwhrcjzk2m1v)
+resulttokens=$(./cleos.sh get currency balance fio.token dwhrcjzk2m1v)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -19458,7 +19458,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO4xffLgGZucKcGXUPCmhAj9SHaa7EkLGjE2G1gYNkYsKTVD4jkg dwhrcjzk2m1v the amount in account dwhrcjzk2m1v does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 dwhrcjzk2m1v)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 dwhrcjzk2m1v)
 
 ownerfound=false
 label1=""
@@ -19506,7 +19506,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5vgq8bSz48fPRLWJNqrsY1LEsAWycGt6MdFQ9v7uPtjBdnxL3c
 #account cjcee3hkxogx
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token cjcee3hkxogx)
+resulttokens=$(./cleos.sh get currency balance fio.token cjcee3hkxogx)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -19518,7 +19518,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5vgq8bSz48fPRLWJNqrsY1LEsAWycGt6MdFQ9v7uPtjBdnxL3c cjcee3hkxogx the amount in account cjcee3hkxogx does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 cjcee3hkxogx)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 cjcee3hkxogx)
 
 ownerfound=false
 label1=""
@@ -19566,7 +19566,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5UvAxDtBMQcVe6Fa6nYrsNnSg422dHa6QhwQpEEq9xqi731g9F
 #account igvvnln2jm45
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token igvvnln2jm45)
+resulttokens=$(./cleos.sh get currency balance fio.token igvvnln2jm45)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -19578,7 +19578,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5UvAxDtBMQcVe6Fa6nYrsNnSg422dHa6QhwQpEEq9xqi731g9F igvvnln2jm45 the amount in account igvvnln2jm45 does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 igvvnln2jm45)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 igvvnln2jm45)
 
 ownerfound=false
 label1=""
@@ -19626,7 +19626,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8Lr4WUbcUe6oRkhLMBrwcyxUU8TaDhF5D16uaYNj1MMveDLWtx
 #account aj5qedqp2wcv
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token aj5qedqp2wcv)
+resulttokens=$(./cleos.sh get currency balance fio.token aj5qedqp2wcv)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -19638,7 +19638,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8Lr4WUbcUe6oRkhLMBrwcyxUU8TaDhF5D16uaYNj1MMveDLWtx aj5qedqp2wcv the amount in account aj5qedqp2wcv does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 aj5qedqp2wcv)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 aj5qedqp2wcv)
 
 ownerfound=false
 label1=""
@@ -19686,7 +19686,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7TVSx3UxZoFwCy4dbCdEdbqFDGAqTtGooRWNzyPyS4oNqWYjGR
 #account mnkfejurehui
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token mnkfejurehui)
+resulttokens=$(./cleos.sh get currency balance fio.token mnkfejurehui)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -19698,7 +19698,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7TVSx3UxZoFwCy4dbCdEdbqFDGAqTtGooRWNzyPyS4oNqWYjGR mnkfejurehui the amount in account mnkfejurehui does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 mnkfejurehui)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 mnkfejurehui)
 
 ownerfound=false
 label1=""
@@ -19746,7 +19746,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5Xt9Z2WiuJvHbxrRJsB4sY8mDCUvNjSodGayBnCVhgFkoxQwen
 #account obcbtvnddhfm
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token obcbtvnddhfm)
+resulttokens=$(./cleos.sh get currency balance fio.token obcbtvnddhfm)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -19758,7 +19758,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5Xt9Z2WiuJvHbxrRJsB4sY8mDCUvNjSodGayBnCVhgFkoxQwen obcbtvnddhfm the amount in account obcbtvnddhfm does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 obcbtvnddhfm)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 obcbtvnddhfm)
 
 ownerfound=false
 label1=""
@@ -19806,7 +19806,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5bDpNkBNUfpQM2reHsrsxmm2FLA9syWWzbm4jD8JLc19eZ82JN
 #account wwzeekrgmliy
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token wwzeekrgmliy)
+resulttokens=$(./cleos.sh get currency balance fio.token wwzeekrgmliy)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -19818,7 +19818,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5bDpNkBNUfpQM2reHsrsxmm2FLA9syWWzbm4jD8JLc19eZ82JN wwzeekrgmliy the amount in account wwzeekrgmliy does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 wwzeekrgmliy)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 wwzeekrgmliy)
 
 ownerfound=false
 label1=""
@@ -19866,7 +19866,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7H2Mt844BmstzH3bVHnQ8ni6ZogcAsTmaosAKiwsrErW1QkPmD
 #account ujhxotpl1nbm
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token ujhxotpl1nbm)
+resulttokens=$(./cleos.sh get currency balance fio.token ujhxotpl1nbm)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -19878,7 +19878,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7H2Mt844BmstzH3bVHnQ8ni6ZogcAsTmaosAKiwsrErW1QkPmD ujhxotpl1nbm the amount in account ujhxotpl1nbm does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 ujhxotpl1nbm)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 ujhxotpl1nbm)
 
 ownerfound=false
 label1=""
@@ -19926,7 +19926,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6KmF3iVxArVjD2a7MFzy8cQjgok7hKyNmx5crEGhyDVit5NCS1
 #account xphgdg4f5bmi
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token xphgdg4f5bmi)
+resulttokens=$(./cleos.sh get currency balance fio.token xphgdg4f5bmi)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -19938,7 +19938,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6KmF3iVxArVjD2a7MFzy8cQjgok7hKyNmx5crEGhyDVit5NCS1 xphgdg4f5bmi the amount in account xphgdg4f5bmi does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 xphgdg4f5bmi)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 xphgdg4f5bmi)
 
 ownerfound=false
 label1=""
@@ -19986,7 +19986,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7drMmnj9Xu1qNVEQ4D7aKScHdJtJG11TBHe5A5nwyf2wBPaSNo
 #account dthhnnnloors
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token dthhnnnloors)
+resulttokens=$(./cleos.sh get currency balance fio.token dthhnnnloors)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -19998,7 +19998,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7drMmnj9Xu1qNVEQ4D7aKScHdJtJG11TBHe5A5nwyf2wBPaSNo dthhnnnloors the amount in account dthhnnnloors does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 dthhnnnloors)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 dthhnnnloors)
 
 ownerfound=false
 label1=""
@@ -20046,7 +20046,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5EzbcRT8v7xWRvvmagupuWbowfNDY4ATnhY2xwYCoiJf26wCqF
 #account iifacexbafft
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token iifacexbafft)
+resulttokens=$(./cleos.sh get currency balance fio.token iifacexbafft)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -20058,7 +20058,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5EzbcRT8v7xWRvvmagupuWbowfNDY4ATnhY2xwYCoiJf26wCqF iifacexbafft the amount in account iifacexbafft does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 iifacexbafft)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 iifacexbafft)
 
 ownerfound=false
 label1=""
@@ -20106,7 +20106,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5Qs3RSYPJhmEPf5qiKWgHoETpDbodWiZ69eHK7LbDeBu1ZTrX3
 #account 4rz5vndevyfd
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 4rz5vndevyfd)
+resulttokens=$(./cleos.sh get currency balance fio.token 4rz5vndevyfd)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -20118,7 +20118,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5Qs3RSYPJhmEPf5qiKWgHoETpDbodWiZ69eHK7LbDeBu1ZTrX3 4rz5vndevyfd the amount in account 4rz5vndevyfd does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 4rz5vndevyfd)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 4rz5vndevyfd)
 
 ownerfound=false
 label1=""
@@ -20166,7 +20166,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO89GcDknU16Sqn9CvgMjCunpVzFSBg796r2jNpWKAaKFhMVmtcG
 #account gahm3bfew3xx
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token gahm3bfew3xx)
+resulttokens=$(./cleos.sh get currency balance fio.token gahm3bfew3xx)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -20178,7 +20178,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO89GcDknU16Sqn9CvgMjCunpVzFSBg796r2jNpWKAaKFhMVmtcG gahm3bfew3xx the amount in account gahm3bfew3xx does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 gahm3bfew3xx)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 gahm3bfew3xx)
 
 ownerfound=false
 label1=""
@@ -20226,7 +20226,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8Yby89Kh1ToDjtm1jDsf76cWamwmXJrACqzVPRHigcHUyp21Si
 #account 1123ib3rvf4b
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 1123ib3rvf4b)
+resulttokens=$(./cleos.sh get currency balance fio.token 1123ib3rvf4b)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -20238,7 +20238,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8Yby89Kh1ToDjtm1jDsf76cWamwmXJrACqzVPRHigcHUyp21Si 1123ib3rvf4b the amount in account 1123ib3rvf4b does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 1123ib3rvf4b)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 1123ib3rvf4b)
 
 ownerfound=false
 label1=""
@@ -20286,7 +20286,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6MDdSyMDX1oRZnmn857tiydTQtSCoXENfYxZuudZg1W76qvFpm
 #account 3abkz4efofsr
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 3abkz4efofsr)
+resulttokens=$(./cleos.sh get currency balance fio.token 3abkz4efofsr)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -20298,7 +20298,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6MDdSyMDX1oRZnmn857tiydTQtSCoXENfYxZuudZg1W76qvFpm 3abkz4efofsr the amount in account 3abkz4efofsr does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 3abkz4efofsr)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 3abkz4efofsr)
 
 ownerfound=false
 label1=""
@@ -20346,7 +20346,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6p7xnojBkRm9bpy52XHVm9MKEKkxsGRjn7cTshERyUQ5TTLg7u
 #account xsb3scvdtkii
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token xsb3scvdtkii)
+resulttokens=$(./cleos.sh get currency balance fio.token xsb3scvdtkii)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -20358,7 +20358,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6p7xnojBkRm9bpy52XHVm9MKEKkxsGRjn7cTshERyUQ5TTLg7u xsb3scvdtkii the amount in account xsb3scvdtkii does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 xsb3scvdtkii)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 xsb3scvdtkii)
 
 ownerfound=false
 label1=""
@@ -20406,7 +20406,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6mKSUjZrVc7ar1N7Nj9E77M7Yx49qtX161guboDfxWTYtexBSu
 #account rwre4ts2xylz
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token rwre4ts2xylz)
+resulttokens=$(./cleos.sh get currency balance fio.token rwre4ts2xylz)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -20418,7 +20418,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6mKSUjZrVc7ar1N7Nj9E77M7Yx49qtX161guboDfxWTYtexBSu rwre4ts2xylz the amount in account rwre4ts2xylz does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 rwre4ts2xylz)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 rwre4ts2xylz)
 
 ownerfound=false
 label1=""
@@ -20466,7 +20466,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5vB1b47j5mk5cVMvLczrd2cMrc6T2kHuayZitUDKbdSZZzHxUY
 #account b4hglyyrv5n4
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token b4hglyyrv5n4)
+resulttokens=$(./cleos.sh get currency balance fio.token b4hglyyrv5n4)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -20478,7 +20478,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5vB1b47j5mk5cVMvLczrd2cMrc6T2kHuayZitUDKbdSZZzHxUY b4hglyyrv5n4 the amount in account b4hglyyrv5n4 does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 b4hglyyrv5n4)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 b4hglyyrv5n4)
 
 ownerfound=false
 label1=""
@@ -20526,7 +20526,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6i8N2m7HP2bjJyy25fNjBRGhGhLasVSG9jceAMmmPF9DMDvCw7
 #account jxydljirfjy4
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token jxydljirfjy4)
+resulttokens=$(./cleos.sh get currency balance fio.token jxydljirfjy4)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -20538,7 +20538,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6i8N2m7HP2bjJyy25fNjBRGhGhLasVSG9jceAMmmPF9DMDvCw7 jxydljirfjy4 the amount in account jxydljirfjy4 does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 jxydljirfjy4)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 jxydljirfjy4)
 
 ownerfound=false
 label1=""
@@ -20586,7 +20586,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8Q1THhPvZebMq1kjHnA9omUAGaWW8L9zjwTQRpCcXd6kkLDDTe
 #account ixyrfvn4vpgp
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token ixyrfvn4vpgp)
+resulttokens=$(./cleos.sh get currency balance fio.token ixyrfvn4vpgp)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -20598,7 +20598,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8Q1THhPvZebMq1kjHnA9omUAGaWW8L9zjwTQRpCcXd6kkLDDTe ixyrfvn4vpgp the amount in account ixyrfvn4vpgp does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 ixyrfvn4vpgp)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 ixyrfvn4vpgp)
 
 ownerfound=false
 label1=""
@@ -20646,7 +20646,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO524SPZi9VJxaoYWj9xzn2barPHvngXcHrmXMY4k3QKavY7fTvb
 #account lkczqcmj14rs
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token lkczqcmj14rs)
+resulttokens=$(./cleos.sh get currency balance fio.token lkczqcmj14rs)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -20658,7 +20658,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO524SPZi9VJxaoYWj9xzn2barPHvngXcHrmXMY4k3QKavY7fTvb lkczqcmj14rs the amount in account lkczqcmj14rs does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 lkczqcmj14rs)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 lkczqcmj14rs)
 
 ownerfound=false
 label1=""
@@ -20706,7 +20706,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO63dDaPjUaz3YR86d7Mh1ih57mceY52RXYpGJA83meAQUtZ7sQc
 #account skbrjhah53zz
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token skbrjhah53zz)
+resulttokens=$(./cleos.sh get currency balance fio.token skbrjhah53zz)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -20718,7 +20718,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO63dDaPjUaz3YR86d7Mh1ih57mceY52RXYpGJA83meAQUtZ7sQc skbrjhah53zz the amount in account skbrjhah53zz does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 skbrjhah53zz)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 skbrjhah53zz)
 
 ownerfound=false
 label1=""
@@ -20766,7 +20766,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7ixZbheqU9HJ2n4jCdGtw3h5kxVjbGE4arFh5yqeqaQsFWu2XB
 #account pmr3fah5rkmh
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token pmr3fah5rkmh)
+resulttokens=$(./cleos.sh get currency balance fio.token pmr3fah5rkmh)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -20778,7 +20778,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7ixZbheqU9HJ2n4jCdGtw3h5kxVjbGE4arFh5yqeqaQsFWu2XB pmr3fah5rkmh the amount in account pmr3fah5rkmh does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 pmr3fah5rkmh)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 pmr3fah5rkmh)
 
 ownerfound=false
 label1=""
@@ -20826,7 +20826,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8CuE42xvXVMSLqQgx4dPdk2nLkRmCsfp44PfXHmuvwG531TuRY
 #account o4g3ujooj5bx
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token o4g3ujooj5bx)
+resulttokens=$(./cleos.sh get currency balance fio.token o4g3ujooj5bx)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -20838,7 +20838,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8CuE42xvXVMSLqQgx4dPdk2nLkRmCsfp44PfXHmuvwG531TuRY o4g3ujooj5bx the amount in account o4g3ujooj5bx does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 o4g3ujooj5bx)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 o4g3ujooj5bx)
 
 ownerfound=false
 label1=""
@@ -20886,7 +20886,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5eguJyR8ygfNR8t7SatdrPzEmqRLpMHJJJ7D3ockfDmYs5NusY
 #account 4wdk1sanuwno
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 4wdk1sanuwno)
+resulttokens=$(./cleos.sh get currency balance fio.token 4wdk1sanuwno)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -20898,7 +20898,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5eguJyR8ygfNR8t7SatdrPzEmqRLpMHJJJ7D3ockfDmYs5NusY 4wdk1sanuwno the amount in account 4wdk1sanuwno does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 4wdk1sanuwno)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 4wdk1sanuwno)
 
 ownerfound=false
 label1=""
@@ -20946,7 +20946,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7EKFM7nBeNMXpPYQj1Q4QBddkTzTZDZmd1KZ4SPsJ29DKX9yyB
 #account ocpco5bwviqb
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token ocpco5bwviqb)
+resulttokens=$(./cleos.sh get currency balance fio.token ocpco5bwviqb)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -20958,7 +20958,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7EKFM7nBeNMXpPYQj1Q4QBddkTzTZDZmd1KZ4SPsJ29DKX9yyB ocpco5bwviqb the amount in account ocpco5bwviqb does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 ocpco5bwviqb)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 ocpco5bwviqb)
 
 ownerfound=false
 label1=""
@@ -21006,7 +21006,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6c9zLvTg1TTgXDo62VLViaEKeqixDd6AiFvHXqRgFedEbrSDhv
 #account 2hwt5dvaqvls
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 2hwt5dvaqvls)
+resulttokens=$(./cleos.sh get currency balance fio.token 2hwt5dvaqvls)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -21018,7 +21018,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6c9zLvTg1TTgXDo62VLViaEKeqixDd6AiFvHXqRgFedEbrSDhv 2hwt5dvaqvls the amount in account 2hwt5dvaqvls does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 2hwt5dvaqvls)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 2hwt5dvaqvls)
 
 ownerfound=false
 label1=""
@@ -21066,7 +21066,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO83jekwMpjgBAATAjLe2mNBow7Ub79tyfqSYRSmSjAvY5DxXqao
 #account pd2wpm3hfbro
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token pd2wpm3hfbro)
+resulttokens=$(./cleos.sh get currency balance fio.token pd2wpm3hfbro)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -21078,7 +21078,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO83jekwMpjgBAATAjLe2mNBow7Ub79tyfqSYRSmSjAvY5DxXqao pd2wpm3hfbro the amount in account pd2wpm3hfbro does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 pd2wpm3hfbro)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 pd2wpm3hfbro)
 
 ownerfound=false
 label1=""
@@ -21126,7 +21126,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO56g93DmoyS2cXgfmDazuHmoj95MS3rTBVLgbGhmuEQgo9sxtD9
 #account vfmc3qc1kbcj
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token vfmc3qc1kbcj)
+resulttokens=$(./cleos.sh get currency balance fio.token vfmc3qc1kbcj)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -21138,7 +21138,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO56g93DmoyS2cXgfmDazuHmoj95MS3rTBVLgbGhmuEQgo9sxtD9 vfmc3qc1kbcj the amount in account vfmc3qc1kbcj does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 vfmc3qc1kbcj)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 vfmc3qc1kbcj)
 
 ownerfound=false
 label1=""
@@ -21186,7 +21186,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6txxByV2YErNyz6VSyWEuG7sSea1jcb4RTjA4Qt3de22ms2D7i
 #account cszbelkkissw
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token cszbelkkissw)
+resulttokens=$(./cleos.sh get currency balance fio.token cszbelkkissw)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -21198,7 +21198,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6txxByV2YErNyz6VSyWEuG7sSea1jcb4RTjA4Qt3de22ms2D7i cszbelkkissw the amount in account cszbelkkissw does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 cszbelkkissw)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 cszbelkkissw)
 
 ownerfound=false
 label1=""
@@ -21246,7 +21246,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO55Qxxpi9Z5JBbE9e7bCMg7ci79Lfy3euz4gMkAMV3PdJEivVci
 #account sisyzskzxhq5
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token sisyzskzxhq5)
+resulttokens=$(./cleos.sh get currency balance fio.token sisyzskzxhq5)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -21258,7 +21258,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO55Qxxpi9Z5JBbE9e7bCMg7ci79Lfy3euz4gMkAMV3PdJEivVci sisyzskzxhq5 the amount in account sisyzskzxhq5 does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 sisyzskzxhq5)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 sisyzskzxhq5)
 
 ownerfound=false
 label1=""
@@ -21306,7 +21306,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7mjcf46mSF2HRmMar24jT1QmWjb1eGBqxyaD3uzBExq3QfS7En
 #account voq3hc2l1h3r
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token voq3hc2l1h3r)
+resulttokens=$(./cleos.sh get currency balance fio.token voq3hc2l1h3r)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -21318,7 +21318,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7mjcf46mSF2HRmMar24jT1QmWjb1eGBqxyaD3uzBExq3QfS7En voq3hc2l1h3r the amount in account voq3hc2l1h3r does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 voq3hc2l1h3r)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 voq3hc2l1h3r)
 
 ownerfound=false
 label1=""
@@ -21366,7 +21366,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7T8ef2Dkk8burTwrwVR8ATupyjAYvRJ8aRWnw1vvM9wG4KxqoS
 #account l3inggb3jdby
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token l3inggb3jdby)
+resulttokens=$(./cleos.sh get currency balance fio.token l3inggb3jdby)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -21378,7 +21378,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7T8ef2Dkk8burTwrwVR8ATupyjAYvRJ8aRWnw1vvM9wG4KxqoS l3inggb3jdby the amount in account l3inggb3jdby does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 l3inggb3jdby)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 l3inggb3jdby)
 
 ownerfound=false
 label1=""
@@ -21426,7 +21426,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7Bp2rM3xHiRfmEbsQkrDceeyophJA2QPmWHc1SbQrxJoB6PNMP
 #account itu1za14wwcq
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token itu1za14wwcq)
+resulttokens=$(./cleos.sh get currency balance fio.token itu1za14wwcq)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -21438,7 +21438,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7Bp2rM3xHiRfmEbsQkrDceeyophJA2QPmWHc1SbQrxJoB6PNMP itu1za14wwcq the amount in account itu1za14wwcq does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 itu1za14wwcq)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 itu1za14wwcq)
 
 ownerfound=false
 label1=""
@@ -21486,7 +21486,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO64boiYkfQkBBQaEiKCyGV7rFUjx9GexA6MHpsQbbau9393rL37
 #account ubdaohh4dpdr
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token ubdaohh4dpdr)
+resulttokens=$(./cleos.sh get currency balance fio.token ubdaohh4dpdr)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -21498,7 +21498,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO64boiYkfQkBBQaEiKCyGV7rFUjx9GexA6MHpsQbbau9393rL37 ubdaohh4dpdr the amount in account ubdaohh4dpdr does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 ubdaohh4dpdr)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 ubdaohh4dpdr)
 
 ownerfound=false
 label1=""
@@ -21546,7 +21546,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5w1iNYyUPbcw78cqjiGTWRwAWBKz42LbHyVrrqa9FibV9nuV5f
 #account dhcnb4hsdzl1
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token dhcnb4hsdzl1)
+resulttokens=$(./cleos.sh get currency balance fio.token dhcnb4hsdzl1)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -21558,7 +21558,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5w1iNYyUPbcw78cqjiGTWRwAWBKz42LbHyVrrqa9FibV9nuV5f dhcnb4hsdzl1 the amount in account dhcnb4hsdzl1 does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 dhcnb4hsdzl1)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 dhcnb4hsdzl1)
 
 ownerfound=false
 label1=""
@@ -21606,7 +21606,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6GsuuPoSAvEGrhddyM3Q1CV3iS3q9UYymGJ7JfnQ3DhgbGN1Q6
 #account qcjysbf42gjk
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token qcjysbf42gjk)
+resulttokens=$(./cleos.sh get currency balance fio.token qcjysbf42gjk)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -21618,7 +21618,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6GsuuPoSAvEGrhddyM3Q1CV3iS3q9UYymGJ7JfnQ3DhgbGN1Q6 qcjysbf42gjk the amount in account qcjysbf42gjk does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 qcjysbf42gjk)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 qcjysbf42gjk)
 
 ownerfound=false
 label1=""
@@ -21666,7 +21666,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5jHkdzj4vQJWpyccmb75D5m4SJRcAVMpqeVf6D88sjwzeiGKEX
 #account iihvuaavnxle
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token iihvuaavnxle)
+resulttokens=$(./cleos.sh get currency balance fio.token iihvuaavnxle)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -21678,7 +21678,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5jHkdzj4vQJWpyccmb75D5m4SJRcAVMpqeVf6D88sjwzeiGKEX iihvuaavnxle the amount in account iihvuaavnxle does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 iihvuaavnxle)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 iihvuaavnxle)
 
 ownerfound=false
 label1=""
@@ -21726,7 +21726,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8HPKSSp5jcoxMiPm3khknqJ4WLvNRud4ErwSXpfdYWBmgWKTUz
 #account znflocx2xiuh
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token znflocx2xiuh)
+resulttokens=$(./cleos.sh get currency balance fio.token znflocx2xiuh)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -21738,7 +21738,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8HPKSSp5jcoxMiPm3khknqJ4WLvNRud4ErwSXpfdYWBmgWKTUz znflocx2xiuh the amount in account znflocx2xiuh does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 znflocx2xiuh)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 znflocx2xiuh)
 
 ownerfound=false
 label1=""
@@ -21786,7 +21786,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6LKT4KhKJKw6Eev4LsDBd1TxANjkFweoKLXvPvs6m6yreV9h47
 #account yspbvccg3a2h
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token yspbvccg3a2h)
+resulttokens=$(./cleos.sh get currency balance fio.token yspbvccg3a2h)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -21798,7 +21798,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6LKT4KhKJKw6Eev4LsDBd1TxANjkFweoKLXvPvs6m6yreV9h47 yspbvccg3a2h the amount in account yspbvccg3a2h does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 yspbvccg3a2h)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 yspbvccg3a2h)
 
 ownerfound=false
 label1=""
@@ -21846,7 +21846,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8HjoFUD4jQuuYqtiAFyuCwWmkJcxNe27rvwxEUPY9p1kTsjJgn
 #account zesgk2htcazd
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token zesgk2htcazd)
+resulttokens=$(./cleos.sh get currency balance fio.token zesgk2htcazd)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -21858,7 +21858,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8HjoFUD4jQuuYqtiAFyuCwWmkJcxNe27rvwxEUPY9p1kTsjJgn zesgk2htcazd the amount in account zesgk2htcazd does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 zesgk2htcazd)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 zesgk2htcazd)
 
 ownerfound=false
 label1=""
@@ -21906,7 +21906,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5xSnZRgCKyz6DJzetbYhhhoSA2MKEfbXzbZQoNbR221jXS45NX
 #account ghqvjw54zksd
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token ghqvjw54zksd)
+resulttokens=$(./cleos.sh get currency balance fio.token ghqvjw54zksd)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -21918,7 +21918,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5xSnZRgCKyz6DJzetbYhhhoSA2MKEfbXzbZQoNbR221jXS45NX ghqvjw54zksd the amount in account ghqvjw54zksd does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 ghqvjw54zksd)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 ghqvjw54zksd)
 
 ownerfound=false
 label1=""
@@ -21966,7 +21966,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5hSboVkCgDnTWbw7eTi5TDHSKaKpsuGA6Uk5LaYetQ28ewRFyi
 #account ewefrdljqkug
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token ewefrdljqkug)
+resulttokens=$(./cleos.sh get currency balance fio.token ewefrdljqkug)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -21978,7 +21978,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5hSboVkCgDnTWbw7eTi5TDHSKaKpsuGA6Uk5LaYetQ28ewRFyi ewefrdljqkug the amount in account ewefrdljqkug does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 ewefrdljqkug)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 ewefrdljqkug)
 
 ownerfound=false
 label1=""
@@ -22026,7 +22026,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6UnWXdeZrSCtcHJhAuk1hwWjNc6UF6ZdMiJsKxm5ktXJqczFWM
 #account ll3k41dhakfw
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token ll3k41dhakfw)
+resulttokens=$(./cleos.sh get currency balance fio.token ll3k41dhakfw)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -22038,7 +22038,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6UnWXdeZrSCtcHJhAuk1hwWjNc6UF6ZdMiJsKxm5ktXJqczFWM ll3k41dhakfw the amount in account ll3k41dhakfw does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 ll3k41dhakfw)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 ll3k41dhakfw)
 
 ownerfound=false
 label1=""
@@ -22086,7 +22086,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7HRVHUyQkfUAXEBNzgRKqck2EFjfrvYS6Lc75LHGRtHb5GuhhP
 #account vrqnpsuqcmjo
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token vrqnpsuqcmjo)
+resulttokens=$(./cleos.sh get currency balance fio.token vrqnpsuqcmjo)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -22098,7 +22098,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7HRVHUyQkfUAXEBNzgRKqck2EFjfrvYS6Lc75LHGRtHb5GuhhP vrqnpsuqcmjo the amount in account vrqnpsuqcmjo does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 vrqnpsuqcmjo)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 vrqnpsuqcmjo)
 
 ownerfound=false
 label1=""
@@ -22146,7 +22146,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO76dM1oeh2ioMLjSMUqF2N4nm3FvPwZoif4APaCeLDnxSHqfvh6
 #account 2ntkn5vaf3tw
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 2ntkn5vaf3tw)
+resulttokens=$(./cleos.sh get currency balance fio.token 2ntkn5vaf3tw)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -22158,7 +22158,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO76dM1oeh2ioMLjSMUqF2N4nm3FvPwZoif4APaCeLDnxSHqfvh6 2ntkn5vaf3tw the amount in account 2ntkn5vaf3tw does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 2ntkn5vaf3tw)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 2ntkn5vaf3tw)
 
 ownerfound=false
 label1=""
@@ -22206,7 +22206,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO59Shzhm7qyuv1Yw95vKWXR3RS6MeuvAa2xyPw7ogpTFpSTxjwF
 #account 1ofq43tncqgu
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 1ofq43tncqgu)
+resulttokens=$(./cleos.sh get currency balance fio.token 1ofq43tncqgu)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -22218,7 +22218,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO59Shzhm7qyuv1Yw95vKWXR3RS6MeuvAa2xyPw7ogpTFpSTxjwF 1ofq43tncqgu the amount in account 1ofq43tncqgu does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 1ofq43tncqgu)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 1ofq43tncqgu)
 
 ownerfound=false
 label1=""
@@ -22266,7 +22266,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8ekabZZ1fjGjHZwwYkCnqrNdR4j6G2keEDwQNhqYC6UgB1TwFH
 #account jrxxefkrmhgu
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token jrxxefkrmhgu)
+resulttokens=$(./cleos.sh get currency balance fio.token jrxxefkrmhgu)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -22278,7 +22278,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8ekabZZ1fjGjHZwwYkCnqrNdR4j6G2keEDwQNhqYC6UgB1TwFH jrxxefkrmhgu the amount in account jrxxefkrmhgu does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 jrxxefkrmhgu)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 jrxxefkrmhgu)
 
 ownerfound=false
 label1=""
@@ -22326,7 +22326,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6GWie6u2pUgpYz21iwy9LFLmbZq7iJ9Fs3YC9uCQmawuMn6myY
 #account poadsfledxth
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token poadsfledxth)
+resulttokens=$(./cleos.sh get currency balance fio.token poadsfledxth)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -22338,7 +22338,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6GWie6u2pUgpYz21iwy9LFLmbZq7iJ9Fs3YC9uCQmawuMn6myY poadsfledxth the amount in account poadsfledxth does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 poadsfledxth)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 poadsfledxth)
 
 ownerfound=false
 label1=""
@@ -22386,7 +22386,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO57p8fSWasZewndnApNg5ZznhdaWG1DqQdiU8aBndagP7jC9z3v
 #account yqtbxxgqdv44
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token yqtbxxgqdv44)
+resulttokens=$(./cleos.sh get currency balance fio.token yqtbxxgqdv44)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -22398,7 +22398,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO57p8fSWasZewndnApNg5ZznhdaWG1DqQdiU8aBndagP7jC9z3v yqtbxxgqdv44 the amount in account yqtbxxgqdv44 does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 yqtbxxgqdv44)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 yqtbxxgqdv44)
 
 ownerfound=false
 label1=""
@@ -22446,7 +22446,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8cQXheUHnpCEfmqXjfYmzVktp13LDBXFuib91G9617r44AHEHB
 #account e3xvv1lbwi45
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token e3xvv1lbwi45)
+resulttokens=$(./cleos.sh get currency balance fio.token e3xvv1lbwi45)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -22458,7 +22458,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8cQXheUHnpCEfmqXjfYmzVktp13LDBXFuib91G9617r44AHEHB e3xvv1lbwi45 the amount in account e3xvv1lbwi45 does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 e3xvv1lbwi45)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 e3xvv1lbwi45)
 
 ownerfound=false
 label1=""
@@ -22506,7 +22506,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8fqp3KazqgBDQ3U9pEreVgWVzXzzECaWKB5zgJzQN4eBXpfkSg
 #account mlojlqk4zqfe
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token mlojlqk4zqfe)
+resulttokens=$(./cleos.sh get currency balance fio.token mlojlqk4zqfe)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -22518,7 +22518,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8fqp3KazqgBDQ3U9pEreVgWVzXzzECaWKB5zgJzQN4eBXpfkSg mlojlqk4zqfe the amount in account mlojlqk4zqfe does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 mlojlqk4zqfe)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 mlojlqk4zqfe)
 
 ownerfound=false
 label1=""
@@ -22566,7 +22566,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8N6PAyT2z5Kbjuj59fNscqs2PjR3EdPoekqqL7YE6RqKuFiUKY
 #account d4pyrv31mszc
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token d4pyrv31mszc)
+resulttokens=$(./cleos.sh get currency balance fio.token d4pyrv31mszc)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -22578,7 +22578,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8N6PAyT2z5Kbjuj59fNscqs2PjR3EdPoekqqL7YE6RqKuFiUKY d4pyrv31mszc the amount in account d4pyrv31mszc does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 d4pyrv31mszc)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 d4pyrv31mszc)
 
 ownerfound=false
 label1=""
@@ -22626,7 +22626,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6v2F1SYSwVzECeVgxYuoqA8qKb7gkhuXGcfDFLNBysYdccR7a5
 #account ezzkuafqgczi
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token ezzkuafqgczi)
+resulttokens=$(./cleos.sh get currency balance fio.token ezzkuafqgczi)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -22638,7 +22638,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6v2F1SYSwVzECeVgxYuoqA8qKb7gkhuXGcfDFLNBysYdccR7a5 ezzkuafqgczi the amount in account ezzkuafqgczi does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 ezzkuafqgczi)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 ezzkuafqgczi)
 
 ownerfound=false
 label1=""
@@ -22686,7 +22686,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6ydZeVojevVFyizq46EMg4xJkHhWAqw5afK7kh3DfHWWtcpUxr
 #account nloqdtvsb1xq
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token nloqdtvsb1xq)
+resulttokens=$(./cleos.sh get currency balance fio.token nloqdtvsb1xq)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -22698,7 +22698,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6ydZeVojevVFyizq46EMg4xJkHhWAqw5afK7kh3DfHWWtcpUxr nloqdtvsb1xq the amount in account nloqdtvsb1xq does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 nloqdtvsb1xq)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 nloqdtvsb1xq)
 
 ownerfound=false
 label1=""
@@ -22746,7 +22746,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6Agm3FCTtzPoYANF63yfwxXvF5fEgFGSFNruJPd9muhNnfdKJD
 #account cswsdvivclcf
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token cswsdvivclcf)
+resulttokens=$(./cleos.sh get currency balance fio.token cswsdvivclcf)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -22758,7 +22758,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6Agm3FCTtzPoYANF63yfwxXvF5fEgFGSFNruJPd9muhNnfdKJD cswsdvivclcf the amount in account cswsdvivclcf does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 cswsdvivclcf)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 cswsdvivclcf)
 
 ownerfound=false
 label1=""
@@ -22806,7 +22806,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5s1PtRGpLvJEcSr2SwzuwxqiUfrCHuc1qTNpF6kRrBsZLFsGb6
 #account osxkrbatsdnp
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token osxkrbatsdnp)
+resulttokens=$(./cleos.sh get currency balance fio.token osxkrbatsdnp)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -22818,7 +22818,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5s1PtRGpLvJEcSr2SwzuwxqiUfrCHuc1qTNpF6kRrBsZLFsGb6 osxkrbatsdnp the amount in account osxkrbatsdnp does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 osxkrbatsdnp)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 osxkrbatsdnp)
 
 ownerfound=false
 label1=""
@@ -22866,7 +22866,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6rsupfvSJdjXC4e1qLoJ4jLNTb6pKW48ktEpDpEkG7iNiwqa9T
 #account 3vflhmhchyqi
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 3vflhmhchyqi)
+resulttokens=$(./cleos.sh get currency balance fio.token 3vflhmhchyqi)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -22878,7 +22878,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6rsupfvSJdjXC4e1qLoJ4jLNTb6pKW48ktEpDpEkG7iNiwqa9T 3vflhmhchyqi the amount in account 3vflhmhchyqi does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 3vflhmhchyqi)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 3vflhmhchyqi)
 
 ownerfound=false
 label1=""
@@ -22926,7 +22926,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8NC3Mjqk9WMPXoL6yod6BStxibAKMCdLBJYEbU421n5yuDGL8P
 #account dwfht4wbppyv
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token dwfht4wbppyv)
+resulttokens=$(./cleos.sh get currency balance fio.token dwfht4wbppyv)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -22938,7 +22938,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8NC3Mjqk9WMPXoL6yod6BStxibAKMCdLBJYEbU421n5yuDGL8P dwfht4wbppyv the amount in account dwfht4wbppyv does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 dwfht4wbppyv)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 dwfht4wbppyv)
 
 ownerfound=false
 label1=""
@@ -22986,7 +22986,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5CNiQuEELb6CtY5kpo6HdArhYd3HUpsFxcqsFoYihiYDBmpFe4
 #account cwysvc4tiyk4
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token cwysvc4tiyk4)
+resulttokens=$(./cleos.sh get currency balance fio.token cwysvc4tiyk4)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -22998,7 +22998,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5CNiQuEELb6CtY5kpo6HdArhYd3HUpsFxcqsFoYihiYDBmpFe4 cwysvc4tiyk4 the amount in account cwysvc4tiyk4 does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 cwysvc4tiyk4)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 cwysvc4tiyk4)
 
 ownerfound=false
 label1=""
@@ -23046,7 +23046,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6jGN8xucFVGzM34m3mfmv7ejDjph48qvikmw1LjjPPXHNjQ6GC
 #account mmrme35a1qql
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token mmrme35a1qql)
+resulttokens=$(./cleos.sh get currency balance fio.token mmrme35a1qql)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -23058,7 +23058,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6jGN8xucFVGzM34m3mfmv7ejDjph48qvikmw1LjjPPXHNjQ6GC mmrme35a1qql the amount in account mmrme35a1qql does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 mmrme35a1qql)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 mmrme35a1qql)
 
 ownerfound=false
 label1=""
@@ -23106,7 +23106,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO77jWwHzQrGTE2LLVcicsPgHA6KMyAZ9DUyc7ysbSY9WJfZVmYG
 #account 5quwdbv3me32
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 5quwdbv3me32)
+resulttokens=$(./cleos.sh get currency balance fio.token 5quwdbv3me32)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -23118,7 +23118,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO77jWwHzQrGTE2LLVcicsPgHA6KMyAZ9DUyc7ysbSY9WJfZVmYG 5quwdbv3me32 the amount in account 5quwdbv3me32 does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 5quwdbv3me32)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 5quwdbv3me32)
 
 ownerfound=false
 label1=""
@@ -23166,7 +23166,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO82mzixEKzrDETME2jhESH3dneN5qsZkmd8z1rodHB2vfhDgwVm
 #account xbvxffyrgqcr
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token xbvxffyrgqcr)
+resulttokens=$(./cleos.sh get currency balance fio.token xbvxffyrgqcr)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -23178,7 +23178,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO82mzixEKzrDETME2jhESH3dneN5qsZkmd8z1rodHB2vfhDgwVm xbvxffyrgqcr the amount in account xbvxffyrgqcr does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 xbvxffyrgqcr)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 xbvxffyrgqcr)
 
 ownerfound=false
 label1=""
@@ -23226,7 +23226,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO4ygEift6RszqDSSfk3h3mAq7St44S8qpJrnUWTFohhNPg8oXvq
 #account fbt2ektkaqvx
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token fbt2ektkaqvx)
+resulttokens=$(./cleos.sh get currency balance fio.token fbt2ektkaqvx)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -23238,7 +23238,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO4ygEift6RszqDSSfk3h3mAq7St44S8qpJrnUWTFohhNPg8oXvq fbt2ektkaqvx the amount in account fbt2ektkaqvx does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 fbt2ektkaqvx)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 fbt2ektkaqvx)
 
 ownerfound=false
 label1=""
@@ -23286,7 +23286,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8BBCmRZQfDX4FL9V7mt5eZrDUddzKGELHUeQHPyoSjzzqRLuv8
 #account kunv4y441aro
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token kunv4y441aro)
+resulttokens=$(./cleos.sh get currency balance fio.token kunv4y441aro)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -23298,7 +23298,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8BBCmRZQfDX4FL9V7mt5eZrDUddzKGELHUeQHPyoSjzzqRLuv8 kunv4y441aro the amount in account kunv4y441aro does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 kunv4y441aro)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 kunv4y441aro)
 
 ownerfound=false
 label1=""
@@ -23346,7 +23346,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO4wYmH1mYSKvdcKuANGbZtC3zyYd2aaLUg4PFQpFudWftWCFpAE
 #account am4htbeciek3
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token am4htbeciek3)
+resulttokens=$(./cleos.sh get currency balance fio.token am4htbeciek3)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -23358,7 +23358,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO4wYmH1mYSKvdcKuANGbZtC3zyYd2aaLUg4PFQpFudWftWCFpAE am4htbeciek3 the amount in account am4htbeciek3 does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 am4htbeciek3)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 am4htbeciek3)
 
 ownerfound=false
 label1=""
@@ -23406,7 +23406,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO4yukGq9hekAn5SaNPi238RCgdh2NQcqtt7d5x4WeqnwCHuGq74
 #account giy43ncqqqva
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token giy43ncqqqva)
+resulttokens=$(./cleos.sh get currency balance fio.token giy43ncqqqva)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -23418,7 +23418,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO4yukGq9hekAn5SaNPi238RCgdh2NQcqtt7d5x4WeqnwCHuGq74 giy43ncqqqva the amount in account giy43ncqqqva does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 giy43ncqqqva)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 giy43ncqqqva)
 
 ownerfound=false
 label1=""
@@ -23466,7 +23466,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5boKk4yeGwqKXrbHhogk8HrHzBWYjfC7U2mHpefikPXD1jXD2A
 #account xghrmfdenyu5
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token xghrmfdenyu5)
+resulttokens=$(./cleos.sh get currency balance fio.token xghrmfdenyu5)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -23478,7 +23478,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5boKk4yeGwqKXrbHhogk8HrHzBWYjfC7U2mHpefikPXD1jXD2A xghrmfdenyu5 the amount in account xghrmfdenyu5 does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 xghrmfdenyu5)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 xghrmfdenyu5)
 
 ownerfound=false
 label1=""
@@ -23526,7 +23526,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5SqAduwVpJELeapnCDFAsQ4FQMYFMCeUysdz1WXWhh7MDBhgyf
 #account dj2a25wvazju
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token dj2a25wvazju)
+resulttokens=$(./cleos.sh get currency balance fio.token dj2a25wvazju)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -23538,7 +23538,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5SqAduwVpJELeapnCDFAsQ4FQMYFMCeUysdz1WXWhh7MDBhgyf dj2a25wvazju the amount in account dj2a25wvazju does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 dj2a25wvazju)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 dj2a25wvazju)
 
 ownerfound=false
 label1=""
@@ -23586,7 +23586,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7cWa1dtG55viTVgcL6fYwnCRZWQnkhW7omRViztEUM5BFA5sX2
 #account aimbgisu3ts2
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token aimbgisu3ts2)
+resulttokens=$(./cleos.sh get currency balance fio.token aimbgisu3ts2)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -23598,7 +23598,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7cWa1dtG55viTVgcL6fYwnCRZWQnkhW7omRViztEUM5BFA5sX2 aimbgisu3ts2 the amount in account aimbgisu3ts2 does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 aimbgisu3ts2)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 aimbgisu3ts2)
 
 ownerfound=false
 label1=""
@@ -23646,7 +23646,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8ZDtF8mCKeczb4XA8LfbeoNTQE8ExJjmknyQ2DDSwA75WfA9BT
 #account 3dpnflvyhhp3
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 3dpnflvyhhp3)
+resulttokens=$(./cleos.sh get currency balance fio.token 3dpnflvyhhp3)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -23658,7 +23658,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8ZDtF8mCKeczb4XA8LfbeoNTQE8ExJjmknyQ2DDSwA75WfA9BT 3dpnflvyhhp3 the amount in account 3dpnflvyhhp3 does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 3dpnflvyhhp3)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 3dpnflvyhhp3)
 
 ownerfound=false
 label1=""
@@ -23706,7 +23706,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8m5bC6Z22PQA79p9k21szAH98XEP1hD56Jdd1MByDUKdTwVEev
 #account xpk5vglsoqsj
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token xpk5vglsoqsj)
+resulttokens=$(./cleos.sh get currency balance fio.token xpk5vglsoqsj)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -23718,7 +23718,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8m5bC6Z22PQA79p9k21szAH98XEP1hD56Jdd1MByDUKdTwVEev xpk5vglsoqsj the amount in account xpk5vglsoqsj does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 xpk5vglsoqsj)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 xpk5vglsoqsj)
 
 ownerfound=false
 label1=""
@@ -23766,7 +23766,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7GSsFdE9bRdtAo7nG3ztqHa2WCYMhYSBWk6W9gG7F9i2VMXjW9
 #account tzus4hqntbwo
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token tzus4hqntbwo)
+resulttokens=$(./cleos.sh get currency balance fio.token tzus4hqntbwo)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -23778,7 +23778,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7GSsFdE9bRdtAo7nG3ztqHa2WCYMhYSBWk6W9gG7F9i2VMXjW9 tzus4hqntbwo the amount in account tzus4hqntbwo does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 tzus4hqntbwo)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 tzus4hqntbwo)
 
 ownerfound=false
 label1=""
@@ -23826,7 +23826,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8h2qtpFihzKgvk2muRerz3asNn5gPixD11gakeb8BUC5okoSPq
 #account o5fdviq3m1fm
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token o5fdviq3m1fm)
+resulttokens=$(./cleos.sh get currency balance fio.token o5fdviq3m1fm)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -23838,7 +23838,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8h2qtpFihzKgvk2muRerz3asNn5gPixD11gakeb8BUC5okoSPq o5fdviq3m1fm the amount in account o5fdviq3m1fm does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 o5fdviq3m1fm)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 o5fdviq3m1fm)
 
 ownerfound=false
 label1=""
@@ -23886,7 +23886,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7JQdZaUAE2X6Y9JFySwQmF2JkXkHdsyg6RvEas3LTR4HuAaJTa
 #account xnargmwuygbr
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token xnargmwuygbr)
+resulttokens=$(./cleos.sh get currency balance fio.token xnargmwuygbr)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -23898,7 +23898,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7JQdZaUAE2X6Y9JFySwQmF2JkXkHdsyg6RvEas3LTR4HuAaJTa xnargmwuygbr the amount in account xnargmwuygbr does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 xnargmwuygbr)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 xnargmwuygbr)
 
 ownerfound=false
 label1=""
@@ -23946,7 +23946,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6UU8ay8EYH5vSxqUm46AKpfh9KiVHFsQhsRLodV3YDhuWHEkCr
 #account ktnepubkwced
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token ktnepubkwced)
+resulttokens=$(./cleos.sh get currency balance fio.token ktnepubkwced)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -23958,7 +23958,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6UU8ay8EYH5vSxqUm46AKpfh9KiVHFsQhsRLodV3YDhuWHEkCr ktnepubkwced the amount in account ktnepubkwced does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 ktnepubkwced)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 ktnepubkwced)
 
 ownerfound=false
 label1=""
@@ -24006,7 +24006,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO644uscZxEmX5UTjWdjEcrqKbt6UvhWfo9M7kKvMT3oNiHMmkhE
 #account tmeicc5q2u2h
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token tmeicc5q2u2h)
+resulttokens=$(./cleos.sh get currency balance fio.token tmeicc5q2u2h)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -24018,7 +24018,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO644uscZxEmX5UTjWdjEcrqKbt6UvhWfo9M7kKvMT3oNiHMmkhE tmeicc5q2u2h the amount in account tmeicc5q2u2h does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 tmeicc5q2u2h)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 tmeicc5q2u2h)
 
 ownerfound=false
 label1=""
@@ -24066,7 +24066,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5ZVGzbya6zKVQu4ifhB2Ku31pmqoC38BN4PXnBbEUByyfxiBpC
 #account shym3bl44xt2
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token shym3bl44xt2)
+resulttokens=$(./cleos.sh get currency balance fio.token shym3bl44xt2)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -24078,7 +24078,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5ZVGzbya6zKVQu4ifhB2Ku31pmqoC38BN4PXnBbEUByyfxiBpC shym3bl44xt2 the amount in account shym3bl44xt2 does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 shym3bl44xt2)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 shym3bl44xt2)
 
 ownerfound=false
 label1=""
@@ -24126,7 +24126,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO59Ns52V67WXvgkXVEYNu8GHnzPcBThrW5zAg2vETKy7bPR3Hz2
 #account 1iaesnfouj51
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 1iaesnfouj51)
+resulttokens=$(./cleos.sh get currency balance fio.token 1iaesnfouj51)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -24138,7 +24138,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO59Ns52V67WXvgkXVEYNu8GHnzPcBThrW5zAg2vETKy7bPR3Hz2 1iaesnfouj51 the amount in account 1iaesnfouj51 does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 1iaesnfouj51)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 1iaesnfouj51)
 
 ownerfound=false
 label1=""
@@ -24186,7 +24186,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7qMcTsoNCht1GKN1gUQvT6f7Z1W6YBJPBFEEgUHiU5nMFxszTC
 #account 3thvteu5mp5e
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 3thvteu5mp5e)
+resulttokens=$(./cleos.sh get currency balance fio.token 3thvteu5mp5e)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -24198,7 +24198,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7qMcTsoNCht1GKN1gUQvT6f7Z1W6YBJPBFEEgUHiU5nMFxszTC 3thvteu5mp5e the amount in account 3thvteu5mp5e does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 3thvteu5mp5e)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 3thvteu5mp5e)
 
 ownerfound=false
 label1=""
@@ -24246,7 +24246,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5chNYUdNNDW6KtNY1RBYRYSXkvK2TMDeSNvAXx173mXsCh7HaH
 #account zqiod15uejl1
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token zqiod15uejl1)
+resulttokens=$(./cleos.sh get currency balance fio.token zqiod15uejl1)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -24258,7 +24258,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5chNYUdNNDW6KtNY1RBYRYSXkvK2TMDeSNvAXx173mXsCh7HaH zqiod15uejl1 the amount in account zqiod15uejl1 does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 zqiod15uejl1)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 zqiod15uejl1)
 
 ownerfound=false
 label1=""
@@ -24306,7 +24306,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8DnGLYYbVEuB9RSDn9TrPWw3GxHpMVkKgR7WFZxQofrLG7FNDQ
 #account q45remd4bod3
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token q45remd4bod3)
+resulttokens=$(./cleos.sh get currency balance fio.token q45remd4bod3)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -24318,7 +24318,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8DnGLYYbVEuB9RSDn9TrPWw3GxHpMVkKgR7WFZxQofrLG7FNDQ q45remd4bod3 the amount in account q45remd4bod3 does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 q45remd4bod3)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 q45remd4bod3)
 
 ownerfound=false
 label1=""
@@ -24366,7 +24366,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5Vbn5P5joJvH97qaJbkVrEPNGAAZqpRYcZoPMUYjbUjJA723Zb
 #account jtd5wyortzfb
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token jtd5wyortzfb)
+resulttokens=$(./cleos.sh get currency balance fio.token jtd5wyortzfb)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -24378,7 +24378,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5Vbn5P5joJvH97qaJbkVrEPNGAAZqpRYcZoPMUYjbUjJA723Zb jtd5wyortzfb the amount in account jtd5wyortzfb does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 jtd5wyortzfb)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 jtd5wyortzfb)
 
 ownerfound=false
 label1=""
@@ -24426,7 +24426,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6WYaLQzB196NAyrfqCBQzJXYkDk99B2by1F8MHyEbAWHYJRnK2
 #account pkfbwyi2qzii
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token pkfbwyi2qzii)
+resulttokens=$(./cleos.sh get currency balance fio.token pkfbwyi2qzii)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -24438,7 +24438,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6WYaLQzB196NAyrfqCBQzJXYkDk99B2by1F8MHyEbAWHYJRnK2 pkfbwyi2qzii the amount in account pkfbwyi2qzii does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 pkfbwyi2qzii)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 pkfbwyi2qzii)
 
 ownerfound=false
 label1=""
@@ -24486,7 +24486,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO88G7GxhNwdyU18NtGoUQdCm1VHCa36qcJkzQn2Xa9AkRsQG6JN
 #account ev5kyjn3gobd
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token ev5kyjn3gobd)
+resulttokens=$(./cleos.sh get currency balance fio.token ev5kyjn3gobd)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -24498,7 +24498,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO88G7GxhNwdyU18NtGoUQdCm1VHCa36qcJkzQn2Xa9AkRsQG6JN ev5kyjn3gobd the amount in account ev5kyjn3gobd does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 ev5kyjn3gobd)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 ev5kyjn3gobd)
 
 ownerfound=false
 label1=""
@@ -24546,7 +24546,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7va9jDjPwqzcMSaEWgbrN9uK34TMdQGyDBfsKHN11mqubtj4xe
 #account jly3ayx15hnb
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token jly3ayx15hnb)
+resulttokens=$(./cleos.sh get currency balance fio.token jly3ayx15hnb)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -24558,7 +24558,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7va9jDjPwqzcMSaEWgbrN9uK34TMdQGyDBfsKHN11mqubtj4xe jly3ayx15hnb the amount in account jly3ayx15hnb does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 jly3ayx15hnb)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 jly3ayx15hnb)
 
 ownerfound=false
 label1=""
@@ -24606,7 +24606,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8JxdnAvzw4csiKspGTRrome9y8wGYAdqcaggpK3G8LXyzRHiAf
 #account 2asl5w3fugdy
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 2asl5w3fugdy)
+resulttokens=$(./cleos.sh get currency balance fio.token 2asl5w3fugdy)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -24618,7 +24618,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8JxdnAvzw4csiKspGTRrome9y8wGYAdqcaggpK3G8LXyzRHiAf 2asl5w3fugdy the amount in account 2asl5w3fugdy does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 2asl5w3fugdy)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 2asl5w3fugdy)
 
 ownerfound=false
 label1=""
@@ -24666,7 +24666,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8j8oEuH33Y7BTpHeMQW8vxSb4ty3quBQfGxWDQWvHqjySm8VnL
 #account tfbe3o3etcpe
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token tfbe3o3etcpe)
+resulttokens=$(./cleos.sh get currency balance fio.token tfbe3o3etcpe)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -24678,7 +24678,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8j8oEuH33Y7BTpHeMQW8vxSb4ty3quBQfGxWDQWvHqjySm8VnL tfbe3o3etcpe the amount in account tfbe3o3etcpe does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 tfbe3o3etcpe)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 tfbe3o3etcpe)
 
 ownerfound=false
 label1=""
@@ -24726,7 +24726,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8fDMQW9ZKxve5BioLmWBs8fkSQGH9SWRYyidMUoGhcBfRjmjDB
 #account k3ip5w4iakv5
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token k3ip5w4iakv5)
+resulttokens=$(./cleos.sh get currency balance fio.token k3ip5w4iakv5)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -24738,7 +24738,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8fDMQW9ZKxve5BioLmWBs8fkSQGH9SWRYyidMUoGhcBfRjmjDB k3ip5w4iakv5 the amount in account k3ip5w4iakv5 does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 k3ip5w4iakv5)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 k3ip5w4iakv5)
 
 ownerfound=false
 label1=""
@@ -24786,7 +24786,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO4tfBPYAiJ4CPgtixxYNp13qqwH6YtBNcAw2XWhDmHLM6TuKY5R
 #account 2udymfet4wjr
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 2udymfet4wjr)
+resulttokens=$(./cleos.sh get currency balance fio.token 2udymfet4wjr)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -24798,7 +24798,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO4tfBPYAiJ4CPgtixxYNp13qqwH6YtBNcAw2XWhDmHLM6TuKY5R 2udymfet4wjr the amount in account 2udymfet4wjr does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 2udymfet4wjr)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 2udymfet4wjr)
 
 ownerfound=false
 label1=""
@@ -24846,7 +24846,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO77gtGcW4uJCDTCQTGhHnuoFfBAJYqPeeMCA473rVua1PTJK4o5
 #account 5wstfqyhlkbu
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 5wstfqyhlkbu)
+resulttokens=$(./cleos.sh get currency balance fio.token 5wstfqyhlkbu)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -24858,7 +24858,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO77gtGcW4uJCDTCQTGhHnuoFfBAJYqPeeMCA473rVua1PTJK4o5 5wstfqyhlkbu the amount in account 5wstfqyhlkbu does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 5wstfqyhlkbu)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 5wstfqyhlkbu)
 
 ownerfound=false
 label1=""
@@ -24906,7 +24906,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8MVFTp6D67fdrgwr6ixdU1AocsfBQCXEAVCRBsy54RoiKY2NSh
 #account c4vmv2powskw
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token c4vmv2powskw)
+resulttokens=$(./cleos.sh get currency balance fio.token c4vmv2powskw)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -24918,7 +24918,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8MVFTp6D67fdrgwr6ixdU1AocsfBQCXEAVCRBsy54RoiKY2NSh c4vmv2powskw the amount in account c4vmv2powskw does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 c4vmv2powskw)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 c4vmv2powskw)
 
 ownerfound=false
 label1=""
@@ -24966,7 +24966,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6kmFa4ChwTSBYvSWsuJLCMEZTKRtQtBwvcgQgK4sZ3VaURcgsN
 #account ptlyyxixmku1
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token ptlyyxixmku1)
+resulttokens=$(./cleos.sh get currency balance fio.token ptlyyxixmku1)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -24978,7 +24978,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6kmFa4ChwTSBYvSWsuJLCMEZTKRtQtBwvcgQgK4sZ3VaURcgsN ptlyyxixmku1 the amount in account ptlyyxixmku1 does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 ptlyyxixmku1)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 ptlyyxixmku1)
 
 ownerfound=false
 label1=""
@@ -25026,7 +25026,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO51GYMDc5KRiBc9HjcBmxqUoNq2feZQ6NKp3tXsC98J8MyWNBxH
 #account j4gzrfiaiy2f
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token j4gzrfiaiy2f)
+resulttokens=$(./cleos.sh get currency balance fio.token j4gzrfiaiy2f)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -25038,7 +25038,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO51GYMDc5KRiBc9HjcBmxqUoNq2feZQ6NKp3tXsC98J8MyWNBxH j4gzrfiaiy2f the amount in account j4gzrfiaiy2f does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 j4gzrfiaiy2f)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 j4gzrfiaiy2f)
 
 ownerfound=false
 label1=""
@@ -25086,7 +25086,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7WQDewPZ51YHYLrA1FiJYibd2oH7dqYuekMWsGjfSKwnDFybeK
 #account siztfn2yzvkr
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token siztfn2yzvkr)
+resulttokens=$(./cleos.sh get currency balance fio.token siztfn2yzvkr)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -25098,7 +25098,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7WQDewPZ51YHYLrA1FiJYibd2oH7dqYuekMWsGjfSKwnDFybeK siztfn2yzvkr the amount in account siztfn2yzvkr does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 siztfn2yzvkr)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 siztfn2yzvkr)
 
 ownerfound=false
 label1=""
@@ -25146,7 +25146,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7R2LkGFa7NGCMb3q4NLLcyemd5a5myRLKDHwsMBTonooV8NkNq
 #account gtrhfgh4h43o
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token gtrhfgh4h43o)
+resulttokens=$(./cleos.sh get currency balance fio.token gtrhfgh4h43o)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -25158,7 +25158,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7R2LkGFa7NGCMb3q4NLLcyemd5a5myRLKDHwsMBTonooV8NkNq gtrhfgh4h43o the amount in account gtrhfgh4h43o does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 gtrhfgh4h43o)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 gtrhfgh4h43o)
 
 ownerfound=false
 label1=""
@@ -25206,7 +25206,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6tmSL9d3QfM53xVmwtC1zyg9PaP5cQG3FxLZVx4UFEDWdHXThs
 #account c5srjok3k5py
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token c5srjok3k5py)
+resulttokens=$(./cleos.sh get currency balance fio.token c5srjok3k5py)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -25218,7 +25218,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6tmSL9d3QfM53xVmwtC1zyg9PaP5cQG3FxLZVx4UFEDWdHXThs c5srjok3k5py the amount in account c5srjok3k5py does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 c5srjok3k5py)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 c5srjok3k5py)
 
 ownerfound=false
 label1=""
@@ -25266,7 +25266,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO52JyFvZ3dFGEYRhWZjRbPgZE3PLCHvQUR7fY6NDKpVLTC5jNTN
 #account l2h4qsmxssxa
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token l2h4qsmxssxa)
+resulttokens=$(./cleos.sh get currency balance fio.token l2h4qsmxssxa)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -25278,7 +25278,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO52JyFvZ3dFGEYRhWZjRbPgZE3PLCHvQUR7fY6NDKpVLTC5jNTN l2h4qsmxssxa the amount in account l2h4qsmxssxa does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 l2h4qsmxssxa)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 l2h4qsmxssxa)
 
 ownerfound=false
 label1=""
@@ -25326,7 +25326,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6jKigWguQp5aNBo63ZKvvoqtu3NRJLThQ97M1KS1mszcnSKmHj
 #account mopbgsl1wjwl
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token mopbgsl1wjwl)
+resulttokens=$(./cleos.sh get currency balance fio.token mopbgsl1wjwl)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -25338,7 +25338,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6jKigWguQp5aNBo63ZKvvoqtu3NRJLThQ97M1KS1mszcnSKmHj mopbgsl1wjwl the amount in account mopbgsl1wjwl does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 mopbgsl1wjwl)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 mopbgsl1wjwl)
 
 ownerfound=false
 label1=""
@@ -25386,7 +25386,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO4vysXkZgyxT4CVy29CddbhNd8Bu7jEX5jBv6qB5bMij8yoCbSt
 #account 5czxfdikz4n4
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 5czxfdikz4n4)
+resulttokens=$(./cleos.sh get currency balance fio.token 5czxfdikz4n4)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -25398,7 +25398,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO4vysXkZgyxT4CVy29CddbhNd8Bu7jEX5jBv6qB5bMij8yoCbSt 5czxfdikz4n4 the amount in account 5czxfdikz4n4 does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 5czxfdikz4n4)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 5czxfdikz4n4)
 
 ownerfound=false
 label1=""
@@ -25446,7 +25446,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO87ske8DY6sWbuCctm5B2m41gfvptFh1NxK1YQtJ8ZYEqm4J7nJ
 #account dvsdcemimtzo
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token dvsdcemimtzo)
+resulttokens=$(./cleos.sh get currency balance fio.token dvsdcemimtzo)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -25458,7 +25458,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO87ske8DY6sWbuCctm5B2m41gfvptFh1NxK1YQtJ8ZYEqm4J7nJ dvsdcemimtzo the amount in account dvsdcemimtzo does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 dvsdcemimtzo)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 dvsdcemimtzo)
 
 ownerfound=false
 label1=""
@@ -25506,7 +25506,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5kXPMpTWWWqzjhbx7Y2U4VyGKDKYH7APnfopTNAfz7yci36TfN
 #account lwq3vpwidwro
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token lwq3vpwidwro)
+resulttokens=$(./cleos.sh get currency balance fio.token lwq3vpwidwro)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -25518,7 +25518,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5kXPMpTWWWqzjhbx7Y2U4VyGKDKYH7APnfopTNAfz7yci36TfN lwq3vpwidwro the amount in account lwq3vpwidwro does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 lwq3vpwidwro)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 lwq3vpwidwro)
 
 ownerfound=false
 label1=""
@@ -25566,7 +25566,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7ruWrSw7wYN7zbwN11RQ2SY67NMQbPaBwUTnY9PUo9oCPj2VoS
 #account bylv2hbfexkm
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token bylv2hbfexkm)
+resulttokens=$(./cleos.sh get currency balance fio.token bylv2hbfexkm)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -25578,7 +25578,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7ruWrSw7wYN7zbwN11RQ2SY67NMQbPaBwUTnY9PUo9oCPj2VoS bylv2hbfexkm the amount in account bylv2hbfexkm does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 bylv2hbfexkm)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 bylv2hbfexkm)
 
 ownerfound=false
 label1=""
@@ -25626,7 +25626,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5KW2oXEXkRMzWRZfGkyggvv5XXpMUdTijXDKqNVduDGnaeAnUL
 #account seb5fa1rqkaa
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token seb5fa1rqkaa)
+resulttokens=$(./cleos.sh get currency balance fio.token seb5fa1rqkaa)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -25638,7 +25638,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5KW2oXEXkRMzWRZfGkyggvv5XXpMUdTijXDKqNVduDGnaeAnUL seb5fa1rqkaa the amount in account seb5fa1rqkaa does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 seb5fa1rqkaa)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 seb5fa1rqkaa)
 
 ownerfound=false
 label1=""
@@ -25686,7 +25686,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO4xAj8QNedsx2w2PtomNHekbuvdhLx3VxFvhz9nSJTZidWW3jdD
 #account culesytewnvy
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token culesytewnvy)
+resulttokens=$(./cleos.sh get currency balance fio.token culesytewnvy)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -25698,7 +25698,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO4xAj8QNedsx2w2PtomNHekbuvdhLx3VxFvhz9nSJTZidWW3jdD culesytewnvy the amount in account culesytewnvy does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 culesytewnvy)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 culesytewnvy)
 
 ownerfound=false
 label1=""
@@ -25746,7 +25746,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO79GsPoupXYPKgZQeNKF1LexGgcHJW9zWKJK8CWaVAne7FeTZvp
 #account cqtr415k5pir
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token cqtr415k5pir)
+resulttokens=$(./cleos.sh get currency balance fio.token cqtr415k5pir)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -25758,7 +25758,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO79GsPoupXYPKgZQeNKF1LexGgcHJW9zWKJK8CWaVAne7FeTZvp cqtr415k5pir the amount in account cqtr415k5pir does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 cqtr415k5pir)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 cqtr415k5pir)
 
 ownerfound=false
 label1=""
@@ -25806,7 +25806,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5XkTE59mwzfNwji5fqR4jSca4dxZbNNJfnc4S5VF1hh7Aon9Fs
 #account oud2njcwmpsr
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token oud2njcwmpsr)
+resulttokens=$(./cleos.sh get currency balance fio.token oud2njcwmpsr)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -25818,7 +25818,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5XkTE59mwzfNwji5fqR4jSca4dxZbNNJfnc4S5VF1hh7Aon9Fs oud2njcwmpsr the amount in account oud2njcwmpsr does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 oud2njcwmpsr)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 oud2njcwmpsr)
 
 ownerfound=false
 label1=""
@@ -25866,7 +25866,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5S7PrXM1osAN4t5DjWPsT9tDYpTgXmDdfto2emPRGja6GHsuUx
 #account bgxewfsmp3lo
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token bgxewfsmp3lo)
+resulttokens=$(./cleos.sh get currency balance fio.token bgxewfsmp3lo)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -25878,7 +25878,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5S7PrXM1osAN4t5DjWPsT9tDYpTgXmDdfto2emPRGja6GHsuUx bgxewfsmp3lo the amount in account bgxewfsmp3lo does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 bgxewfsmp3lo)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 bgxewfsmp3lo)
 
 ownerfound=false
 label1=""
@@ -25926,7 +25926,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8PTt3EPLuMGjnQvZXUe5TfZJW7DbpWby4VjXFRnxHW5peBsFU1
 #account gkzwagfmnzdu
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token gkzwagfmnzdu)
+resulttokens=$(./cleos.sh get currency balance fio.token gkzwagfmnzdu)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -25938,7 +25938,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8PTt3EPLuMGjnQvZXUe5TfZJW7DbpWby4VjXFRnxHW5peBsFU1 gkzwagfmnzdu the amount in account gkzwagfmnzdu does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 gkzwagfmnzdu)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 gkzwagfmnzdu)
 
 ownerfound=false
 label1=""
@@ -25986,7 +25986,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO67GKpzvW9ZYKkFK8vtbLwca3wNhYi3LktBXxAQwvEg42rcn2Pa
 #account o3quijbwbeob
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token o3quijbwbeob)
+resulttokens=$(./cleos.sh get currency balance fio.token o3quijbwbeob)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -25998,7 +25998,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO67GKpzvW9ZYKkFK8vtbLwca3wNhYi3LktBXxAQwvEg42rcn2Pa o3quijbwbeob the amount in account o3quijbwbeob does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 o3quijbwbeob)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 o3quijbwbeob)
 
 ownerfound=false
 label1=""
@@ -26046,7 +26046,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6rP7oHA67cepHVktN1kzeJ9t3SVJHUXT3k7Y5Upihdvn7GYP4Z
 #account 2vtnizj43f2j
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 2vtnizj43f2j)
+resulttokens=$(./cleos.sh get currency balance fio.token 2vtnizj43f2j)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -26058,7 +26058,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6rP7oHA67cepHVktN1kzeJ9t3SVJHUXT3k7Y5Upihdvn7GYP4Z 2vtnizj43f2j the amount in account 2vtnizj43f2j does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 2vtnizj43f2j)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 2vtnizj43f2j)
 
 ownerfound=false
 label1=""
@@ -26106,7 +26106,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO8Mi2s59sTVc54Pv9pwFBJMf2v1CS9swroFjtEUMc4Mi6NJ2Bzf
 #account c4rcmfjjxaqy
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token c4rcmfjjxaqy)
+resulttokens=$(./cleos.sh get currency balance fio.token c4rcmfjjxaqy)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -26118,7 +26118,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8Mi2s59sTVc54Pv9pwFBJMf2v1CS9swroFjtEUMc4Mi6NJ2Bzf c4rcmfjjxaqy the amount in account c4rcmfjjxaqy does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 c4rcmfjjxaqy)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 c4rcmfjjxaqy)
 
 ownerfound=false
 label1=""
@@ -26166,7 +26166,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7VQCKj8SjRUC3rX7q6NF212Asx9qchpaqadh97pkBv5XMNaoVa
 #account qdwoz415cldp
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token qdwoz415cldp)
+resulttokens=$(./cleos.sh get currency balance fio.token qdwoz415cldp)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -26178,7 +26178,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7VQCKj8SjRUC3rX7q6NF212Asx9qchpaqadh97pkBv5XMNaoVa qdwoz415cldp the amount in account qdwoz415cldp does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 qdwoz415cldp)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 qdwoz415cldp)
 
 ownerfound=false
 label1=""
@@ -26226,7 +26226,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO55DKPRozahucXdBEiasd9nJYzMHNaRu1vu1c6PTR3UUQMzRamG
 #account stwovmwbog3f
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token stwovmwbog3f)
+resulttokens=$(./cleos.sh get currency balance fio.token stwovmwbog3f)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -26238,7 +26238,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO55DKPRozahucXdBEiasd9nJYzMHNaRu1vu1c6PTR3UUQMzRamG stwovmwbog3f the amount in account stwovmwbog3f does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 stwovmwbog3f)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 stwovmwbog3f)
 
 ownerfound=false
 label1=""
@@ -26286,7 +26286,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO5cCX7hvHYyHYHKS2EBCpPhp3HLMXjpgb1G3dRrxJCwCDpvVi21
 #account ypahoog2eelw
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token ypahoog2eelw)
+resulttokens=$(./cleos.sh get currency balance fio.token ypahoog2eelw)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -26298,7 +26298,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO5cCX7hvHYyHYHKS2EBCpPhp3HLMXjpgb1G3dRrxJCwCDpvVi21 ypahoog2eelw the amount in account ypahoog2eelw does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 ypahoog2eelw)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 ypahoog2eelw)
 
 ownerfound=false
 label1=""
@@ -26346,7 +26346,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6zKQsSEciLnFcuKsCxAHSWZnX5z7mMsxbvke1TkJm957qYgmry
 #account olnrcq5v45nb
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token olnrcq5v45nb)
+resulttokens=$(./cleos.sh get currency balance fio.token olnrcq5v45nb)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -26358,7 +26358,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6zKQsSEciLnFcuKsCxAHSWZnX5z7mMsxbvke1TkJm957qYgmry olnrcq5v45nb the amount in account olnrcq5v45nb does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 olnrcq5v45nb)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 olnrcq5v45nb)
 
 ownerfound=false
 label1=""
@@ -26406,7 +26406,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6nfAMLCMGGYRD2uKmSMkrioUrBM1FZhnAtsQxsc1JnVY72ogG8
 #account ubalcyomxonv
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token ubalcyomxonv)
+resulttokens=$(./cleos.sh get currency balance fio.token ubalcyomxonv)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -26418,7 +26418,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6nfAMLCMGGYRD2uKmSMkrioUrBM1FZhnAtsQxsc1JnVY72ogG8 ubalcyomxonv the amount in account ubalcyomxonv does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 ubalcyomxonv)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 ubalcyomxonv)
 
 ownerfound=false
 label1=""
@@ -26466,7 +26466,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO7aymPn21vqXZfg67toCbGCiYvYZM7QncQ5JMVoVgM5eK8GTDKT
 #account 3ongeeisnlcq
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token 3ongeeisnlcq)
+resulttokens=$(./cleos.sh get currency balance fio.token 3ongeeisnlcq)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -26478,7 +26478,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO7aymPn21vqXZfg67toCbGCiYvYZM7QncQ5JMVoVgM5eK8GTDKT 3ongeeisnlcq the amount in account 3ongeeisnlcq does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 3ongeeisnlcq)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 3ongeeisnlcq)
 
 ownerfound=false
 label1=""
@@ -26526,7 +26526,7 @@ fi
 #validation for presale MSIG locked token holder
 #pub key FIO6XYdXfUvhozN2CSL9ZEUEUJExt3oMfLcgYu25d8mRBN88adf7Z
 #account rqm4vtblgokh
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token rqm4vtblgokh)
+resulttokens=$(./cleos.sh get currency balance fio.token rqm4vtblgokh)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -26538,7 +26538,7 @@ if [ $rt != "1000000000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO6XYdXfUvhozN2CSL9ZEUEUJExt3oMfLcgYu25d8mRBN88adf7Z rqm4vtblgokh the amount in account rqm4vtblgokh does not match the expected value. amount in account is $rt  expected value is 1000000000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 rqm4vtblgokh)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 rqm4vtblgokh)
 
 ownerfound=false
 label1=""
@@ -26586,7 +26586,7 @@ fi
 #validation for MSIG locked token holder
 #pub key FIO8gq2dBay2g98e8CdiuHdS7HtNMASTWcMFBSUxGf21i6DyVvpNL
 #account oi2ln5lr3hbe
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token oi2ln5lr3hbe)
+resulttokens=$(./cleos.sh get currency balance fio.token oi2ln5lr3hbe)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -26598,7 +26598,7 @@ if [ $rt != "3385397000000000-FIO" ] ; then
     echo "VERIFICATION FAILURE -- FIO8gq2dBay2g98e8CdiuHdS7HtNMASTWcMFBSUxGf21i6DyVvpNL oi2ln5lr3hbe the amount in account oi2ln5lr3hbe does not match the expected value. amount in account is $rt  expected value is 3385397000000000-FIO"
 fi
 
-resultlocked=$(../fio/build/bin/clio -u http://localhost:8889 get table eosio eosio lockedtokens --limit 1000 | grep -A5 oi2ln5lr3hbe)
+resultlocked=$(./cleos.sh get table eosio eosio lockedtokens --limit 1000 | grep -A5 oi2ln5lr3hbe)
 
 ownerfound=false
 label1=""
@@ -26646,7 +26646,7 @@ fi
 #validation for MSIG locked token holder
 #pub key FIO7WUm6fWGeqHeP9DPriPemdtY1eWZRG9VAhDEWuEX46whAQYLA6
 #account tw4tjkmo4eyd
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token tw4tjkmo4eyd)
+resulttokens=$(./cleos.sh get currency balance fio.token tw4tjkmo4eyd)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
@@ -26661,7 +26661,7 @@ fi
 #validation for MSIG locked token holder
 #pub key FIO7E9yxubnmm3A9qurcLGzk1w3ofGAW2cSrcdzmYFRnGtDcExECD
 #account ofuzllalkvy5
-resulttokens=$(../fio/build/bin/clio -u http://localhost:8889 get currency balance fio.token ofuzllalkvy5)
+resulttokens=$(./cleos.sh get currency balance fio.token ofuzllalkvy5)
 rt=$(echo $resulttokens | tr "\r" " ")
 rt=$(echo $rt | tr " " "-")
 rt=$(echo $rt | tr -d .)
